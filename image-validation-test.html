@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Validation Test - Strixhaven Draft Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #fbbf24;
+            margin-bottom: 10px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .stat-card.success { border-left: 4px solid #22c55e; }
+        .stat-card.warning { border-left: 4px solid #fbbf24; }
+        .stat-card.error { border-left: 4px solid #ef4444; }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #9ca3af;
+            font-size: 0.9em;
+        }
+
+        .test-section {
+            background: rgba(255,255,255,0.03);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .test-section h2 {
+            color: #fbbf24;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .image-list {
+            display: grid;
+            gap: 8px;
+        }
+
+        .image-item {
+            background: rgba(0,0,0,0.2);
+            padding: 10px 15px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .image-item img {
+            width: 60px;
+            height: 84px;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 2px solid #333;
+        }
+
+        .image-info {
+            flex: 1;
+        }
+
+        .image-name {
+            font-weight: bold;
+            color: #e5e7eb;
+        }
+
+        .image-url {
+            font-size: 0.8em;
+            color: #6b7280;
+            word-break: break-all;
+        }
+
+        .status-badge {
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .status-loaded { background: #22c55e; color: white; }
+        .status-broken { background: #ef4444; color: white; }
+        .status-placeholder { background: #fbbf24; color: black; }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #fbbf24, #f59e0b);
+            transition: width 0.3s ease;
+        }
+
+        .console-output {
+            background: #0a0a0a;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .console-line {
+            margin-bottom: 4px;
+        }
+
+        .console-success { color: #22c55e; }
+        .console-error { color: #ef4444; }
+        .console-warning { color: #fbbf24; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🖼️ Image Validation Test</h1>
+            <p style="color: #9ca3af;">Testing all card images in Strixhaven Draft Guide</p>
+            
+            <div class="progress-bar" style="margin-top: 20px;">
+                <div class="progress-fill" id="overallProgress" style="width: 0%"></div>
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="totalCount">0</div>
+                <div class="stat-label">Total Images</div>
+            </div>
+            <div class="stat-card success">
+                <div class="stat-number" id="loadedCount">0</div>
+                <div class="stat-label">Loaded ✓</div>
+            </div>
+            <div class="stat-card warning">
+                <div class="stat-number" id="placeholderCount">0</div>
+                <div class="stat-label">Placeholders ⚠️</div>
+            </div>
+            <div class="stat-card error">
+                <div class="stat-number" id="brokenCount">0</div>
+                <div class="stat-label">Broken ✗</div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>📋 Image Report</h2>
+            <div class="image-list" id="imageList"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>💻 Console Output</h2>
+            <div class="console-output" id="consoleOutput"></div>
+        </div>
+    </div>
+
+    <script>
+        // All card names from strixhaven-draft-guide.html - extracted and tested directly
+        const CARD_NAMES = [
+            // TRAPS section
+            "Harsh Annotation",
+            "Arcane Omens",
+            "Borrowed Knowledge",
+            "Transcendent Archaic",
+            
+            // BOMBS section  
+            "Antiquities on the Loose",
+            "Emeritus of Ideation",
+            "Grave Researcher",
+            "Withering Curse",
+            "Molten-Core Maestro",
+            "Vastlands Scavenger",
+            "Splatter Technique",
+            "Vicious Rivalry",
+            
+            // WHITE commons/uncommons
+            "Elite Interceptor",
+            "Ajani's Response",
+            "Eager Glyphmage",
+            "Interjection",
+            "Daydream",
+            
+            // BLUE commons/uncommons
+            "Essence Scatter",
+            "Run Behind",
+            "Deluge Virtuoso",
+            "Chase Inspiration",
+            "Fractalize",
+            "Hydro-Channeler",
+            "Mana Sculpt",
+            "Brush Off",
+            "Muse's Encouragement",
+            
+            // BLACK commons/uncommons
+            "Last Gasp",
+            "Wander Off",
+            "Sneering Shadewriter",
+            "Masterful Flourish",
+            "Dissection Practice",
+            "Rabid Attach",
+            
+            // RED commons/uncommons
+            "Unsubtle Mockery",
+            "Expressive Firedancer",
+            "Heated Argument",
+            "Goblin Glasswright",
+            "Seize the Spoils",
+            "Tablet of Discovery",
+            
+            // GREEN commons/uncommons
+            "Burrog Barrage",
+            "Noxious Newt",
+            "Tenured Concoctor",
+            "Efflorescence",
+            "Lumaret's Favor",
+            "Studious First-Year",
+            "Oracle's Restoration",
+            
+            // COLORLESS commons/uncommons
+            "Potioner's Trove",
+            "Terramorphic Expanse",
+            
+            // ARCHETYPE cards - B/W Repartee
+            "Graduation Day",
+            "Rapier Wit",
+            "Scolding Administrator",
+            "Abigale, Poet Laureate",
+            "Killian's Confidence",
+            "Silverquill Charm",
+            "Inkling Mascot",
+            "Lecturing Scornmage",
+            "Snooping Page",
+            "Scathing Shadelock",
+            
+            // ARCHETYPE cards - Bu/R Opus
+            "Muse Seeker",
+            "Elemental Mascot",
+            "Spectacular Skywhale",
+            "Sanar, Unfinished Genius",
+            "Abstract Paintmage",
+            "Visionary's Dance",
+            "Rapturous Moment",
+            "Blazing Firesinger",
+            
+            // ARCHETYPE cards - B/G Infusion
+            "Bogwater Lumaret",
+            "Old-Growth Educator",
+            "Pest Mascot",
+            "Essenceknit Scholar",
+            "Lluwen, Exchange Student",
+            "Cuboid Colony",
+            "Send in the Pest",
+            
+            // ARCHETYPE cards - R/W Graveyard
+            "Garrison Excavator",
+            "Spirit Mascot",
+            "Startled Relic Sloth",
+            "Practiced Scrollsmith",
+            "Lorehold Charm",
+            "Kirol, History Buff",
+            "Molten Note",
+            "Primary Research",
+            "Group Project",
+            "Charging Strifeknight",
+            "Summoned Dromedary",
+            
+            // ARCHETYPE cards - B/R Graveyard
+            "Pull from the Grave",
+            "Zealous Lorecaster",
+            
+            // ARCHETYPE cards - Bu/G Increment
+            "Additive Evolution",
+            "Fractal Tender",
+            "Tam, Observant Sequencer",
+            "Paradox Surveyor",
+            "Pterafractyl",
+            "Quandrix Charm",
+            "Tester of the Tangential"
+        ];
+
+        let imageStats = {
+            total: 0,
+            loaded: 0,
+            broken: 0,
+            placeholder: 0
+        };
+
+        function log(message, type = 'info') {
+            const consoleOutput = document.getElementById('consoleOutput');
+            const line = document.createElement('div');
+            line.className = `console-line console-${type}`;
+            
+            const timestamp = new Date().toLocaleTimeString();
+            let prefix = '';
+            if (type === 'success') prefix = '[✓]';
+            else if (type === 'error') prefix = '[✗]';
+            else if (type === 'warning') prefix = '[⚠️]';
+            
+            line.textContent = `${prefix} ${timestamp} - ${message}`;
+            consoleOutput.appendChild(line);
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        }
+
+        function updateStats() {
+            document.getElementById('totalCount').textContent = imageStats.total;
+            document.getElementById('loadedCount').textContent = imageStats.loaded;
+            document.getElementById('placeholderCount').textContent = imageStats.placeholder;
+            document.getElementById('brokenCount').textContent = imageStats.broken;
+            
+            const percent = imageStats.total > 0 ? (imageStats.loaded / imageStats.total * 100) : 0;
+            document.getElementById('overallProgress').style.width = `${percent}%`;
+        }
+
+        function addImageToReport(cardName, index) {
+            const imageList = document.getElementById('imageList');
+            
+            const item = document.createElement('div');
+            item.className = 'image-item';
+            item.id = `image-item-${index}`;
+            
+            const src = `https://api.scryfall.com/cards/named?fuzzy=${encodeURIComponent(cardName)}&format=image`;
+            const isPlaceholder = cardName.includes('Unknown');
+            
+            item.innerHTML = `
+                <img src="${src}" alt="Preview" onerror="this.style.opacity='0.5'; this.style.border-color='#ef4444'">
+                <div class="image-info">
+                    <div class="image-name">#${index + 1} - ${cardName}</div>
+                    <div class="image-url">Scryfall API</div>
+                </div>
+                <span class="status-badge status-loaded" id="status-${index}">Loading...</span>
+            `;
+            
+            imageList.appendChild(item);
+        }
+
+        async function testImages() {
+            log('Starting image validation test...', 'info');
+            log(`Testing ${CARD_NAMES.length} card images from Scryfall API`, 'info');
+            
+            imageStats.total = CARD_NAMES.length;
+            updateStats();
+            
+            // Create all image items first
+            CARD_NAMES.forEach((name, index) => addImageToReport(name, index));
+            
+            // Test each image with delay to avoid rate limiting
+            let loadedCount = 0;
+            for (let i = 0; i < CARD_NAMES.length; i++) {
+                const cardName = CARD_NAMES[i];
+                const src = `https://api.scryfall.com/cards/named?fuzzy=${encodeURIComponent(cardName)}&format=image`;
+                
+                await new Promise((resolve) => {
+                    const testImg = new Image();
+                    testImg.onload = () => {
+                        loadedCount++;
+                        document.getElementById(`status-${i}`).className = 'status-badge status-loaded';
+                        document.getElementById(`status-${i}`).textContent = '✓ Loaded';
+                        log(`Image ${i + 1}/${CARD_NAMES.length}: ✓ (${cardName})`, 'success');
+                        resolve();
+                    };
+                    testImg.onerror = () => {
+                        document.getElementById(`status-${i}`).className = 'status-badge status-broken';
+                        document.getElementById(`status-${i}`).textContent = '✗ Failed';
+                        imageStats.broken++;
+                        log(`Image ${i + 1}/${CARD_NAMES.length}: ✗ (${cardName})`, 'error');
+                        resolve();
+                    };
+                    testImg.src = src;
+                });
+            }
+            
+            imageStats.loaded = loadedCount - imageStats.broken;
+            updateStats();
+            
+            // Final summary
+            log('========================================', 'info');
+            log(`TOTAL IMAGES: ${imageStats.total}`, 'info');
+            log(`✓ LOADED:     ${imageStats.loaded}`, 'success');
+            log(`✗ BROKEN:     ${imageStats.broken}`, imageStats.broken > 0 ? 'error' : 'success');
+            log('========================================', 'info');
+            
+            const successRate = (imageStats.loaded / imageStats.total * 100).toFixed(1);
+            log(`SUCCESS RATE: ${successRate}%`, imageStats.broken > 0 ? 'error' : 'success');
+        }
+
+        // Run test on page load
+        window.addEventListener('DOMContentLoaded', testImages);
+    </script>
+</body>
+</html>

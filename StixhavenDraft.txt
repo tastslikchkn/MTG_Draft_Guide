@@ -1,0 +1,137 @@
+TIPS
+Wait to play Prepare Cards to get max value
+Avoid chasing the Converge mechanic
+Play at least 6 removal and Splash if neccesary
+No removal go agro + ct
+
+Traps
+	W - Harch Annotation
+	B - Arcane Omens
+	R/W - Borrowed Knowledge
+	N - Trancendent Archaic
+Bombs R/M
+	W - Antiquities on the Loose
+	Bu - Emeritus of Ideation
+	B - Grave Researcher
+	    Withering Curse (bw)
+	R - Molten-Core Maestro
+	G - Vastlands Scavenger
+	Bu/R - Splatter Techique
+	B/G - Vicious Rivalry
+	
+Top Commons / uncommon
+	W - Elite Interceptor
+	    Ajani's Response
+		Eager Glyphmage
+		Interjection (ct)
+		Daydream (ct)
+	Bu - Essence Scatter
+	     Run Behind
+		 Deluge Virtuoso
+		 Chase Inspiration (ct)
+		 Fractalize (ct)
+		 Hydro-Channeler (mf)
+		 Mana Sculpt (cs)
+		 Brush Off (cs)
+		 Muse's Encouragement (ct)
+		 Essence Scatter (cs)
+	B - Last Gasp
+	    Wander off
+		Sneering Shadewriter
+		Masterful Flourish (ct)
+		Dissection Practice (ct)
+		Rabid Attach (ct)
+		Last Grasp (ct)
+		
+	R - Unstabtle Mockery
+	    Expressive Firedancer
+		Heated Argument
+		Goblin Glasswright (mf)
+		Seize the Spoils (mf)
+		Tablet of Discovery 
+	G - Burrog Barrage
+		Noxious Newt
+		Tenured Concoctor
+		Efflorescence (ct)
+		Lumaret's Favor (ct)
+		Studious First-Year (mf)
+		Oracle's Restoration (CT)
+	N - Potioner's Trove (mv)
+	    Terramorpic Expanse (mv)
+
+
+Archtypes
+	B/W
+		Mechanics
+			Repartee - casting Instant or Sorcery gives you bonus
+			Menace - Cant be blockes exept by 2 or more
+		Cards
+			w - Graduateion Day
+				Rapier Wit
+				
+			B/W - Scolding Administraotor
+				 Abigale, Poet Laureate
+				 Killian's Confidence		
+				 Silverquill Charm (ct)
+				 Inkling Mascot
+			B - Lecturing Scornmage
+		Card Combos
+			B/W - Snooping Page + B - Scathing Shadowlock
+	
+	B/R
+		Card Combos
+			B - Pull from the Grave + R - Zealous Lorecaster
+	Bu/R
+		Mechanics
+			Opus - casting Instant or Sourcery give you bonus	
+		Cards
+			Bu - Muse Seeker
+			     Muse Encouragement
+			Bu/R - Elemental Mascot
+				   Spectacular Skywhale
+				   Sanar, Unfinished Genius
+				   Abstract Paintmage
+				   Visionary's Dance
+		Combo Cards
+			Bu/R - Rapturous Moment + R - Blazing Firesinger
+	B/G
+		Mechanics
+			Infusion - when creater enters give you bonus
+		Cards
+			B/G - Bogwater Lumaret
+				  Old-Growth Educator
+				  Pest Mascot
+				  Essenceknit Scholar
+				  Lluwen, Exchange Student
+				  Cuboid Colony
+			B - Send in the Pest
+	R/W
+		Mechanics - Leaving graveyard
+		Cards
+			R - Garrison Excavator
+			R/W - Spirit Mascot
+				  Startled Relic Sloth
+				  Practiced Scrollsmith
+				  Lorehold Charm (ct)
+				  Kirol, History Buff
+				  Molten Note
+			W - Primary Research
+			    Group Project
+		Card Combos
+			R - Charging Strifeknight + W - Summondd Dromedary
+	Bu/G
+		Mechanics
+			Increment - Cast a spell if mana greater then power or toughness get +1
+		Cards
+			G - Additive Evolution
+			Bu/G - Fractal Tener
+				   Tam, Observant Sequencer
+				   Paradox Surveyeor
+				   Pterafractyl
+				   Cuboid Colony
+				   Quandrix Charm (ct)
+			B - Tester of the Tangenial
+
+	
+
+

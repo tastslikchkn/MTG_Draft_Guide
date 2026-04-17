@@ -37,6 +37,7 @@
             font-size: 2em;
             background: linear-gradient(90deg, #fbbf24, #f59e0b);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 6px;
         }
@@ -154,7 +155,7 @@
         }
 
         .card-item:hover {
-            transform: translateY(-4px) scale(2.0);
+            transform: translateY(-4px) scale(1.1);
             box-shadow: 0 8px 25px rgba(0,0,0,0.5);
             z-index: 10;
         }
@@ -368,6 +369,7 @@
                 font-size: 12pt !important;
                 background: none !important;
                 -webkit-background-clip: none !important;
+                background-clip: none !important;
                 -webkit-text-fill-color: black !important;
                 color: #000 !important;
                 margin-bottom: 2px;
@@ -553,11 +555,6 @@
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
-        }
-                font-size: 6.5pt;
-                padding: 1px 4px;
-                margin-right: 3px;
-            }
 
             /* Footer */
             footer {
@@ -634,25 +631,25 @@
                 <!-- White -->
                 <div class="card-item color-w">
                         <div class="card-image-container">
-                            <img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Harsh Annotation&format=image" alt="Harsh Annotation"></div>
+                            <img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Harsh Annotation&format=image" alt="Harsh Annotation" loading="lazy" width="160" height="226"></div>
                     </div>
                     
                 <!-- Black -->
                 <div class="card-item color-b">
                         <div class="card-image-container">
-                            <img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Arcane Omens&format=image" alt="Arcane Omens"></div>
+                            <img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Arcane Omens&format=image" alt="Arcane Omens" loading="lazy" width="160" height="226"></div>
                     </div>
                     
                 <!-- Red/White -->
                 <div class="card-item color-r">
                         <div class="card-image-container">
-                            <img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Borrowed Knowledge&format=image" alt="Borrowed Knowledge"></div>
+                            <img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Borrowed Knowledge&format=image" alt="Borrowed Knowledge" loading="lazy" width="160" height="226"></div>
                     </div>
                     
                 <!-- Colorless -->
                 <div class="card-item color-n">
                         <div class="card-image-container">
-                            <img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Transcendent Archaic&format=image" alt="Transcendent Archaic"></div>
+                            <img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Transcendent Archaic&format=image" alt="Transcendent Archaic" loading="lazy" width="160" height="226"></div>
                     </div>
                     
             </div>
@@ -679,61 +676,60 @@
             
             <h3 class="color-w">White</h3>
             <div class="card-grid">
-                <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Elite Interceptor&format=image" alt="Elite Interceptor"></div></div>
-                <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Ajani's Response&format=image" alt="Ajani's Response"></div></div>
-                <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Eager Glyphmage&format=image" alt="Eager Glyphmage"></div></div>
-                <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Interjection&format=image" alt="Interjection"></div></div>
-                <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Daydream&format=image" alt="Daydream"></div></div>
+                <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Elite Interceptor&format=image" alt="Elite Interceptor" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Ajani's Response&format=image" alt="Ajani's Response" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Eager Glyphmage&format=image" alt="Eager Glyphmage" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Interjection&format=image" alt="Interjection" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Daydream&format=image" alt="Daydream" loading="lazy" width="160" height="226"></div></div>
             </div>
 
             <h3 class="color-u">Blue</h3>
             <div class="card-grid">
-                <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Essence Scatter&format=image" alt="Essence Scatter"></div></div>
-                <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Run Behind&format=image" alt="Run Behind"></div></div>
-                <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Deluge Virtuoso&format=image" alt="Deluge Virtuoso"></div></div>
-                <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Chase Inspiration&format=image" alt="Chase Inspiration"></div></div>
-                <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Fractalize&format=image" alt="Fractalize"></div></div>
-                <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Hydro-Channeler&format=image" alt="Hydro-Channeler"></div></div>
-                <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Mana Sculpt&format=image" alt="Mana Sculpt"></div></div>
-                <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Brush Off&format=image" alt="Brush Off"></div></div>
-                <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Muse's Encouragement&format=image" alt="Muse's Encouragement"></div></div>
+                <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Essence Scatter&format=image" alt="Essence Scatter" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Run Behind&format=image" alt="Run Behind" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Deluge Virtuoso&format=image" alt="Deluge Virtuoso" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Chase Inspiration&format=image" alt="Chase Inspiration" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Fractalize&format=image" alt="Fractalize" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Hydro-Channeler&format=image" alt="Hydro-Channeler" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Brush Off&format=image" alt="Brush Off" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Muse's Encouragement&format=image" alt="Muse's Encouragement" loading="lazy" width="160" height="226"></div></div>
             </div>
 
             <h3 class="color-b">Black</h3>
             <div class="card-grid">
-                <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Last Gasp&format=image" alt="Last Gasp"></div></div>
-                <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Wander Off&format=image" alt="Wander Off"></div></div>
-                <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Sneering Shadewriter&format=image" alt="Sneering Shadewriter"></div></div>
-                <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Masterful Flourish&format=image" alt="Masterful Flourish"></div></div>
-                <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Dissection Practice&format=image" alt="Dissection Practice"></div></div>
-                <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Rabid Attach&format=image" alt="Rabid Attach"></div></div>
+                <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Last Gasp&format=image" alt="Last Gasp" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Wander Off&format=image" alt="Wander Off" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Sneering Shadewriter&format=image" alt="Sneering Shadewriter" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Masterful Flourish&format=image" alt="Masterful Flourish" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Dissection Practice&format=image" alt="Dissection Practice" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Rabid Attach&format=image" alt="Rabid Attach" loading="lazy" width="160" height="226"></div></div>
             </div>
 
             <h3 class="color-r">Red</h3>
             <div class="card-grid">
-                <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Unsubtle Mockery&format=image" alt="Unsubtle Mockery"></div></div>
-                <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Expressive Firedancer&format=image" alt="Expressive Firedancer"></div></div>
-                <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Heated Argument&format=image" alt="Heated Argument"></div></div>
-                <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Goblin Glasswright&format=image" alt="Goblin Glasswright"></div></div>
-                <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Seize the Spoils&format=image" alt="Seize the Spoils"></div></div>
-                <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Tablet of Discovery&format=image" alt="Tablet of Discovery"></div></div>
+                <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Unsubtle Mockery&format=image" alt="Unsubtle Mockery" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Expressive Firedancer&format=image" alt="Expressive Firedancer" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Heated Argument&format=image" alt="Heated Argument" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Goblin Glasswright&format=image" alt="Goblin Glasswright" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Seize the Spoils&format=image" alt="Seize the Spoils" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Tablet of Discovery&format=image" alt="Tablet of Discovery" loading="lazy" width="160" height="226"></div></div>
             </div>
 
             <h3 class="color-g">Green</h3>
             <div class="card-grid">
-                <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Burrog Barrage&format=image" alt="Burrog Barrage"></div></div>
-                <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Noxious Newt&format=image" alt="Noxious Newt"></div></div>
-                <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Tenured Concoctor&format=image" alt="Tenured Concoctor"></div></div>
-                <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Efflorescence&format=image" alt="Efflorescence"></div></div>
-                <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Lumaret's Favor&format=image" alt="Lumaret's Favor"></div></div>
-                <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Studious First-Year&format=image" alt="Studious First-Year"></div></div>
-                <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Oracle's Restoration&format=image" alt="Oracle's Restoration"></div></div>
+                <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Burrog Barrage&format=image" alt="Burrog Barrage" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Noxious Newt&format=image" alt="Noxious Newt" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Tenured Concoctor&format=image" alt="Tenured Concoctor" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Efflorescence&format=image" alt="Efflorescence" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Lumaret's Favor&format=image" alt="Lumaret's Favor" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Studious First-Year&format=image" alt="Studious First-Year" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Oracle's Restoration&format=image" alt="Oracle's Restoration" loading="lazy" width="160" height="226"></div></div>
             </div>
 
             <h3 class="color-n">Colorless</h3>
             <div class="card-grid">
-                <div class="card-item color-n"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Potioner's Trove&format=image" alt="Potioner's Trove"></div></div>
-                <div class="card-item color-n"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Terramorphic Expanse&format=image" alt="Terramorphic Expanse"></div></div>
+                <div class="card-item color-n"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Potioner's Trove&format=image" alt="Potioner's Trove" loading="lazy" width="160" height="226"></div></div>
+                <div class="card-item color-n"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Terramorphic Expanse&format=image" alt="Terramorphic Expanse" loading="lazy" width="160" height="226"></div></div>
             </div>
         </section>
 
@@ -747,23 +743,23 @@
                 <div><span class="mechanic-tag">Repartee</span><span class="mechanic-tag">Menace</span></div>
                 <p style="color: #9ca3af; font-size: 0.9em; margin: 10px 0;">Fast aggressive spells with control elements. Menace creatures can't be blocked by single blockers.</p>
                 <div class="card-grid">
-                    <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Graduation Day&format=image" alt="Graduation Day"></div></div>
-                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Rapier Wit&format=image" alt="Rapier Wit"></div></div>
-                    <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Silverquill Charm&format=image" alt="Silverquill Charm"></div></div>
-                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Scolding Administrator&format=image" alt="Scolding Administrator"></div></div>
-                    <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Imperious Inkmage&format=image" alt="Imperious Inkmage"></div></div>
-                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Killian's Confidence&format=image" alt="Killian's Confidence"></div></div>
-                    <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Abigale, Poet Laureate&format=image" alt="Abigale, Poet Laureate"></div></div>
-                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Inkling Mascot&format=image" alt="Inkling Mascot"></div></div>
-                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Lecturing Scornmage&format=image" alt="Lecturing Scornmage"></div></div>
-                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Snooping Page&format=image" alt="Snooping Page"></div></div>
-                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Scathing Shadelock&format=image" alt="Scathing Shadelock"></div></div>
+                    <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Graduation Day&format=image" alt="Graduation Day" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Rapier Wit&format=image" alt="Rapier Wit" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Silverquill Charm&format=image" alt="Silverquill Charm" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Scolding Administrator&format=image" alt="Scolding Administrator" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Imperious Inkmage&format=image" alt="Imperious Inkmage" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Killian's Confidence&format=image" alt="Killian's Confidence" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Abigale, Poet Laureate&format=image" alt="Abigale, Poet Laureate" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Inkling Mascot&format=image" alt="Inkling Mascot" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Lecturing Scornmage&format=image" alt="Lecturing Scornmage" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Snooping Page&format=image" alt="Snooping Page" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Scathing Shadelock&format=image" alt="Scathing Shadelock" loading="lazy" width="160" height="226"></div></div>
                 </div>
                 <div class="combo-box">
                     <strong>🔗 Combo:</strong>
                     <div class="card-grid" style="margin-top: 10px;">
-                        <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Snooping Page&format=image" alt="Snooping Page"></div></div>
-                        <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Scathing Shadelock&format=image" alt="Scathing Shadelock"></div></div>
+                        <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Snooping Page&format=image" alt="Snooping Page" loading="lazy" width="160" height="226"></div></div>
+                        <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Scathing Shadelock&format=image" alt="Scathing Shadelock" loading="lazy" width="160" height="226"></div></div>
                     </div>
                 </div>
             </div>
@@ -773,14 +769,14 @@
                 <h3 style="margin-top: 0;">⚫🔴 B/R — Graveyard Synergy</h3>
                 <p style="color: #9ca3af; font-size: 0.9em; margin: 10px 0;">Leverage graveyard recursion and value.</p>
                 <div class="card-grid">
-                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Pull from the Grave&format=image" alt="Pull from the Grave"></div></div>
-                    <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Zealous Lorecaster&format=image" alt="Zealous Lorecaster"></div></div>
+                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Pull from the Grave&format=image" alt="Pull from the Grave" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Zealous Lorecaster&format=image" alt="Zealous Lorecaster" loading="lazy" width="160" height="226"></div></div>
                 </div>
                 <div class="combo-box">
                     <strong>🔗 Combo:</strong>
                     <div class="card-grid" style="margin-top: 10px;">
-                        <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Pull from the Grave&format=image" alt="Pull from the Grave"></div></div>
-                        <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Zealous Lorecaster&format=image" alt="Zealous Lorecaster"></div></div>
+                        <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Pull from the Grave&format=image" alt="Pull from the Grave" loading="lazy" width="160" height="226"></div></div>
+                        <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Zealous Lorecaster&format=image" alt="Zealous Lorecaster" loading="lazy" width="160" height="226"></div></div>
                     </div>
                 </div>
             </div>
@@ -791,21 +787,21 @@
                 <div><span class="mechanic-tag">Opus</span></div>
                 <p style="color: #9ca3af; font-size: 0.9em; margin: 10px 0;">Cast powerful spells with Opus bonuses. Big finishers and game-ending combos.</p>
                 <div class="card-grid">
-                    <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Spectacular Skywhale&format=image" alt="Spectacular Skywhale"></div></div>
-                    <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Sanar, Unfinished Genius&format=image" alt="Sanar, Unfinished Genius"></div></div>
-                    <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Visionary's Dance&format=image" alt="Visionary's Dance"></div></div>
-                    <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Rapturous Moment&format=image" alt="Rapturous Moment"></div></div>
-                    <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Abstract Paintmage&format=image" alt="Abstract Paintmage"></div></div>
-                    <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Blazing Firesinger&format=image" alt="Blazing Firesinger"></div></div>
-                    <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Muse Seeker&format=image" alt="Muse Seeker"></div></div>
-                    <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Muse's Encouragement&format=image" alt="Muse's Encouragement"></div></div>
-                    <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Elemental Mascot&format=image" alt="Elemental Mascot"></div></div>
+                    <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Spectacular Skywhale&format=image" alt="Spectacular Skywhale" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Sanar, Unfinished Genius&format=image" alt="Sanar, Unfinished Genius" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Visionary's Dance&format=image" alt="Visionary's Dance" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Rapturous Moment&format=image" alt="Rapturous Moment" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Abstract Paintmage&format=image" alt="Abstract Paintmage" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Blazing Firesinger&format=image" alt="Blazing Firesinger" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Muse Seeker&format=image" alt="Muse Seeker" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Muse's Encouragement&format=image" alt="Muse's Encouragement" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Elemental Mascot&format=image" alt="Elemental Mascot" loading="lazy" width="160" height="226"></div></div>
                 </div>
                 <div class="combo-box">
                     <strong>🔗 Combo:</strong>
                     <div class="card-grid" style="margin-top: 10px;">
-                        <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Rapturous Moment&format=image" alt="Rapturous Moment"></div></div>
-                        <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Blazing Firesinger&format=image" alt="Blazing Firesinger"></div></div>
+                        <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Rapturous Moment&format=image" alt="Rapturous Moment" loading="lazy" width="160" height="226"></div></div>
+                        <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Blazing Firesinger&format=image" alt="Blazing Firesinger" loading="lazy" width="160" height="226"></div></div>
                     </div>
                 </div>
             </div>
@@ -816,13 +812,13 @@
                 <div><span class="mechanic-tag">Infusion</span></div>
                 <p style="color: #9ca3af; font-size: 0.9em; margin: 10px 0;">Gain life and sacrifice creatures for value. Resilient control strategy.</p>
                 <div class="card-grid">
-                    <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Old-Growth Educator&format=image" alt="Old-Growth Educator"></div></div>
-                    <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Lluwen, Exchange Student&format=image" alt="Lluwen, Exchange Student"></div></div>
-                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Bogwater Lumaret&format=image" alt="Bogwater Lumaret"></div></div>
-                    <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Essenceknit Scholar&format=image" alt="Essenceknit Scholar"></div></div>
-                    <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Cuboid Colony&format=image" alt="Cuboid Colony"></div></div>
-                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Send in the Pest&format=image" alt="Send in the Pest"></div></div>
-                    <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Pest Mascot&format=image" alt="Pest Mascot"></div></div>
+                    <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Old-Growth Educator&format=image" alt="Old-Growth Educator" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Lluwen, Exchange Student&format=image" alt="Lluwen, Exchange Student" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Bogwater Lumaret&format=image" alt="Bogwater Lumaret" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Essenceknit Scholar&format=image" alt="Essenceknit Scholar" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Cuboid Colony&format=image" alt="Cuboid Colony" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Send in the Pest&format=image" alt="Send in the Pest" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Pest Mascot&format=image" alt="Pest Mascot" loading="lazy" width="160" height="226"></div></div>
                 </div>
             </div>
 
@@ -831,23 +827,23 @@
                 <h3 style="margin-top: 0;">🔴⚪ Lorehold — Graveyard Excavation</h3>
                 <p style="color: #9ca3af; font-size: 0.9em; margin: 10px 0;">Recursion and graveyard value. Bring back powerful spells from the grave.</p>
                 <div class="card-grid">
-                    <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Garrison Excavator&format=image" alt="Garrison Excavator"></div></div>
-                    <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Practiced Scrollsmith&format=image" alt="Practiced Scrollsmith"></div></div>
-                    <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Kirol, History Buff&format=image" alt="Kirol, History Buff"></div></div>
-                    <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Lorehold Charm&format=image" alt="Lorehold Charm"></div></div>
-                    <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Startled Relic Sloth&format=image" alt="Startled Relic Sloth"></div></div>
-                    <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Group Project&format=image" alt="Group Project"></div></div>
-                    <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Molten Note&format=image" alt="Molten Note"></div></div>
-                    <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Primary Research&format=image" alt="Primary Research"></div></div>
-                    <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Spirit Mascot&format=image" alt="Spirit Mascot"></div></div>
-                    <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Charging Strifeknight&format=image" alt="Charging Strifeknight"></div></div>
-                    <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Summoned Dromedary&format=image" alt="Summoned Dromedary"></div></div>
+                    <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Garrison Excavator&format=image" alt="Garrison Excavator" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Practiced Scrollsmith&format=image" alt="Practiced Scrollsmith" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Kirol, History Buff&format=image" alt="Kirol, History Buff" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Lorehold Charm&format=image" alt="Lorehold Charm" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Startled Relic Sloth&format=image" alt="Startled Relic Sloth" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Group Project&format=image" alt="Group Project" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Molten Note&format=image" alt="Molten Note" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Primary Research&format=image" alt="Primary Research" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Spirit Mascot&format=image" alt="Spirit Mascot" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Charging Strifeknight&format=image" alt="Charging Strifeknight" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Summoned Dromedary&format=image" alt="Summoned Dromedary" loading="lazy" width="160" height="226"></div></div>
                 </div>
                 <div class="combo-box">
                     <strong>🔗 Combo:</strong>
                     <div class="card-grid" style="margin-top: 10px;">
-                        <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Charging Strifeknight&format=image" alt="Charging Strifeknight"></div></div>
-                        <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Summoned Dromedary&format=image" alt="Summoned Dromedary"></div></div>
+                        <div class="card-item color-r"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Charging Strifeknight&format=image" alt="Charging Strifeknight" loading="lazy" width="160" height="226"></div></div>
+                        <div class="card-item color-w"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Summoned Dromedary&format=image" alt="Summoned Dromedary" loading="lazy" width="160" height="226"></div></div>
                     </div>
                 </div>
             </div>
@@ -858,13 +854,13 @@
                 <div><span class="mechanic-tag">Increment</span></div>
                 <p style="color: #9ca3af; font-size: 0.9em; margin: 10px 0;">Variable creatures and +1/+1 counters. Swarm strategy with incremental growth.</p>
                 <div class="card-grid">
-                    <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Additive Evolution&format=image" alt="Additive Evolution"></div></div>
-                    <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Fractal Tender&format=image" alt="Fractal Tender"></div></div>
-                    <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Tam, Observant Sequencer&format=image" alt="Tam, Observant Sequencer"></div></div>
-                    <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Paradox Surveyor&format=image" alt="Paradox Surveyor"></div></div>
-                    <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Pterafractyl&format=image" alt="Pterafractyl"></div></div>
-                    <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Quandrix Charm&format=image" alt="Quandrix Charm"></div></div>
-                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Tester of the Tangential&format=image" alt="Tester of the Tangential"></div></div>
+                    <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Additive Evolution&format=image" alt="Additive Evolution" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Fractal Tender&format=image" alt="Fractal Tender" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Tam, Observant Sequencer&format=image" alt="Tam, Observant Sequencer" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Paradox Surveyor&format=image" alt="Paradox Surveyor" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-g"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Pterafractyl&format=image" alt="Pterafractyl" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-u"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Quandrix Charm&format=image" alt="Quandrix Charm" loading="lazy" width="160" height="226"></div></div>
+                    <div class="card-item color-b"><div class="card-image-container"><img class="card-image" src="https://api.scryfall.com/cards/named?fuzzy=Tester of the Tangential&format=image" alt="Tester of the Tangential" loading="lazy" width="160" height="226"></div></div>
                 </div>
             </div>
         </section>
@@ -882,12 +878,17 @@
             
             // Build fallback chain starting with original Scryfall URL
             const originalSrc = img.src;
+            
+            // Create local cache path for this card (URL-safe filename)
+            const cacheSlug = cardName.replace(/ /g, '-').replace(/[^a-zA-Z0-9\-]/g, '').toLowerCase();
+            const localCachePath = `/images/cards/${cacheSlug}.png`;
+            
             const fallbackSources = [
                 originalSrc,  // Original Scryfall URL (format=image)
                 `https://api.scryfall.com/cards/named?fuzzy=${encodeURIComponent(cardName)}&format=normal`,
                 `https://api.scryfall.com/cards/named?fuzzy=${encodeURIComponent(cardName)}&format=border-cropped`,
                 `https://images.cardmarket.com/image_proxy.php?img=cgct__${encodeURIComponent(cardName)}&width=200`,
-                `https://images.cardmarket.com/image_proxy.php?img=${encodeURIComponent(cardName)}&width=200`,
+                localCachePath,  // Local cached image (final fallback before placeholder)
             ];
             
             let fallbackIndex = 0;

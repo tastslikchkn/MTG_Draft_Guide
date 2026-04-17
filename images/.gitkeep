@@ -1,0 +1,26 @@
+# Image Cache Directory
+
+This directory stores locally cached card images as a fallback tier in the multi-source image loading chain.
+
+## Structure
+```
+/images/
+  ├── cards/           # Individual card images (PNG format)
+  │   └── [card-name-slug].png
+  └── .htaccess        # Apache config for serving images
+```
+
+## Fallback Chain
+1. Scryfall API (format=image) - Primary
+2. Scryfall normal format - Secondary  
+3. Scryfall border-cropped - Tertiary
+4. Cardmarket proxy - Quaternary
+5. **Local cache** (`/images/cards/[name].png`) - Final fallback before placeholder
+
+## Populating Cache
+Run `download_card_images.py` to extract unique card names from HTML and download images:
+```bash
+python download_card_images.py
+```
+
+This will create PNG files named with URL-safe slugs (e.g., "ajanis-response.png").

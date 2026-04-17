@@ -879,16 +879,11 @@
             // Build fallback chain starting with original Scryfall URL
             const originalSrc = img.src;
             
-            // Create local cache path for this card (URL-safe filename)
-            const cacheSlug = cardName.replace(/ /g, '-').replace(/[^a-zA-Z0-9\-]/g, '').toLowerCase();
-            const localCachePath = `/images/cards/${cacheSlug}.png`;
-            
             const fallbackSources = [
                 originalSrc,  // Original Scryfall URL (format=image)
                 `https://api.scryfall.com/cards/named?fuzzy=${encodeURIComponent(cardName)}&format=normal`,
                 `https://api.scryfall.com/cards/named?fuzzy=${encodeURIComponent(cardName)}&format=border-cropped`,
                 `https://images.cardmarket.com/image_proxy.php?img=cgct__${encodeURIComponent(cardName)}&width=200`,
-                localCachePath,  // Local cached image (final fallback before placeholder)
             ];
             
             let fallbackIndex = 0;
@@ -896,7 +891,7 @@
             
             function tryNextFallback() {
                 if (fallbackIndex < fallbackSources.length) {
-                    console.log(`[${fallbackIndex + 1}/5] ${cardName}: ${fallbackSources[fallbackIndex].substring(0, 70)}...`);
+                    console.log(`[${fallbackIndex + 1}/4] ${cardName}: ${fallbackSources[fallbackIndex].substring(0, 70)}...`);
                     img.src = fallbackSources[fallbackIndex];
                     fallbackIndex++;
                 } else {

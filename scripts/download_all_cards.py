@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Download all card images from strixhaven-draft-guide.html to local cache.
-Extracts unique card names from alt attributes and downloads PNG images from Scryfall API.
+Download all card images from the Secrets of Strixhaven set to local cache.
+Fetches all cards from Scryfall API and downloads PNG images.
 """
 
 import re
@@ -9,38 +9,52 @@ import os
 import urllib.request
 import urllib.parse
 import time
+import json
 from pathlib import Path
+from scripts.utils import slugify
 
-def extract_card_names_from_html(html_path):
-    """Extract all unique card names from img alt attributes in the HTML file."""
-    with open(html_path, 'r', encoding='utf-8') as f:
-        content = f.read()
+def fetch_secrets_of_strixhaven_cards():
+    """Fetch all card names from the Secrets of Strixhaven set using Scryfall API."""
+    # Secrets of Strixhaven set code is "sos"
+    set_code = "sos"
     
-    # Find all alt="Card Name" patterns in img tags
-    pattern = r'<img[^>]*alt="([^"]+)"'
-    matches = re.findall(pattern, content)
+    seen_names = set()
+    page = 1
     
-    # Remove duplicates while preserving order
-    seen = set()
-    unique_cards = []
-    for card in matches:
-        if card not in seen:
-            seen.add(card)
-            unique_cards.append(card)
+    while True:
+        # Use Scryfall search endpoint with set filter (e:sos means "set equals sos")
+        url = f"https://api.scryfall.com/cards/search?q=e%3A{set_code}+order%3Aset&page={page}&unique=cards"
+        
+        try:
+            # Scryfall API requires Accept header for JSON responses
+            req = urllib.request.Request(url, headers={'Accept': 'application/json'})
+            with urllib.request.urlopen(req, timeout=30) as response:
+                data = json.loads(response.read().decode())
+            
+            # Add cards from this page (avoiding duplicates for reprints in the same set)
+            new_cards_count = 0
+            for card in data.get('data', []):
+                if card['name'] not in seen_names:
+                    seen_names.add(card['name'])
+                    new_cards_count += 1
+            
+            print(f"  Page {page}: fetched {new_cards_count} unique cards (total: {len(seen_names)})")
+            
+            # Check if there are more pages
+            has_more = data.get('has_more', False)
+            if not has_more or len(data.get('data', [])) == 0:
+                break
+            
+            page += 1
+            
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
+                print(f"  No more pages found at page {page}")
+                break
+            raise
     
-    return unique_cards
+    return list(seen_names)
 
-def slugify(name):
-    """Convert card name to URL-safe filename."""
-    # Replace spaces with hyphens
-    slug = name.replace(' ', '-')
-    # Remove special characters except hyphens and underscores
-    slug = re.sub(r'[^a-zA-Z0-9\-_]', '', slug)
-    # Convert to lowercase
-    slug = slug.lower()
-    # Remove multiple consecutive hyphens
-    slug = re.sub(r'-+', '-', slug)
-    return slug
 
 def download_card_image(card_name, output_dir):
     """Download a single card image from multiple MTG APIs."""
@@ -60,7 +74,9 @@ def download_card_image(card_name, output_dir):
         try:
             api_url = strategy(card_name)
             
-            with urllib.request.urlopen(api_url, timeout=10) as response:
+            # Scryfall API requires Accept header for JSON responses
+            req = urllib.request.Request(api_url, headers={'Accept': 'application/json'})
+            with urllib.request.urlopen(req, timeout=10) as response:
                 data = json.loads(response.read().decode())
             
             card_data = None
@@ -113,14 +129,13 @@ def download_card_image(card_name, output_dir):
 
 def main():
     # Configuration
-    html_file = 'strixhaven-draft-guide.html'
     output_dir = 'images/cards'
     
     # Create output directory if it doesn't exist
     Path(output_dir).mkdir(parents=True, exist_ok=True)
     
-    print(f"Extracting card names from {html_file}...")
-    cards = extract_card_names_from_html(html_file)
+    print("Fetching all cards from Secrets of Strixhaven set...")
+    cards = fetch_secrets_of_strixhaven_cards()
     print(f"Found {len(cards)} unique cards to download.\n")
     
     # Download each card with rate limiting (Scryfall recommends 1 req/sec)
@@ -134,10 +149,10 @@ def main():
         
         if success:
             success_count += 1
-            print(f"   ✓ {message}\n")
+            print(f"   [OK] {message}\n")
         else:
             fail_count += 1
-            print(f"   ✗ Failed: {message}\n")
+            print(f"   [FAIL] {message}\n")
         
         # Rate limiting - wait 1 second between requests
         time.sleep(1)

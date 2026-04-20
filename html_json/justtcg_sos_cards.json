@@ -1,0 +1,1167 @@
+{
+  "The Dawning Archaic": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-the-dawning-archaic-borderless-mythic",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "289",
+    "rarity": "Mythic",
+    "scryfall_id": null,
+    "tcgplayer_id": "686548",
+    "prices": {
+      "near_mint_foil": {
+        "price": 16.44,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 19.54,
+        "min_price_7d": 16.44,
+        "max_price_7d": 21.93
+      },
+      "lightly_played_foil": {
+        "price": 15.25,
+        "condition": "Lightly Played",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 15.25,
+        "min_price_7d": 15.25,
+        "max_price_7d": 15.25
+      },
+      "near_mint_normal": {
+        "price": 8.28,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 18.84,
+        "min_price_7d": 8.19,
+        "max_price_7d": 34.99
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-the-dawning-archaic-borderless-mythic"
+  },
+  "Rancorous Archaic": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-rancorous-archaic-common",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "2",
+    "rarity": "Common",
+    "scryfall_id": null,
+    "tcgplayer_id": "686554",
+    "prices": {
+      "near_mint_normal": {
+        "price": 0.16,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.12,
+        "min_price_7d": 0.1,
+        "max_price_7d": 0.16
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-rancorous-archaic-common"
+  },
+  "Sundering Archaic": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-sundering-archaic-uncommon",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "3",
+    "rarity": "Uncommon",
+    "scryfall_id": null,
+    "tcgplayer_id": "688953",
+    "prices": {
+      "near_mint_foil": {
+        "price": 0.28,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.32,
+        "min_price_7d": 0.28,
+        "max_price_7d": 0.39
+      },
+      "near_mint_normal": {
+        "price": 0.17,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.13,
+        "min_price_7d": 0.1,
+        "max_price_7d": 0.18
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-sundering-archaic-uncommon"
+  },
+  "Together as One": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-together-as-one-rare",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "4",
+    "rarity": "Rare",
+    "scryfall_id": null,
+    "tcgplayer_id": "686517",
+    "prices": {
+      "near_mint_foil": {
+        "price": 2.75,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 3.14,
+        "min_price_7d": 2.75,
+        "max_price_7d": 3.37
+      },
+      "near_mint_normal": {
+        "price": 0.52,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 7.51,
+        "min_price_7d": 0.52,
+        "max_price_7d": 12.57
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-together-as-one-rare"
+  },
+  "Transcendent Archaic": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-transcendent-archaic-uncommon",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "5",
+    "rarity": "Uncommon",
+    "scryfall_id": null,
+    "tcgplayer_id": "688969",
+    "prices": {
+      "near_mint_foil": {
+        "price": 0.35,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.44,
+        "min_price_7d": 0.35,
+        "max_price_7d": 0.49
+      },
+      "near_mint_normal": {
+        "price": 0.19,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.22,
+        "min_price_7d": 0.17,
+        "max_price_7d": 0.28
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-transcendent-archaic-uncommon"
+  },
+  "Ajani's Response": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-ajani-s-response-common",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "6",
+    "rarity": "Common",
+    "scryfall_id": null,
+    "tcgplayer_id": "689447",
+    "prices": {
+      "near_mint_normal": {
+        "price": 0.44,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 1.03,
+        "min_price_7d": 0.44,
+        "max_price_7d": 1.99
+      },
+      "near_mint_foil": {
+        "price": 0.28,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.45,
+        "min_price_7d": 0.28,
+        "max_price_7d": 0.5
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-ajani-s-response-common"
+  },
+  "Antiquities on the Loose": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-antiquities-on-the-loose-extended-art-rare",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "308",
+    "rarity": "Rare",
+    "scryfall_id": null,
+    "tcgplayer_id": "688649",
+    "prices": {
+      "near_mint_foil": {
+        "price": 2.95,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 3.05,
+        "min_price_7d": 2.95,
+        "max_price_7d": 3.26
+      },
+      "near_mint_normal": {
+        "price": 1.46,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 1.62,
+        "min_price_7d": 1.46,
+        "max_price_7d": 1.73
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-antiquities-on-the-loose-extended-art-rare"
+  },
+  "Ascendant Dustspeaker": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-ascendant-dustspeaker-common",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "8",
+    "rarity": "Common",
+    "scryfall_id": null,
+    "tcgplayer_id": "689448",
+    "prices": {
+      "near_mint_foil": {
+        "price": 0.25,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.25,
+        "min_price_7d": 0.25,
+        "max_price_7d": 0.25
+      },
+      "near_mint_normal": {
+        "price": 0.14,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.1,
+        "min_price_7d": 0.1,
+        "max_price_7d": 0.14
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-ascendant-dustspeaker-common"
+  },
+  "Daydream": {
+    "justtcg_id": "magic-the-gathering-promo-pack-lorwyn-eclipsed-goliath-daydreamer-rare",
+    "set_name": "Promo Pack: Lorwyn Eclipsed",
+    "set_number": "143",
+    "rarity": "Rare",
+    "scryfall_id": null,
+    "tcgplayer_id": "672226",
+    "prices": {
+      "lightly_played_foil": {
+        "price": 9.99,
+        "condition": "Lightly Played",
+        "printing": "Foil",
+        "last_updated": 1776687826,
+        "avg_price_7d": 9.99,
+        "min_price_7d": 9.99,
+        "max_price_7d": 9.99
+      },
+      "near_mint_foil": {
+        "price": 8.89,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687826,
+        "avg_price_7d": 8.89,
+        "min_price_7d": 8.89,
+        "max_price_7d": 8.89
+      },
+      "lightly_played_normal": {
+        "price": 0.99,
+        "condition": "Lightly Played",
+        "printing": "Normal",
+        "last_updated": 1776687826,
+        "avg_price_7d": 0.99,
+        "min_price_7d": 0.99,
+        "max_price_7d": 0.99
+      },
+      "near_mint_normal": {
+        "price": 0.98,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687826,
+        "avg_price_7d": 0.98,
+        "min_price_7d": 0.98,
+        "max_price_7d": 0.98
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-promo-pack-lorwyn-eclipsed-goliath-daydreamer-rare"
+  },
+  "Dig Site Inventory": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-dig-site-inventory-common",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "10",
+    "rarity": "Common",
+    "scryfall_id": null,
+    "tcgplayer_id": "689449",
+    "prices": {
+      "near_mint_foil": {
+        "price": 0.24,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.33,
+        "min_price_7d": 0.24,
+        "max_price_7d": 0.4
+      },
+      "near_mint_normal": {
+        "price": 0.23,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.26,
+        "min_price_7d": 0.23,
+        "max_price_7d": 0.27
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-dig-site-inventory-common"
+  },
+  "Restoration Seminar": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-restoration-seminar-borderless-mythic",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "290",
+    "rarity": "Mythic",
+    "scryfall_id": null,
+    "tcgplayer_id": "688657",
+    "prices": {
+      "near_mint_foil": {
+        "price": 11.3,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 18.14,
+        "min_price_7d": 11.3,
+        "max_price_7d": 39.01
+      },
+      "near_mint_normal": {
+        "price": 6.14,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 27.99,
+        "min_price_7d": 5.84,
+        "max_price_7d": 48.75
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-restoration-seminar-borderless-mythic"
+  },
+  "Shattered Acolyte": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-shattered-acolyte-common",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "31",
+    "rarity": "Common",
+    "scryfall_id": null,
+    "tcgplayer_id": "686519",
+    "prices": {
+      "near_mint_foil": {
+        "price": 0.3,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.45,
+        "min_price_7d": 0.3,
+        "max_price_7d": 0.56
+      },
+      "near_mint_normal": {
+        "price": 0.23,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.84,
+        "min_price_7d": 0.23,
+        "max_price_7d": 1.79
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-shattered-acolyte-common"
+  },
+  "Soaring Stoneglider": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-soaring-stoneglider-uncommon",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "32",
+    "rarity": "Uncommon",
+    "scryfall_id": null,
+    "tcgplayer_id": "689455",
+    "prices": {
+      "near_mint_foil": {
+        "price": 0.22,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.24,
+        "min_price_7d": 0.22,
+        "max_price_7d": 0.25
+      },
+      "near_mint_normal": {
+        "price": 0.21,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.28,
+        "min_price_7d": 0.21,
+        "max_price_7d": 0.5
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-soaring-stoneglider-uncommon"
+  },
+  "Stand Up for Yourself": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-stand-up-for-yourself-uncommon",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "34",
+    "rarity": "Uncommon",
+    "scryfall_id": null,
+    "tcgplayer_id": "688970",
+    "prices": {
+      "near_mint_normal": {
+        "price": 0.27,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.31,
+        "min_price_7d": 0.27,
+        "max_price_7d": 0.35
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-stand-up-for-yourself-uncommon"
+  },
+  "Stirring Hopesinger": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-stirring-hopesinger-extended-art-rare",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "314",
+    "rarity": "Rare",
+    "scryfall_id": null,
+    "tcgplayer_id": "689083",
+    "prices": {
+      "near_mint_foil": {
+        "price": 3.25,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 5.8,
+        "min_price_7d": 3.03,
+        "max_price_7d": 16
+      },
+      "lightly_played_foil": {
+        "price": 2.95,
+        "condition": "Lightly Played",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 2.85,
+        "min_price_7d": 2.74,
+        "max_price_7d": 2.95
+      },
+      "near_mint_normal": {
+        "price": 2.54,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 2.63,
+        "min_price_7d": 2.54,
+        "max_price_7d": 2.68
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-stirring-hopesinger-extended-art-rare"
+  },
+  "Stone Docent": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-stone-docent-common",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "36",
+    "rarity": "Common",
+    "scryfall_id": null,
+    "tcgplayer_id": "689456",
+    "prices": {
+      "near_mint_foil": {
+        "price": 0.25,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.25,
+        "min_price_7d": 0.25,
+        "max_price_7d": 0.25
+      },
+      "near_mint_normal": {
+        "price": 0.12,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.1,
+        "min_price_7d": 0.1,
+        "max_price_7d": 0.12
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-stone-docent-common"
+  },
+  "Summoned Dromedary": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-summoned-dromedary-uncommon",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "37",
+    "rarity": "Uncommon",
+    "scryfall_id": null,
+    "tcgplayer_id": "688659",
+    "prices": {
+      "near_mint_foil": {
+        "price": 0.25,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.25,
+        "min_price_7d": 0.25,
+        "max_price_7d": 0.25
+      },
+      "near_mint_normal": {
+        "price": 0.21,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.29,
+        "min_price_7d": 0.21,
+        "max_price_7d": 0.5
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-summoned-dromedary-uncommon"
+  },
+  "Banishing Betrayal": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-banishing-betrayal-common",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "38",
+    "rarity": "Common",
+    "scryfall_id": null,
+    "tcgplayer_id": "686515",
+    "prices": {
+      "near_mint_normal": {
+        "price": 0.32,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.46,
+        "min_price_7d": 0.32,
+        "max_price_7d": 0.56
+      },
+      "near_mint_foil": {
+        "price": 0.32,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.35,
+        "min_price_7d": 0.25,
+        "max_price_7d": 0.38
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-banishing-betrayal-common"
+  },
+  "Brush Off": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-brush-off-uncommon",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "39",
+    "rarity": "Uncommon",
+    "scryfall_id": null,
+    "tcgplayer_id": "688979",
+    "prices": {
+      "near_mint_foil": {
+        "price": 0.33,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.36,
+        "min_price_7d": 0.31,
+        "max_price_7d": 0.4
+      },
+      "near_mint_normal": {
+        "price": 0.28,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.95,
+        "min_price_7d": 0.28,
+        "max_price_7d": 1.7
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-brush-off-uncommon"
+  },
+  "Moseo, Vein's New Dean": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-moseo-vein-s-new-dean-extended-art-rare",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "326",
+    "rarity": "Rare",
+    "scryfall_id": null,
+    "tcgplayer_id": "689537",
+    "prices": {
+      "near_mint_foil": {
+        "price": 7.46,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 14.28,
+        "min_price_7d": 7.46,
+        "max_price_7d": 23.5
+      },
+      "near_mint_normal": {
+        "price": 3.18,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 3.59,
+        "min_price_7d": 3.18,
+        "max_price_7d": 3.89
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-moseo-vein-s-new-dean-extended-art-rare"
+  },
+  "Poisoner's Apprentice": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-poisoner-s-apprentice-uncommon",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "92",
+    "rarity": "Uncommon",
+    "scryfall_id": null,
+    "tcgplayer_id": "689104",
+    "prices": {
+      "near_mint_foil": {
+        "price": 0.35,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.42,
+        "min_price_7d": 0.35,
+        "max_price_7d": 0.5
+      },
+      "near_mint_normal": {
+        "price": 0.21,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.24,
+        "min_price_7d": 0.2,
+        "max_price_7d": 0.33
+      },
+      "lightly_played_normal": {
+        "price": 0.2,
+        "condition": "Lightly Played",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.2,
+        "min_price_7d": 0.2,
+        "max_price_7d": 0.2
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-poisoner-s-apprentice-uncommon"
+  },
+  "Postmortem Professor": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-postmortem-professor-extended-art-rare",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "327",
+    "rarity": "Rare",
+    "scryfall_id": null,
+    "tcgplayer_id": "689109",
+    "prices": {
+      "near_mint_normal": {
+        "price": 2.12,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 2.19,
+        "min_price_7d": 2.12,
+        "max_price_7d": 2.2
+      },
+      "near_mint_foil": {
+        "price": 1.78,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 1.86,
+        "min_price_7d": 1.78,
+        "max_price_7d": 1.94
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-postmortem-professor-extended-art-rare"
+  },
+  "Pox Plague": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-pox-plague-extended-art-rare",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "328",
+    "rarity": "Rare",
+    "scryfall_id": null,
+    "tcgplayer_id": "689110",
+    "prices": {
+      "near_mint_foil": {
+        "price": 11.64,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 15.62,
+        "min_price_7d": 11.64,
+        "max_price_7d": 18
+      },
+      "near_mint_normal": {
+        "price": 5.81,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 15.58,
+        "min_price_7d": 5.81,
+        "max_price_7d": 28.99
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-pox-plague-extended-art-rare"
+  },
+  "Pull from the Grave": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-pull-from-the-grave-common",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "95",
+    "rarity": "Common",
+    "scryfall_id": null,
+    "tcgplayer_id": "686521",
+    "prices": {
+      "near_mint_foil": {
+        "price": 0.55,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 1.01,
+        "min_price_7d": 0.55,
+        "max_price_7d": 2
+      },
+      "near_mint_normal": {
+        "price": 0.41,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.94,
+        "min_price_7d": 0.41,
+        "max_price_7d": 1.87
+      },
+      "lightly_played_normal": {
+        "price": 0.24,
+        "condition": "Lightly Played",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.24,
+        "min_price_7d": 0.24,
+        "max_price_7d": 0.24
+      },
+      "damaged_foil": {
+        "price": 0.1,
+        "condition": "Damaged",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.1,
+        "min_price_7d": 0.1,
+        "max_price_7d": 0.1
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-pull-from-the-grave-common"
+  },
+  "Rabid Attack": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-rabid-attack-uncommon",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "96",
+    "rarity": "Uncommon",
+    "scryfall_id": null,
+    "tcgplayer_id": "689478",
+    "prices": {
+      "lightly_played_normal": {
+        "price": 0.48,
+        "condition": "Lightly Played",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.48,
+        "min_price_7d": 0.48,
+        "max_price_7d": 0.48
+      },
+      "near_mint_foil": {
+        "price": 0.35,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.44,
+        "min_price_7d": 0.35,
+        "max_price_7d": 0.52
+      },
+      "near_mint_normal": {
+        "price": 0.21,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.56,
+        "min_price_7d": 0.21,
+        "max_price_7d": 1.12
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-rabid-attack-uncommon"
+  },
+  "Ral Zarek, Guest Lecturer": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-ral-zarek-guest-lecturer-borderless-mythic",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "282",
+    "rarity": "Mythic",
+    "scryfall_id": null,
+    "tcgplayer_id": "686568",
+    "prices": {
+      "near_mint_foil": {
+        "price": 19.05,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 22.41,
+        "min_price_7d": 19.05,
+        "max_price_7d": 51.86
+      },
+      "near_mint_normal": {
+        "price": 14.29,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 21.94,
+        "min_price_7d": 14.27,
+        "max_price_7d": 31.98
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-ral-zarek-guest-lecturer-borderless-mythic"
+  },
+  "Send in the Pest": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-send-in-the-pest-common",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "100",
+    "rarity": "Common",
+    "scryfall_id": null,
+    "tcgplayer_id": "689480",
+    "prices": {
+      "near_mint_foil": {
+        "price": 0.34,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.4,
+        "min_price_7d": 0.34,
+        "max_price_7d": 0.46
+      },
+      "lightly_played_normal": {
+        "price": 0.24,
+        "condition": "Lightly Played",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.24,
+        "min_price_7d": 0.24,
+        "max_price_7d": 0.24
+      },
+      "near_mint_normal": {
+        "price": 0.22,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.26,
+        "min_price_7d": 0.22,
+        "max_price_7d": 0.27
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-send-in-the-pest-common"
+  },
+  "Sneering Shadewriter": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-sneering-shadewriter-common",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "101",
+    "rarity": "Common",
+    "scryfall_id": null,
+    "tcgplayer_id": "689481",
+    "prices": {
+      "near_mint_normal": {
+        "price": 0.3,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.28,
+        "min_price_7d": 0.25,
+        "max_price_7d": 0.32
+      },
+      "near_mint_foil": {
+        "price": 0.3,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.33,
+        "min_price_7d": 0.3,
+        "max_price_7d": 0.35
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-sneering-shadewriter-common"
+  },
+  "Tome Blast": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-tome-blast-common",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "135",
+    "rarity": "Common",
+    "scryfall_id": null,
+    "tcgplayer_id": "689497",
+    "prices": {
+      "near_mint_normal": {
+        "price": 0.15,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.19,
+        "min_price_7d": 0.15,
+        "max_price_7d": 0.2
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-tome-blast-common"
+  },
+  "Unsubtle Mockery": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-unsubtle-mockery-common",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "136",
+    "rarity": "Common",
+    "scryfall_id": null,
+    "tcgplayer_id": "689498",
+    "prices": {
+      "near_mint_foil": {
+        "price": 1.08,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 1.75,
+        "min_price_7d": 1.08,
+        "max_price_7d": 1.91
+      },
+      "near_mint_normal": {
+        "price": 0.23,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.25,
+        "min_price_7d": 0.23,
+        "max_price_7d": 0.27
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-unsubtle-mockery-common"
+  },
+  "Zealous Lorecaster": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-zealous-lorecaster-common",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "137",
+    "rarity": "Common",
+    "scryfall_id": null,
+    "tcgplayer_id": "689499",
+    "prices": {
+      "near_mint_foil": {
+        "price": 0.28,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.28,
+        "min_price_7d": 0.25,
+        "max_price_7d": 0.3
+      },
+      "near_mint_normal": {
+        "price": 0.19,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.23,
+        "min_price_7d": 0.18,
+        "max_price_7d": 0.25
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-zealous-lorecaster-common"
+  },
+  "Aberrant Manawurm": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-aberrant-manawurm-uncommon",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "138",
+    "rarity": "Uncommon",
+    "scryfall_id": null,
+    "tcgplayer_id": "689500",
+    "prices": {
+      "near_mint_foil": {
+        "price": 0.62,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.62,
+        "min_price_7d": 0.62,
+        "max_price_7d": 0.62
+      },
+      "near_mint_normal": {
+        "price": 0.22,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.24,
+        "min_price_7d": 0.22,
+        "max_price_7d": 0.26
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-aberrant-manawurm-uncommon"
+  },
+  "Additive Evolution": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-additive-evolution-uncommon",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "139",
+    "rarity": "Uncommon",
+    "scryfall_id": null,
+    "tcgplayer_id": "688823",
+    "prices": {
+      "near_mint_foil": {
+        "price": 0.67,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 1.5,
+        "min_price_7d": 0.67,
+        "max_price_7d": 4
+      },
+      "near_mint_normal": {
+        "price": 0.26,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.29,
+        "min_price_7d": 0.26,
+        "max_price_7d": 0.34
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-additive-evolution-uncommon"
+  },
+  "Ambitious Augmenter": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-ambitious-augmenter-extended-art-rare",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "337",
+    "rarity": "Rare",
+    "scryfall_id": null,
+    "tcgplayer_id": "689799",
+    "prices": {
+      "near_mint_foil": {
+        "price": 4.22,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 5.55,
+        "min_price_7d": 4.22,
+        "max_price_7d": 7.99
+      },
+      "near_mint_normal": {
+        "price": 3.16,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 3.57,
+        "min_price_7d": 3.16,
+        "max_price_7d": 4
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-ambitious-augmenter-extended-art-rare"
+  },
+  "Burrog Barrage": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-burrog-barrage-common",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "141",
+    "rarity": "Common",
+    "scryfall_id": null,
+    "tcgplayer_id": "689501",
+    "prices": {
+      "near_mint_foil": {
+        "price": 0.28,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.28,
+        "min_price_7d": 0.28,
+        "max_price_7d": 0.28
+      },
+      "near_mint_normal": {
+        "price": 0.13,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.12,
+        "min_price_7d": 0.1,
+        "max_price_7d": 0.13
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-burrog-barrage-common"
+  },
+  "Chelonian Tackle": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-chelonian-tackle-uncommon",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "142",
+    "rarity": "Uncommon",
+    "scryfall_id": null,
+    "tcgplayer_id": "689502",
+    "prices": {
+      "near_mint_foil": {
+        "price": 0.27,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.37,
+        "min_price_7d": 0.27,
+        "max_price_7d": 0.43
+      },
+      "near_mint_normal": {
+        "price": 0.19,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.15,
+        "min_price_7d": 0.1,
+        "max_price_7d": 0.19
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-chelonian-tackle-uncommon"
+  },
+  "Comforting Counsel": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-comforting-counsel-extended-art-rare",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "338",
+    "rarity": "Rare",
+    "scryfall_id": null,
+    "tcgplayer_id": "689539",
+    "prices": {
+      "near_mint_foil": {
+        "price": 1.9,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 1.92,
+        "min_price_7d": 1.83,
+        "max_price_7d": 2
+      },
+      "lightly_played_foil": {
+        "price": 1.75,
+        "condition": "Lightly Played",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 1.85,
+        "min_price_7d": 1.75,
+        "max_price_7d": 2
+      },
+      "near_mint_normal": {
+        "price": 1.48,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 2.09,
+        "min_price_7d": 1.48,
+        "max_price_7d": 2.86
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-comforting-counsel-extended-art-rare"
+  },
+  "Efflorescence": {
+    "justtcg_id": "magic-the-gathering-secrets-of-strixhaven-efflorescence-common",
+    "set_name": "Secrets of Strixhaven",
+    "set_number": "144",
+    "rarity": "Common",
+    "scryfall_id": null,
+    "tcgplayer_id": "689504",
+    "prices": {
+      "near_mint_foil": {
+        "price": 0.33,
+        "condition": "Near Mint",
+        "printing": "Foil",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.36,
+        "min_price_7d": 0.33,
+        "max_price_7d": 0.4
+      },
+      "near_mint_normal": {
+        "price": 0.24,
+        "condition": "Near Mint",
+        "printing": "Normal",
+        "last_updated": 1776687877,
+        "avg_price_7d": 0.28,
+        "min_price_7d": 0.2,
+        "max_price_7d": 0.33
+      }
+    },
+    "url": "https://www.justtcg.com/product/magic-the-gathering-secrets-of-strixhaven-efflorescence-common"
+  }
+}

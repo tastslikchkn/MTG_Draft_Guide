@@ -3,14 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strixhaven Draft Guide</title>
-    <script>
-        // Redirect to the draft guide
-        window.location.href = 'strixhaven-draft-guide.html';
-    </script>
+    <title>MTG Draft Guide - Navigation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #eee;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #fbbf24;
+            margin-bottom: 25px;
+        }
+
+        .links-section {
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .link-item {
+            display: block;
+            background: rgba(251, 191, 36, 0.1);
+            padding: 18px 25px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            text-decoration: none;
+            color: #eee;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .link-item:hover {
+            background: rgba(251, 191, 36, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+        }
+
+        .link-item strong {
+            color: #fbbf24;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        footer {
+            padding-top: 25px;
+            color: #6b7280;
+            font-size: 0.9em;
+        }
+    </style>
 </head>
 <body>
-    <h1>Loading Strixhaven Draft Guide...</h1>
-    <p>If you are not redirected automatically, <a href="strixhaven-draft-guide.html">click here</a>.</p>
+<div class="container">
+<h1>🎓 MTG Draft Guide - Navigation Page</h1>
+
+<p>Welcome to the Strixhaven Draft Guide project. Select a page below:</p>
+
+<div class="links-section">
+
+<a href="html_json/strixhaven-draft-guide.html" class="link-item">
+<strong>Main Strixhaven Draft Guide</strong>
+Interactive draft guide with cards, archetypes, and strategies for Secrets of Strixhaven
+</a>
+
+<a href="html_json/card-gallery.html" class="link-item">
+<strong>Card Gallery</strong>
+Gallery view of all card images from the set
+</a>
+
+<a href="html_json/image-validation-test.html" class="link-item">
+<strong>Image Validation Test</strong>
+Test page for verifying image fallback chain functionality
+</a>
+
+</div>
+
+<footer>
+<p>All HTML and JSON files located in html_json folder</p>
+</footer>
+</div>
 </body>
 </html>

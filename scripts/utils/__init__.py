@@ -1,7 +1,20 @@
 """
 Shared utilities for MTG Draft Guide scripts.
 Provides common functions and constants used across multiple modules.
+
+This is the main entry point - imports everything from submodules for easy access:
+    from scripts.utils import fetch_card_by_name, get_color_group, slugify
 """
+
+import os
+from pathlib import Path
+
+# Try to load environment variables from .env file
+try:
+    from dotenv import load_dotenv
+    load_dotenv(Path(__file__).parent.parent.parent / '.env')
+except ImportError:
+    pass  # python-dotenv not installed, use system env vars only
 
 import re
 from typing import Optional, Dict, Any, List
@@ -11,253 +24,117 @@ from typing import Optional, Dict, Any, List
 # API CONFIGURATION
 # ============================================================================
 
-JUSTTCG_API_KEY = "tcg_d8eb7084d5714807933f1690b2ed55b9"
-JUSTTCG_GAME_ID = "magic-the-gathering"
+# Load from environment variables (set in .env or system)
+JUSTTCG_API_KEY = os.getenv('JUSTTCG_API_KEY', '')
+JUSTTCG_GAME_ID = os.getenv('JUSTTCG_GAME_ID', 'magic-the-gathering')
 
 
 # ============================================================================
-# STRING UTILITIES
+# IMPORTS FROM SUBMODULES
 # ============================================================================
+# Import everything from submodules so users can access via scripts.utils.*
 
-def slugify(name: str) -> str:
-    """Convert card name to URL-safe filename.
+from .api import (
+    # HTTP client
+    make_request,
     
-    Args:
-        name: The card name to convert
-        
-    Returns:
-        A URL-safe slug with spaces replaced by hyphens, special characters removed,
-        and converted to lowercase.
-        
-    Example:
-        >>> slugify("Elite Interceptor // Rejoinder")
-        'elite-interceptor--rejoinder'
-    """
-    # Replace spaces with hyphens
-    slug = name.replace(' ', '-')
-    # Remove special characters except hyphens and underscores
-    slug = re.sub(r'[^a-zA-Z0-9\-_]', '', slug)
-    # Convert to lowercase
-    slug = slug.lower()
-    # Remove multiple consecutive hyphens
-    slug = re.sub(r'-+', '-', slug)
-    return slug
-
-
-def title_case_from_slug(slug: str) -> str:
-    """Convert a slug back to title case.
+    # Scryfall API
+    fetch_card_by_name,
+    fetch_card_image_url,
+    download_card_image,
+    search_cards,
+    batch_download_images,
     
-    Args:
-        slug: The URL-safe slug
-        
-    Returns:
-        Title-cased string with hyphens replaced by spaces
-    """
-    return slug.replace('-', ' ').title()
+    # JustTCG API  
+    fetch_card_by_name_justtcg,
+    extract_price_data as api_extract_price_data,
+)
+
+from .card_data import (
+    # String utilities
+    sanitize_filename,
+    slugify,
+    title_case_from_slug,
+    clean_card_name,
+    
+    # HTML parsers
+    CardNameExtractor,
+    extract_card_names_from_html,
+    extract_card_names_from_alt_attributes,
+    
+    # Data model
+    CardData,
+    
+    # File operations
+    load_card_cache,
+    save_card_cache,
+    get_cached_image_paths,
+)
+
+from .color_rarity import (
+    # Constants
+    COLOR_NAMES,
+    COLOR_GROUP_DISPLAY,
+    COLOR_GROUP_ORDER,
+    COLOR_CSS_CLASSES,
+    COLOR_SECTIONS,
+    
+    RARITY_ORDER,
+    RARITY_LETTERS,
+    RARITY_COLORS,
+    RARITY_INFO,
+    
+    # Color group functions
+    get_color_group,
+    get_color_group_for_card,
+    
+    # Rarity functions
+    get_rarity_from_string,
+    get_rarity_letter,
+    get_rarity_color,
+    get_rarity_sort_key,
+    
+    # Sorting/grouping helpers
+    sort_cards_by_color_then_rarity,
+    group_cards_by_color,
+    group_cards_by_rarity,
+)
+
+from .html_templates import (
+    # Template functions
+    get_gallery_html_template,
+    generate_rarity_legend_html,
+    generate_card_item_html,
+    generate_card_grid_html,
+    generate_rarity_group_html,
+    generate_color_section_html,
+    generate_full_gallery_html,
+    save_gallery_html,
+)
 
 
 # ============================================================================
-# CARD COLOR UTILITIES
+# LEGACY COMPATIBILITY FUNCTIONS
+# Kept for backward compatibility with existing scripts
 # ============================================================================
-
-def get_color_group(colors: List[str]) -> str:
-    """Determine the color group for a card based on its colors.
-    
-    Args:
-        colors: List of color codes (e.g., ['W', 'U'] or [])
-        
-    Returns:
-        Color group string: 'mono_white', 'mono_blue', 'mono_black', 
-        'mono_red', 'mono_green', 'multicolor', or 'colorless'
-        
-    Examples:
-        >>> get_color_group(['W'])
-        'mono_white'
-        >>> get_color_group(['W', 'U'])
-        'multicolor'
-        >>> get_color_group([])
-        'colorless'
-    """
-    if not colors or len(colors) == 0:
-        return "colorless"
-    
-    unique_colors = set(colors)
-    num_colors = len(unique_colors)
-    
-    # Mono-color cards
-    if num_colors == 1:
-        color = list(unique_colors)[0]
-        color_names = {
-            'W': 'mono_white',
-            'U': 'mono_blue', 
-            'B': 'mono_black',
-            'R': 'mono_red',
-            'G': 'mono_green'
-        }
-        return color_names.get(color, 'multicolor')
-    
-    # Multi-color cards (2+ colors)
-    if num_colors >= 2:
-        return "multicolor"
-    
-    return "colorless"
-
 
 def get_color_group_display_name(group: str) -> str:
-    """Get display name for a color group.
-    
-    Args:
-        group: The color group identifier
-        
-    Returns:
-        Human-readable display name
-    """
-    names = {
-        'mono_white': 'White Cards',
-        'mono_blue': 'Blue Cards',
-        'mono_black': 'Black Cards',
-        'mono_red': 'Red Cards',
-        'mono_green': 'Green Cards',
-        'multicolor': 'Multi-Color Cards',
-        'colorless': 'Colorless Cards',
-        'lands': 'Lands'
-    }
-    return names.get(group, group.replace('_', ' ').title())
+    """Legacy: Get display name for a color group."""
+    return COLOR_GROUP_DISPLAY.get(group, group.replace('_', ' ').title())
 
-
-# ============================================================================
-# RARITY UTILITIES
-# ============================================================================
 
 def get_rarity_order(rarity: str) -> int:
-    """Return sort order for rarity (M=0, R=1, U=2, C=3).
-    
-    Args:
-        rarity: Rarity string (e.g., 'mythic', 'rare', 'uncommon', 'common')
-        
-    Returns:
-        Integer sort order (lower = higher rarity)
-    """
-    rarity_map = {
-        'mythic': 0,
-        'rare': 1,
-        'uncommon': 2,
-        'common': 3
-    }
-    return rarity_map.get(rarity.lower() if rarity else '', 4)
-
-
-def get_rarity_letter(rarity: str) -> str:
-    """Convert full rarity name to single letter.
-    
-    Args:
-        rarity: Full rarity name
-        
-    Returns:
-        Single letter: 'M', 'R', 'U', or 'C'
-    """
-    if not rarity:
-        return 'C'
-    
-    rarity_lower = rarity.lower()
-    if 'mythic' in rarity_lower:
-        return 'M'
-    elif 'rare' in rarity_lower:
-        return 'R'
-    elif 'uncommon' in rarity_lower:
-        return 'U'
-    else:
-        return 'C'
+    """Legacy: Return sort order for rarity (M=0, R=1, U=2, C=3)."""
+    return get_rarity_sort_key(rarity)
 
 
 def get_color_group_order(group: str) -> int:
-    """Return sort order for color groups.
-    
-    Args:
-        group: Color group identifier
-        
-    Returns:
-        Integer sort order for display purposes
-    """
-    order = {
-        'mono_white': 0,
-        'mono_blue': 1,
-        'mono_black': 2,
-        'mono_red': 3,
-        'mono_green': 4,
-        'multicolor': 5,
-        'colorless': 6,
-        'lands': 7
-    }
-    return order.get(group, 99)
-
-
-# ============================================================================
-# PRICE DATA UTILITIES
-# ============================================================================
-
-def extract_price_data(api_response: Optional[Dict]) -> Optional[Dict[str, Any]]:
-    """Extract price data from JustTCG API response.
-    
-    Args:
-        api_response: Raw JSON response from JustTCG API
-        
-    Returns:
-        Dictionary containing extracted price information, or None if no data found
-    """
-    if not api_response or 'data' not in api_response or len(api_response['data']) == 0:
-        return None
-    
-    product = api_response['data'][0]
-    
-    # Skip sealed products
-    if product.get('number') == 'N/A':
-        return None
-    
-    variants = product.get('variants', [])
-    prices = {}
-    
-    for variant in variants:
-        condition = variant.get('condition', 'Unknown')
-        printing = variant.get('printing', 'Normal')
-        price = variant.get('price')
-        
-        if price is not None:
-            key = f"{condition}_{printing}".lower().replace(' ', '_')
-            prices[key] = {
-                'price': price,
-                'condition': condition,
-                'printing': printing,
-                'last_updated': variant.get('lastUpdated'),
-                'avg_price_7d': variant.get('avgPrice'),
-                'min_price_7d': variant.get('minPrice7d'),
-                'max_price_7d': variant.get('maxPrice7d')
-            }
-    
-    if not prices:
-        return None
-    
-    return {
-        'justtcg_id': product.get('id'),
-        'set_name': product.get('set_name', ''),
-        'set_number': product.get('number'),
-        'rarity': product.get('rarity', ''),
-        'scryfall_id': product.get('scryfallId'),
-        'tcgplayer_id': product.get('tcgplayerId'),
-        'prices': prices,
-        'url': f"https://www.justtcg.com/product/{product.get('id')}" if product.get('id') else None
-    }
+    """Legacy: Return sort order for color groups."""
+    return COLOR_GROUP_ORDER.index(group) if group in COLOR_GROUP_ORDER else 99
 
 
 def get_avg_price_7d(card_data: Dict) -> Optional[float]:
-    """Extract avg_price_7d from card prices data.
-    
-    Args:
-        card_data: Card data dictionary containing prices
-        
-    Returns:
-        Average 7-day price as float, or None if not available
-    """
+    """Extract avg_price_7d from card prices data."""
     prices = card_data.get('prices', {})
     if not prices or 'prices' not in prices:
         return None
@@ -279,42 +156,25 @@ def get_avg_price_7d(card_data: Dict) -> Optional[float]:
 
 
 def format_price(price: Optional[float]) -> str:
-    """Format price as currency string.
-    
-    Args:
-        price: Price value or None
-        
-    Returns:
-        Formatted currency string (e.g., "$12.34" or "No data")
-    """
+    """Format price as currency string."""
     if price is None:
         return "No data"
     return f"${price:.2f}"
 
 
-# ============================================================================
-# HTML TEMPLATE UTILITIES
-# ============================================================================
-
 def hex_to_rgb(hex_color: str) -> tuple:
-    """Convert hex color to RGB tuple.
-    
-    Args:
-        hex_color: Hex color string (e.g., '#FFD700')
-        
-    Returns:
-        RGB tuple (e.g., (255, 215, 0))
-    """
+    """Convert hex color to RGB tuple."""
     hex_color = hex_color.lstrip('#')
     return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
 
 
+# ============================================================================
+# HTML TEMPLATE UTILITIES (LEGACY)
+# Kept for backward compatibility
+# ============================================================================
+
 def get_card_gallery_css() -> str:
-    """Return the CSS styles for card gallery pages.
-    
-    Returns:
-        Complete CSS string for card gallery styling
-    """
+    """Legacy: Return the CSS styles for card gallery pages."""
     return '''
         * {
             margin: 0;
@@ -423,7 +283,7 @@ def get_card_gallery_css() -> str:
         
         .card-image-container {
             position: relative;
-            padding-top: 157%; /* Card aspect ratio ~1.57 */
+            padding-top: 157%;
             background: #f0f0f0;
         }
         
@@ -475,17 +335,11 @@ def get_card_gallery_css() -> str:
     '''
 
 
-def get_card_gallery_html_header(title: str = "🎓 Strixhaven Card Gallery", 
-                                  subtitle: str = "Cards grouped by color, then rarity (M → R → U → C)") -> str:
-    """Generate the HTML header for card gallery pages.
-    
-    Args:
-        title: Page title
-        subtitle: Subtitle text
-        
-    Returns:
-        Complete HTML from <!DOCTYPE> through opening of body content
-    """
+def get_card_gallery_html_header(
+    title: str = "🎓 Strixhaven Card Gallery",
+    subtitle: str = "Cards grouped by color, then rarity (M → R → U → C)"
+) -> str:
+    """Legacy: Generate the HTML header for card gallery pages."""
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -513,36 +367,8 @@ def get_card_gallery_html_header(title: str = "🎓 Strixhaven Card Gallery",
 
 
 def get_card_gallery_html_footer() -> str:
-    """Generate the HTML footer for card gallery pages.
-    
-    Returns:
-        Closing HTML tags
-    """
+    """Legacy: Generate the HTML footer for card gallery pages."""
     return '''
 </body>
 </html>
 '''
-
-
-# ============================================================================
-# COLOR SECTION CONFIGURATION
-# ============================================================================
-
-COLOR_SECTIONS = [
-    ('mono_white', 'White Cards', '#ffffff'),
-    ('mono_blue', 'Blue Cards', '#0074D9'),
-    ('mono_black', 'Black Cards', '#111111'),
-    ('mono_red', 'Red Cards', '#FF4136'),
-    ('mono_green', 'Green Cards', '#2ECC40'),
-    ('multicolor', 'Multi-Color Cards', '#B10DC9'),
-    ('colorless', 'Colorless Cards', '#AAAAAA'),
-    ('lands', 'Lands', '#FF851B'),
-]
-
-
-RARITY_INFO = {
-    'M': ('Mythic Rare (M)', '#FFD700'),
-    'R': ('Rare (R)', '#C41E3A'),
-    'U': ('Uncommon (U)', '#228B22'),
-    'C': ('Common (C)', '#696969')
-}

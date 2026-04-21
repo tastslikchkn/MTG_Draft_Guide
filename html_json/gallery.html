@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strixhaven Draft Guide</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        h1 {
+            text-align: center;
+            color: #e94560;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            color: #fff;
+            font-size: 1.2rem;
+        }
+        .stat-item { background: rgba(255,255,255,0.1); padding: 1rem 2rem; border-radius: 8px; }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1rem;
+        }
+        .card-item {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+        }
+        .card-img-wrapper {
+            position: relative;
+            padding-top: 173%;
+            background: #f0f0f0;
+        }
+        .card-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .card-name {
+            padding: 0.5rem;
+            font-size: 0.75rem;
+            text-align: center;
+            color: #333;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Strixhaven Draft Guide</h1>
+        <div class="stats">
+            <div class="stat-item">Cards: 271</div>
+            <div class="stat-item">Rares/Mythics: 80</div>
+        </div>
+        <div class="gallery">
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/ambitious-augmenter.jpg" alt="Ambitious Augmenter" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Ambitious Augmenter</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/SOS/antiquities-on-the-loose.jpg" alt="Antiquities on the Loose" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Antiquities on the Loose</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/applied-geometry.jpg" alt="Applied Geometry" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Applied Geometry</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/ark-of-hunger.jpg" alt="Ark of Hunger" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Ark of Hunger</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/aziza-mage-tower-captain.jpg" alt="Aziza, Mage Tower Captain" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Aziza, Mage Tower Captain</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/berta-wise-extrapolator.jpg" alt="Berta, Wise Extrapolator" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Berta, Wise Extrapolator</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/blech-loafing-pest.jpg" alt="Blech, Loafing Pest" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Blech, Loafing Pest</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/cauldron-of-essence.jpg" alt="Cauldron of Essence" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Cauldron of Essence</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/choreographed-sparks.jpg" alt="Choreographed Sparks" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Choreographed Sparks</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/colorstorm-stallion.jpg" alt="Colorstorm Stallion" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Colorstorm Stallion</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/comforting-counsel.jpg" alt="Comforting Counsel" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Comforting Counsel</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/conciliators-duelist.jpg" alt="Conciliator's Duelist" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Conciliator's Duelist</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/deathcap-glade.jpg" alt="Deathcap Glade" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Deathcap Glade</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/decorum-dissertation.jpg" alt="Decorum Dissertation" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Decorum Dissertation</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/dinas-guidance.jpg" alt="Dina's Guidance" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Dina's Guidance</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/dreamroot-cascade.jpg" alt="Dreamroot Cascade" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Dreamroot Cascade</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/echocasting-symposium.jpg" alt="Echocasting Symposium" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Echocasting Symposium</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/emeritus-of-abundance-regrowth.jpg" alt="Emeritus of Abundance // Regrowth" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Emeritus of Abundance // Regrowth</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/emeritus-of-conflict-lightning-bolt.jpg" alt="Emeritus of Conflict // Lightning Bolt" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Emeritus of Conflict // Lightning Bolt</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/emeritus-of-ideation-ancestral-recall.jpg" alt="Emeritus of Ideation // Ancestral Recall" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Emeritus of Ideation // Ancestral Recall</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/emeritus-of-truce-swords-to-plowshares.jpg" alt="Emeritus of Truce // Swords to Plowshares" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Emeritus of Truce // Swords to Plowshares</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/emeritus-of-woe-demonic-tutor.jpg" alt="Emeritus of Woe // Demonic Tutor" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Emeritus of Woe // Demonic Tutor</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/erode.jpg" alt="Erode" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Erode</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/exhibition-tidecaller.jpg" alt="Exhibition Tidecaller" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Exhibition Tidecaller</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/fix-whats-broken.jpg" alt="Fix What's Broken" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Fix What's Broken</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/flashback.jpg" alt="Flashback" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Flashback</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/geometers-arthropod.jpg" alt="Geometer's Arthropod" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Geometer's Arthropod</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/germination-practicum.jpg" alt="Germination Practicum" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Germination Practicum</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/grave-researcher-reanimate.jpg" alt="Grave Researcher // Reanimate" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Grave Researcher // Reanimate</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/great-hall-of-the-biblioplex.jpg" alt="Great Hall of the Biblioplex" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Great Hall of the Biblioplex</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/hardened-academic.jpg" alt="Hardened Academic" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Hardened Academic</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/harmonized-trio-brainstorm.jpg" alt="Harmonized Trio // Brainstorm" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Harmonized Trio // Brainstorm</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/improvisation-capstone.jpg" alt="Improvisation Capstone" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Improvisation Capstone</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/informed-inkwright.jpg" alt="Informed Inkwright" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Informed Inkwright</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/jadzi-steward-of-fate-oracles-gift.jpg" alt="Jadzi, Steward of Fate // Oracle's Gift" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Jadzi, Steward of Fate // Oracle's Gift</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/joined-researchers-secret-rendezvous.jpg" alt="Joined Researchers // Secret Rendezvous" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Joined Researchers // Secret Rendezvous</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/lorehold-the-historian.jpg" alt="Lorehold, the Historian" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Lorehold, the Historian</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/maelstrom-artisan-rocket-volley.jpg" alt="Maelstrom Artisan // Rocket Volley" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Maelstrom Artisan // Rocket Volley</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/magmablood-archaic.jpg" alt="Magmablood Archaic" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Magmablood Archaic</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/mana-sculpt.jpg" alt="Mana Sculpt" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Mana Sculpt</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/mathemagics.jpg" alt="Mathemagics" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Mathemagics</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/mind-into-matter.jpg" alt="Mind into Matter" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Mind into Matter</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/molten-core-maestro.jpg" alt="Molten-Core Maestro" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Molten-Core Maestro</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/moment-of-reckoning.jpg" alt="Moment of Reckoning" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Moment of Reckoning</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/moseo-veins-new-dean.jpg" alt="Moseo, Vein's New Dean" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Moseo, Vein's New Dean</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/nita-forum-conciliator.jpg" alt="Nita, Forum Conciliator" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Nita, Forum Conciliator</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/pensive-professor.jpg" alt="Pensive Professor" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Pensive Professor</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/petrified-hamlet.jpg" alt="Petrified Hamlet" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Petrified Hamlet</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/planar-engineering.jpg" alt="Planar Engineering" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Planar Engineering</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/postmortem-professor.jpg" alt="Postmortem Professor" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Postmortem Professor</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/pox-plague.jpg" alt="Pox Plague" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Pox Plague</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/practiced-offense.jpg" alt="Practiced Offense" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Practiced Offense</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/prismari-the-inspiration.jpg" alt="Prismari, the Inspiration" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Prismari, the Inspiration</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/professor-dellian-fel.jpg" alt="Professor Dellian Fel" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Professor Dellian Fel</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/quandrix-the-proof.jpg" alt="Quandrix, the Proof" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Quandrix, the Proof</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/ral-zarek-guest-lecturer.jpg" alt="Ral Zarek, Guest Lecturer" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Ral Zarek, Guest Lecturer</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/resonating-lute.jpg" alt="Resonating Lute" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Resonating Lute</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/restoration-seminar.jpg" alt="Restoration Seminar" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Restoration Seminar</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/scheming-silvertongue-sign-in-blood.jpg" alt="Scheming Silvertongue // Sign in Blood" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Scheming Silvertongue // Sign in Blood</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/shattered-sanctum.jpg" alt="Shattered Sanctum" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Shattered Sanctum</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/silverquill-the-disputant.jpg" alt="Silverquill, the Disputant" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Silverquill, the Disputant</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/skycoach-conductor-all-aboard.jpg" alt="Skycoach Conductor // All Aboard" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Skycoach Conductor // All Aboard</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/slumbering-trudge.jpg" alt="Slumbering Trudge" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Slumbering Trudge</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/splatter-technique.jpg" alt="Splatter Technique" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Splatter Technique</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/steal-the-show.jpg" alt="Steal the Show" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Steal the Show</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/stirring-hopesinger.jpg" alt="Stirring Hopesinger" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Stirring Hopesinger</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/stormcarved-coast.jpg" alt="Stormcarved Coast" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Stormcarved Coast</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/sundown-pass.jpg" alt="Sundown Pass" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Sundown Pass</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/suspend-aggression.jpg" alt="Suspend Aggression" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Suspend Aggression</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/the-dawning-archaic.jpg" alt="The Dawning Archaic" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">The Dawning Archaic</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/together-as-one.jpg" alt="Together as One" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Together as One</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/tragedy-feaster.jpg" alt="Tragedy Feaster" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Tragedy Feaster</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/traumatic-critique.jpg" alt="Traumatic Critique" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Traumatic Critique</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/vastlands-scavenger-bind-to-life.jpg" alt="Vastlands Scavenger // Bind to Life" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Vastlands Scavenger // Bind to Life</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/vicious-rivalry.jpg" alt="Vicious Rivalry" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Vicious Rivalry</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/wildgrowth-archaic.jpg" alt="Wildgrowth Archaic" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Wildgrowth Archaic</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/wisdom-of-ages.jpg" alt="Wisdom of Ages" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Wisdom of Ages</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/witherbloom-the-balancer.jpg" alt="Witherbloom, the Balancer" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Witherbloom, the Balancer</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/withering-curse.jpg" alt="Withering Curse" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Withering Curse</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/zaffai-and-the-tempests.jpg" alt="Zaffai and the Tempests" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Zaffai and the Tempests</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/aberrant-manawurm.jpg" alt="Aberrant Manawurm" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Aberrant Manawurm</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/SOS/abigale-poet-laureate-heroic-stanza.jpg" alt="Abigale, Poet Laureate // Heroic Stanza" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Abigale, Poet Laureate // Heroic Stanza</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/SOS/abstract-paintmage.jpg" alt="Abstract Paintmage" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Abstract Paintmage</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/SOS/additive-evolution.jpg" alt="Additive Evolution" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Additive Evolution</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/adventurous-eater-have-a-bite.jpg" alt="Adventurous Eater // Have a Bite" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Adventurous Eater // Have a Bite</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/SOS/ajanis-response.jpg" alt="Ajani's Response" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Ajani's Response</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/ancestral-anger.jpg" alt="Ancestral Anger" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Ancestral Anger</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/SOS/arcane-omens.jpg" alt="Arcane Omens" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Arcane Omens</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/archaics-agony.jpg" alt="Archaic's Agony" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Archaic's Agony</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/arnyn-deathbloom-botanist.jpg" alt="Arnyn, Deathbloom Botanist" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Arnyn, Deathbloom Botanist</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/artistic-process.jpg" alt="Artistic Process" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Artistic Process</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/ascendant-dustspeaker.jpg" alt="Ascendant Dustspeaker" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Ascendant Dustspeaker</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/banishing-betrayal.jpg" alt="Banishing Betrayal" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Banishing Betrayal</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/biblioplex-tomekeeper.jpg" alt="Biblioplex Tomekeeper" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Biblioplex Tomekeeper</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/SOS/blazing-firesinger-seething-song.jpg" alt="Blazing Firesinger // Seething Song" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Blazing Firesinger // Seething Song</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/SOS/bogwater-lumaret.jpg" alt="Bogwater Lumaret" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Bogwater Lumaret</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/SOS/borrowed-knowledge.jpg" alt="Borrowed Knowledge" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Borrowed Knowledge</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/SOS/brush-off.jpg" alt="Brush Off" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Brush Off</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/burrog-banemaker.jpg" alt="Burrog Banemaker" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Burrog Banemaker</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/SOS/burrog-barrage.jpg" alt="Burrog Barrage" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Burrog Barrage</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/campus-composer-aqueous-aria.jpg" alt="Campus Composer // Aqueous Aria" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Campus Composer // Aqueous Aria</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/SOS/charging-strifeknight.jpg" alt="Charging Strifeknight" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Charging Strifeknight</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/SOS/chase-inspiration.jpg" alt="Chase Inspiration" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Chase Inspiration</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/cheerful-osteomancer-raise-dead.jpg" alt="Cheerful Osteomancer // Raise Dead" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Cheerful Osteomancer // Raise Dead</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/chelonian-tackle.jpg" alt="Chelonian Tackle" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Chelonian Tackle</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/colossus-of-the-blood-age.jpg" alt="Colossus of the Blood Age" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Colossus of the Blood Age</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/cost-of-brilliance.jpg" alt="Cost of Brilliance" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Cost of Brilliance</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/SOS/cuboid-colony.jpg" alt="Cuboid Colony" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Cuboid Colony</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/SOS/daydream.jpg" alt="Daydream" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Daydream</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/SOS/deluge-virtuoso.jpg" alt="Deluge Virtuoso" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Deluge Virtuoso</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/diary-of-dreams.jpg" alt="Diary of Dreams" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Diary of Dreams</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/dig-site-inventory.jpg" alt="Dig Site Inventory" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Dig Site Inventory</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/SOS/dissection-practice.jpg" alt="Dissection Practice" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Dissection Practice</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/divergent-equation.jpg" alt="Divergent Equation" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Divergent Equation</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/duel-tactics.jpg" alt="Duel Tactics" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Duel Tactics</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/SOS/eager-glyphmage.jpg" alt="Eager Glyphmage" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Eager Glyphmage</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/SOS/efflorescence.jpg" alt="Efflorescence" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Efflorescence</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/SOS/elemental-mascot.jpg" alt="Elemental Mascot" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Elemental Mascot</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/elite-interceptor-rejoinder.jpg" alt="Elite Interceptor // Rejoinder" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Elite Interceptor // Rejoinder</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/embrace-the-paradox.jpg" alt="Embrace the Paradox" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Embrace the Paradox</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/emil-vastlands-roamer.jpg" alt="Emil, Vastlands Roamer" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Emil, Vastlands Roamer</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/encouraging-aviator-jump.jpg" alt="Encouraging Aviator // Jump" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Encouraging Aviator // Jump</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/end-of-the-hunt.jpg" alt="End of the Hunt" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">End of the Hunt</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/ennis-debate-moderator.jpg" alt="Ennis, Debate Moderator" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Ennis, Debate Moderator</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/environmental-scientist.jpg" alt="Environmental Scientist" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Environmental Scientist</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/essence-scatter.jpg" alt="Essence Scatter" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Essence Scatter</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/essenceknit-scholar.jpg" alt="Essenceknit Scholar" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Essenceknit Scholar</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/eternal-student.jpg" alt="Eternal Student" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Eternal Student</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/expressive-firedancer.jpg" alt="Expressive Firedancer" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Expressive Firedancer</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/fields-of-strife.jpg" alt="Fields of Strife" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Fields of Strife</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/flow-state.jpg" alt="Flow State" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Flow State</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/follow-the-lumarets.jpg" alt="Follow the Lumarets" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Follow the Lumarets</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/foolish-fate.jpg" alt="Foolish Fate" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Foolish Fate</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/forest.jpg" alt="Forest" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Forest</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/forum-necroscribe.jpg" alt="Forum Necroscribe" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Forum Necroscribe</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/forum-of-amity.jpg" alt="Forum of Amity" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Forum of Amity</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/fractal-anomaly.jpg" alt="Fractal Anomaly" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Fractal Anomaly</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/fractal-mascot.jpg" alt="Fractal Mascot" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Fractal Mascot</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/fractal-tender.jpg" alt="Fractal Tender" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Fractal Tender</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/fractalize.jpg" alt="Fractalize" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Fractalize</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/garrison-excavator.jpg" alt="Garrison Excavator" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Garrison Excavator</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/glorious-decay.jpg" alt="Glorious Decay" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Glorious Decay</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/goblin-glasswright-craft-with-pride.jpg" alt="Goblin Glasswright // Craft with Pride" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Goblin Glasswright // Craft with Pride</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/graduation-day.jpg" alt="Graduation Day" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Graduation Day</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/grapple-with-death.jpg" alt="Grapple with Death" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Grapple with Death</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/group-project.jpg" alt="Group Project" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Group Project</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/growth-curve.jpg" alt="Growth Curve" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Growth Curve</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/harsh-annotation.jpg" alt="Harsh Annotation" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Harsh Annotation</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/heated-argument.jpg" alt="Heated Argument" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Heated Argument</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/homesickness.jpg" alt="Homesickness" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Homesickness</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/honorbound-page-forums-favor.jpg" alt="Honorbound Page // Forum's Favor" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Honorbound Page // Forum's Favor</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/hungry-graffalon.jpg" alt="Hungry Graffalon" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Hungry Graffalon</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/hydro-channeler.jpg" alt="Hydro-Channeler" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Hydro-Channeler</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/imperious-inkmage.jpg" alt="Imperious Inkmage" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Imperious Inkmage</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/impractical-joke.jpg" alt="Impractical Joke" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Impractical Joke</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/infirmary-healer-stream-of-life.jpg" alt="Infirmary Healer // Stream of Life" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Infirmary Healer // Stream of Life</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/inkling-mascot.jpg" alt="Inkling Mascot" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Inkling Mascot</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/inkshape-demonstrator.jpg" alt="Inkshape Demonstrator" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Inkshape Demonstrator</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/interjection.jpg" alt="Interjection" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Interjection</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/island.jpg" alt="Island" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Island</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/killians-confidence.jpg" alt="Killian's Confidence" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Killian's Confidence</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/kirol-history-buff-pack-a-punch.jpg" alt="Kirol, History Buff // Pack a Punch" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Kirol, History Buff // Pack a Punch</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/landscape-painter-vibrant-idea.jpg" alt="Landscape Painter // Vibrant Idea" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Landscape Painter // Vibrant Idea</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/last-gasp.jpg" alt="Last Gasp" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Last Gasp</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/lecturing-scornmage.jpg" alt="Lecturing Scornmage" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Lecturing Scornmage</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/leech-collector-bloodletting.jpg" alt="Leech Collector // Bloodletting" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Leech Collector // Bloodletting</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/living-history.jpg" alt="Living History" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Living History</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/lluwen-exchange-student-pest-friend.jpg" alt="Lluwen, Exchange Student // Pest Friend" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Lluwen, Exchange Student // Pest Friend</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/lorehold-charm.jpg" alt="Lorehold Charm" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Lorehold Charm</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/lumarets-favor.jpg" alt="Lumaret's Favor" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Lumaret's Favor</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/mage-tower-referee.jpg" alt="Mage Tower Referee" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Mage Tower Referee</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/masterful-flourish.jpg" alt="Masterful Flourish" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Masterful Flourish</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/matterbending-mage.jpg" alt="Matterbending Mage" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Matterbending Mage</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/melancholic-poet.jpg" alt="Melancholic Poet" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Melancholic Poet</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/mica-reader-of-ruins.jpg" alt="Mica, Reader of Ruins" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Mica, Reader of Ruins</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/mind-roots.jpg" alt="Mind Roots" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Mind Roots</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/mindful-biomancer.jpg" alt="Mindful Biomancer" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Mindful Biomancer</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/molten-note.jpg" alt="Molten Note" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Molten Note</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/mountain.jpg" alt="Mountain" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Mountain</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/muse-seeker.jpg" alt="Muse Seeker" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Muse Seeker</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/muses-encouragement.jpg" alt="Muse's Encouragement" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Muse's Encouragement</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/noxious-newt.jpg" alt="Noxious Newt" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Noxious Newt</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/old-growth-educator.jpg" alt="Old-Growth Educator" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Old-Growth Educator</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/oracles-restoration.jpg" alt="Oracle's Restoration" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Oracle's Restoration</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/orysa-tide-choreographer.jpg" alt="Orysa, Tide Choreographer" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Orysa, Tide Choreographer</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/owlin-historian.jpg" alt="Owlin Historian" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Owlin Historian</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/page-loose-leaf.jpg" alt="Page, Loose Leaf" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Page, Loose Leaf</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/paradox-gardens.jpg" alt="Paradox Gardens" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Paradox Gardens</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/paradox-surveyor.jpg" alt="Paradox Surveyor" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Paradox Surveyor</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/pest-mascot.jpg" alt="Pest Mascot" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Pest Mascot</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/pestbrood-sloth.jpg" alt="Pestbrood Sloth" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Pestbrood Sloth</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/pigment-wrangler-striking-palette.jpg" alt="Pigment Wrangler // Striking Palette" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Pigment Wrangler // Striking Palette</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/plains.jpg" alt="Plains" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Plains</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/poisoners-apprentice.jpg" alt="Poisoner's Apprentice" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Poisoner's Apprentice</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/potioners-trove.jpg" alt="Potioner's Trove" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Potioner's Trove</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/practiced-scrollsmith.jpg" alt="Practiced Scrollsmith" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Practiced Scrollsmith</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/primary-research.jpg" alt="Primary Research" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Primary Research</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/prismari-charm.jpg" alt="Prismari Charm" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Prismari Charm</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/procrastinate.jpg" alt="Procrastinate" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Procrastinate</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/proctors-gaze.jpg" alt="Proctor's Gaze" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Proctor's Gaze</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/pterafractyl.jpg" alt="Pterafractyl" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Pterafractyl</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/pull-from-the-grave.jpg" alt="Pull from the Grave" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Pull from the Grave</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/pursue-the-past.jpg" alt="Pursue the Past" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Pursue the Past</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/quandrix-charm.jpg" alt="Quandrix Charm" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Quandrix Charm</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/quick-study.jpg" alt="Quick Study" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Quick Study</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/quill-blade-laureate-twofold-intent.jpg" alt="Quill-Blade Laureate // Twofold Intent" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Quill-Blade Laureate // Twofold Intent</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/rabid-attack.jpg" alt="Rabid Attack" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Rabid Attack</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/rancorous-archaic.jpg" alt="Rancorous Archaic" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Rancorous Archaic</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/rapier-wit.jpg" alt="Rapier Wit" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Rapier Wit</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/rapturous-moment.jpg" alt="Rapturous Moment" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Rapturous Moment</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/rearing-embermare.jpg" alt="Rearing Embermare" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Rearing Embermare</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/rehearsed-debater.jpg" alt="Rehearsed Debater" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Rehearsed Debater</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/render-speechless.jpg" alt="Render Speechless" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Render Speechless</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/root-manipulation.jpg" alt="Root Manipulation" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Root Manipulation</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/rubble-rouser.jpg" alt="Rubble Rouser" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Rubble Rouser</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/run-behind.jpg" alt="Run Behind" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Run Behind</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/sanar-unfinished-genius-wild-idea.jpg" alt="Sanar, Unfinished Genius // Wild Idea" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Sanar, Unfinished Genius // Wild Idea</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/scathing-shadelock-venomous-words.jpg" alt="Scathing Shadelock // Venomous Words" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Scathing Shadelock // Venomous Words</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/scolding-administrator.jpg" alt="Scolding Administrator" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Scolding Administrator</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/seize-the-spoils.jpg" alt="Seize the Spoils" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Seize the Spoils</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/send-in-the-pest.jpg" alt="Send in the Pest" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Send in the Pest</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/shattered-acolyte.jpg" alt="Shattered Acolyte" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Shattered Acolyte</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/shopkeepers-bane.jpg" alt="Shopkeeper's Bane" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Shopkeeper's Bane</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/silverquill-charm.jpg" alt="Silverquill Charm" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Silverquill Charm</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/skycoach-waypoint.jpg" alt="Skycoach Waypoint" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Skycoach Waypoint</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/snarl-song.jpg" alt="Snarl Song" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Snarl Song</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/sneering-shadewriter.jpg" alt="Sneering Shadewriter" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Sneering Shadewriter</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/snooping-page.jpg" alt="Snooping Page" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Snooping Page</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/soaring-stoneglider.jpg" alt="Soaring Stoneglider" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Soaring Stoneglider</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/social-snub.jpg" alt="Social Snub" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Social Snub</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/spectacle-summit.jpg" alt="Spectacle Summit" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Spectacle Summit</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/spectacular-skywhale.jpg" alt="Spectacular Skywhale" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Spectacular Skywhale</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/spellbook-seeker-careful-study.jpg" alt="Spellbook Seeker // Careful Study" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Spellbook Seeker // Careful Study</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/spirit-mascot.jpg" alt="Spirit Mascot" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Spirit Mascot</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/spiritcall-enthusiast-scrollboost.jpg" alt="Spiritcall Enthusiast // Scrollboost" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Spiritcall Enthusiast // Scrollboost</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/stadium-tidalmage.jpg" alt="Stadium Tidalmage" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Stadium Tidalmage</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/stand-up-for-yourself.jpg" alt="Stand Up for Yourself" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Stand Up for Yourself</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/startled-relic-sloth.jpg" alt="Startled Relic Sloth" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Startled Relic Sloth</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/stirring-honormancer.jpg" alt="Stirring Honormancer" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Stirring Honormancer</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/stone-docent.jpg" alt="Stone Docent" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Stone Docent</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/stress-dream.jpg" alt="Stress Dream" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Stress Dream</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/strife-scholar-awaken-the-ages.jpg" alt="Strife Scholar // Awaken the Ages" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Strife Scholar // Awaken the Ages</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/strixhaven-skycoach.jpg" alt="Strixhaven Skycoach" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Strixhaven Skycoach</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/studious-first-year-rampant-growth.jpg" alt="Studious First-Year // Rampant Growth" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Studious First-Year // Rampant Growth</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/summoned-dromedary.jpg" alt="Summoned Dromedary" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Summoned Dromedary</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/sundering-archaic.jpg" alt="Sundering Archaic" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Sundering Archaic</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/swamp.jpg" alt="Swamp" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Swamp</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/tablet-of-discovery.jpg" alt="Tablet of Discovery" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Tablet of Discovery</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/tackle-artist.jpg" alt="Tackle Artist" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Tackle Artist</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/tam-observant-sequencer-deep-sight.jpg" alt="Tam, Observant Sequencer // Deep Sight" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Tam, Observant Sequencer // Deep Sight</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/teachers-pest.jpg" alt="Teacher's Pest" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Teacher's Pest</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/tenured-concocter.jpg" alt="Tenured Concocter" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Tenured Concocter</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/terramorphic-expanse.jpg" alt="Terramorphic Expanse" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Terramorphic Expanse</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/tester-of-the-tangential.jpg" alt="Tester of the Tangential" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Tester of the Tangential</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/textbook-tabulator.jpg" alt="Textbook Tabulator" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Textbook Tabulator</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/thornfist-striker.jpg" alt="Thornfist Striker" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Thornfist Striker</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/thunderdrum-soloist.jpg" alt="Thunderdrum Soloist" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Thunderdrum Soloist</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/titans-grave.jpg" alt="Titan's Grave" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Titan's Grave</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/tome-blast.jpg" alt="Tome Blast" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Tome Blast</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/topiary-lecturer.jpg" alt="Topiary Lecturer" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Topiary Lecturer</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/transcendent-archaic.jpg" alt="Transcendent Archaic" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Transcendent Archaic</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/ulna-alley-shopkeep.jpg" alt="Ulna Alley Shopkeep" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Ulna Alley Shopkeep</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/unsubtle-mockery.jpg" alt="Unsubtle Mockery" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Unsubtle Mockery</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/vibrant-outburst.jpg" alt="Vibrant Outburst" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Vibrant Outburst</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/visionarys-dance.jpg" alt="Visionary's Dance" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Visionary's Dance</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/wander-off.jpg" alt="Wander Off" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Wander Off</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/wild-hypothesis.jpg" alt="Wild Hypothesis" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Wild Hypothesis</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/wilt-in-the-heat.jpg" alt="Wilt in the Heat" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Wilt in the Heat</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/witherbloom-charm.jpg" alt="Witherbloom Charm" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Witherbloom Charm</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/zealous-lorecaster.jpg" alt="Zealous Lorecaster" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Zealous Lorecaster</div>
+            </div>
+            <div class="card-item">
+                <div class="card-img-wrapper">
+                    <img src="../images/cards/zimones-experiment.jpg" alt="Zimone's Experiment" class="card-img" loading="lazy">
+                </div>
+                <div class="card-name">Zimone's Experiment</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

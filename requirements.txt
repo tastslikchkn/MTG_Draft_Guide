@@ -1,0 +1,7 @@
+# MTG Draft Guide - Python Dependencies
+# Install with: pip install -r requirements.txt
+
+python-dotenv>=1.0.0
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=5.0.0  # Optional: faster HTML parser for BeautifulSoup

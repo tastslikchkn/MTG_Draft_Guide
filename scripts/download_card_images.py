@@ -1,238 +1,120 @@
 #!/usr/bin/env python3
 """
-Card Image Downloader for Strixhaven Draft Guide
-Downloads all unique card images from Scryfall and caches them locally.
-Handles rate limiting (1 req/sec) and creates fallback-friendly structure.
+Download all card images for offline reliability.
+Simple approach: extract names from HTML, fetch via Scryfall API, cache locally.
 """
-
+import json
 import re
 import time
-import urllib.request
-import urllib.error
 from pathlib import Path
-from html.parser import HTMLParser
+from urllib.parse import quote
+import requests
 
-
-class CardNameExtractor(HTMLParser):
-    """Extract all unique card names from the HTML file."""
+def extract_cards_from_html(html_path: Path) -> list[str]:
+    """Extract all unique card names from HTML file."""
+    with open(html_path, 'r', encoding='utf-8') as f:
+        content = f.read()
     
-    def __init__(self):
-        super().__init__()
-        self.card_names = set()
-        self.current_name = []
-        self.in_card_name = False
-        
-    def handle_starttag(self, tag, attrs):
-        if tag == 'div' and any('card-name' in str(attr) for attr in attrs):
-            self.in_card_name = True
-            self.current_name = []
-            
-    def handle_endtag(self, tag):
-        if tag == 'div' and self.in_card_name:
-            card_name = ''.join(self.current_name).strip()
-            # Remove color badges and tags from name
-            card_name = re.sub(r'<[^>]+>', '', card_name)
-            card_name = re.sub(r'\s+', ' ', card_name).strip()
-            # Remove CT, MF, MV, CS suffixes for cleaner filenames
-            card_name = re.sub(r'\s*\(CT\)\s*$', '', card_name)
-            card_name = re.sub(r'\s*\(MF\)\s*$', '', card_name)
-            card_name = re.sub(r'\s*\(MV\)\s*$', '', card_name)
-            card_name = re.sub(r'\s*\(CS\)\s*$', '', card_name)
-            if card_name and len(card_name) > 1:
-                self.card_names.add(card_name)
-            self.in_card_name = False
-            
-    def handle_data(self, data):
-        if self.in_card_name:
-            self.current_name.append(data)
+    # Match alt attributes in img tags
+    pattern = r'<img[^>]+alt="([^"]+)"'
+    matches = re.findall(pattern, content)
+    return sorted(set(matches))
 
-
-def sanitize_filename(name):
-    """Convert card name to safe filename."""
-    # Replace spaces with underscores
-    filename = name.replace(' ', '_')
-    # Remove/replace special characters
-    filename = re.sub(r'[^a-zA-Z0-9_]', '', filename)
-    return filename
-
-
-def download_card_image(card_name, output_dir):
+def download_card_image(card_name: str) -> bool:
     """
     Download a single card image from Scryfall.
-    Returns True on success, False on failure.
+    Returns True on success.
     """
-    # Scryfall API URL for card images
-    url = f"https://api.scryfall.com/cards/named?fuzzy={urllib.parse.quote(card_name)}&format=normal"
-    
-    filename = sanitize_filename(card_name) + ".png"
-    filepath = output_dir / filename
-    
+    # Query Scryfall API
+    url = f"https://api.scryfall.com/cards/named?fuzzy={quote(card_name)}"
     try:
-        print(f"  Downloading: {card_name}...")
-        urllib.request.urlretrieve(url, filepath)
-        
-        # Verify file was downloaded and is valid
-        if filepath.stat().st_size > 0:
-            print(f"    ✓ Saved: {filename} ({filepath.stat().st_size / 1024:.1f} KB)")
-            return True
-        else:
-            print(f"    ✗ Empty file for {card_name}")
+        response = requests.get(url, timeout=10)
+        if response.status_code != 200:
+            print(f"  ⚠️  HTTP {response.status_code} for: {card_name}")
             return False
-            
-    except urllib.error.HTTPError as e:
-        if e.code == 404:
-            print(f"    ✗ Not found: {card_name} (404)")
-        else:
-            print(f"    ✗ HTTP Error {e.code}: {card_name}")
-        return False
+        
+        data = response.json()
+        if data.get('object') == 'error':
+            print(f"  ⚠️  Card not found: {card_name}")
+            return False
+        
+        # Get image URL (try border_crop first, then normal)
+        image_uris = data.get('image_uris', {})
+        image_url = image_uris.get('border_crop') or image_uris.get('normal')
+        
+        if not image_url:
+            print(f"  ⚠️  No image for: {card_name}")
+            return False
+        
+        # Download the image
+        img_response = requests.get(image_url, timeout=30)
+        if img_response.status_code != 200:
+            print(f"  ⚠️  Image fetch failed for: {card_name}")
+            return False
+        
+        # Save to local file
+        safe_name = card_name.replace(' ', '_').replace('/', '_').replace(':', '_')
+        dest_path = images_dir / f"{safe_name}.jpg"
+        
+        with open(dest_path, 'wb') as f:
+            f.write(img_response.content)
+        
+        return True
+        
     except Exception as e:
-        print(f"    ✗ Error downloading {card_name}: {e}")
+        print(f"  ❌ Error for {card_name}: {e}")
         return False
-
 
 def main():
+    global images_dir
+    
     # Configuration
-    html_file = Path("./strixhaven-draft-guide.html")
-    output_dir = Path("./images/cards")
-    
-    print(f"📚 Strixhaven Draft Guide - Image Downloader")
-    print(f"=" * 50)
-    
-    # Check if HTML file exists
-    if not html_file.exists():
-        print(f"❌ Error: {html_file} not found!")
-        return
-    
-    # Extract unique card names from HTML
-    print(f"\n📖 Parsing {html_file} for card names...")
-    with open(html_file, 'r', encoding='utf-8') as f:
-        html_content = f.read()
-    
-    parser = CardNameExtractor()
-    parser.feed(html_content)
-    card_names = sorted(parser.card_names)
-    
-    print(f"   Found {len(card_names)} unique cards")
+    base_dir = Path('/home/dgetty/repos/MTG_Draft_Guide')
+    html_file = base_dir / 'html_json' / 'strixhaven-draft-guide.html'
+    images_dir = base_dir / 'images' / 'cards'
     
     # Create output directory
-    output_dir.mkdir(parents=True, exist_ok=True)
-    print(f"   Output directory: {output_dir}")
+    images_dir.mkdir(parents=True, exist_ok=True)
     
-    # Download each card with rate limiting
-    print(f"\n⬇️  Starting downloads (1 req/sec for rate limiting)...")
-    print("-" * 50)
+    # Extract card names from HTML
+    print("📖 Reading HTML file...")
+    card_names = extract_cards_from_html(html_file)
+    print(f"   Found {len(card_names)} unique cards\n")
     
+    # Download images with rate limiting (Scryfall: 1 req/sec recommended)
+    print("📥 Downloading images...\n")
     success_count = 0
     failed_cards = []
     
     for i, card_name in enumerate(card_names, 1):
-        print(f"[{i}/{len(card_names)}] {card_name}")
+        status = f"[{i}/{len(card_names)}] {card_name}"
+        print(f"   {status}", end="\r")
         
-        if download_card_image(card_name, output_dir):
+        if download_card_image(card_name):
             success_count += 1
         else:
             failed_cards.append(card_name)
         
-        # Rate limiting - wait 1 second between requests
+        # Rate limiting - stay under Scryfall's limit
         time.sleep(1.0)
     
-    # Summary
-    print(f"\n" + "=" * 50)
-    print(f"📊 DOWNLOAD COMPLETE")
-    print(f"   Total cards:     {len(card_names)}")
-    print(f"   Successfully:    {success_count}")
-    print(f"   Failed:          {len(failed_cards)}")
-    
+    print(f"\r   ✓ Download complete!                    ")
+    print(f"\n✅ Results:")
+    print(f"   Success: {success_count}/{len(card_names)} cards")
     if failed_cards:
-        print(f"\n❌ Failed cards:")
-        for card in failed_cards:
-            print(f"   - {card}")
+        print(f"   Failed:  {len(failed_cards)} cards")
+        for card in failed_cards[:10]:
+            print(f"      - {card}")
+        if len(failed_cards) > 10:
+            print(f"      ... and {len(failed_cards) - 10} more")
     
-    # Calculate total size
-    total_size = sum(f.stat().st_size for f in output_dir.glob("*.png"))
-    print(f"\n💾 Total cache size: {total_size / 1024 / 1024:.2f} MB")
-    
-    # Update HTML to use local images
-    print(f"\n🔄 Updating HTML to reference local images...")
-    update_html_to_use_local(html_file, card_names)
-    print(f"   ✓ HTML updated!")
-
-
-def update_html_to_use_local(html_file, card_names):
-    """
-    Update the HTML file to use local cached images as primary source.
-    Modifies the JavaScript fallback chain to check local files first.
-    """
-    with open(html_file, 'r', encoding='utf-8') as f:
-        html_content = f.read()
-    
-    # Find and replace the image error handler to include local path
-    old_onerror = 'img.onerror = function() {'
-    new_onerror = '''img.onerror = function() {
-                // Try local cached image first!
-                const cardName = this.alt || '';
-                const localPath = './images/cards/' + cardName.replace(/\s+/g, '_') + '.png';
-                console.log(`Trying local cache: ${localPath}`);
-                this.src = localPath;
-                return; // Don't continue to other fallbacks
-            };
-            // Original Scryfall error handler below:
-            const originalErrorHandler = '''
-    
-    # This is a simplified approach - just add local path to fallback chain
-    # Find the fallbacks array and add local path as first option
-    old_fallbacks = "const fallbacks = [" 
-    new_fallbacks = '''// Try local cached image FIRST!
-                const cardName = this.alt || '';
-                const localPath = './images/cards/' + cardName.replace(/\s+/g, '_') + '.png';
-                console.log(`Trying local cache: ${localPath}`);
-                this.src = localPath;
-                return; // Stop here - don't try other fallbacks
-            };
-            // If we get here, original Scryfall load failed:
-            const originalErrorHandler = '''
-    
-    # Actually, let's do a simpler replacement - modify the onerror completely
-    # Find the entire image setup script and replace it
-    old_script_start = "document.querySelectorAll('.card-image').forEach(img => {"
-    new_script_start = '''// Enhanced image loading with LOCAL cache priority!
-document.querySelectorAll('.card-image').forEach(img => {
-            // Extract card name from alt attribute or adjacent text
-            const cardName = img.alt || '';
-            
-            // Convert to local path format
-            const localPath = './images/cards/' + cardName.replace(/\s+/g, '_') + '.png';
-            
-            // Check if local file exists by attempting to load it
-            const testImg = new Image();
-            testImg.onload = function() {
-                console.log(`Using local cache: ${localPath}`);
-                img.src = localPath;
-                img.style.opacity = '1';
-            };
-            testImg.onerror = function() {
-                // Local doesn't exist, use original Scryfall URL
-                console.log(`Local not found, using Scryfall: ${cardName}`);
-                // Keep original Scryfall URL
-                img.style.opacity = '0';
-            };
-            testImg.src = localPath;
-            
-            // Fallback if Scryfall also fails
-            img.onerror = function() {'''
-    
-    # This is getting complex - let's just patch the fallback chain instead
-    # Simple approach: add local path as first fallback option
-    html_content = html_content.replace(
-        "const fallbacks = [",
-        "const fallbacks = [" +
-        "                    './images/cards/' + cardName.replace(/\\s+/g, '_') + '.png', // LOCAL CACHE FIRST!"
+    # Summary
+    total_size = sum(
+        f.stat().st_size 
+        for f in images_dir.glob('*.jpg')
     )
-    
-    with open(html_file, 'w', encoding='utf-8') as f:
-        f.write(html_content)
+    print(f"\n📁 Images saved to: {images_dir}")
+    print(f"   Total size: {total_size / 1024:.1f} KB")
 
-
-if __name__ == "__main__":
-    import urllib.parse  # Import here to avoid issues
+if __name__ == '__main__':
     main()

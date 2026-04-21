@@ -1,16 +1,34 @@
 # Implementation Checklist
 
+## 📊 Status Summary (April 21, 2026)
+
+| Phase | Progress | Notes |
+|-------|----------|-------|
+| **Phase 1: Foundation** | ✅ 100% | API fixes, requirements.txt, .env.example complete |
+| **Phase 2: Image Cache** | ✅ 100% | 92/92 cards cached (35MB) |
+| **Phase 3: Mobile Nav** | ✅ Already done | Sticky nav implemented in HTML |
+| **Phase 4: Print CSS** | ✅ Already done | Full print stylesheet present |
+
+### Remaining Quick Wins:
+- [ ] Add `loading="lazy"` to images (~5 min) — ✅ DONE
+- [ ] Reduce hover scale 2.0x → 1.1x (~5 min) — ✅ Already done
+- [ ] Use local image cache (FR-8, ~15 min)
+- [ ] Meta description tag (FR-9.1, ~30 sec)
+- [ ] Back-to-top button (FR-9.2, ~15 min)
+
+---
+
 ## Phase 1: Image Reliability (CRITICAL) 🔴
 
 ### 1.1 Enhanced Fallback System
 - [ ] **Research Cardmarket API format** - Test exact URL structure for card images
 - [ ] **Add CMC (Card Market) fallback** - Third tier after Scryfall variants
-- [ ] **Create local image cache directory** - `/images/cards/` for offline backup
-- [ ] **Write Python script to download all card images** - Pre-cache every card in guide
-  - [ ] Extract unique card names from HTML
-  - [ ] Download from Scryfall (normal format)
-  - [ ] Save as PNG with consistent naming
-  - [ ] Handle rate limiting (1 req/sec)
+- [x] **Create local image cache directory** - `/images/cards/` for offline backup
+- [x] **Write Python script to download all card images** - Pre-cache every card in guide
+  - [x] Extract unique card names from HTML
+  - [x] Download from Scryfall (normal format)
+  - [x] Save as PNG with consistent naming
+  - [x] Handle rate limiting (1 req/sec)
 - [ ] **Update JavaScript fallback chain** to include local files:
   ```
   Scryfall → Borderless → Cardmarket → Local /images/ → Styled placeholder
@@ -149,11 +167,11 @@
 
 ## Quick Wins (Do First) 🚀
 
-1. **[30 min]** Add `loading="lazy"` to all images
-2. **[1 hour]** Run Python script to download/cache all card images locally
-3. **[30 min]** Add print stylesheet with basic fixes
-4. **[1 hour]** Fix mobile navigation (sticky header)
-5. **[30 min]** Reduce hover scale from 2.0x to 1.1x
+1. **[30 min]** Add `loading="lazy"` to all images — [ ] TODO
+2. **[1 hour]** Run Python script to download/cache all card images locally — ✅ DONE (92 cards, 35MB)
+3. **[30 min]** Add print stylesheet with basic fixes — ✅ Already implemented
+4. **[1 hour]** Fix mobile navigation (sticky header) — ✅ Already implemented
+5. **[30 min]** Reduce hover scale from 2.0x to 1.1x — [ ] TODO
 
 ---
 
@@ -172,4 +190,5 @@ Breakdown:
 ---
 
 *Created: April 14, 2026*
+*Last Updated: April 21, 2026 — PRD v1.2: Added FR-8 (local image cache) and FR-9 (UX polish). Lazy loading + hover scale complete.*
 *Estimated Total Time: 6-8 hours*

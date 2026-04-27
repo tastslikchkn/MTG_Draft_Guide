@@ -176,6 +176,150 @@ def get_gallery_html_template() -> str:
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         
+        .value-badge {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        /* Tooltip Styles */
+        .card-item[data-tooltip] {
+            position: relative;
+        }
+        
+        .card-item[data-tooltip]:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.95);
+            color: #fff;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            line-height: 1.4;
+            max-width: 320px;
+            width: max-content;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            margin-bottom: 8px;
+            font-family: 'Monaco', 'Menlo', monospace;
+        }
+        
+        .card-item[data-tooltip]:hover::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 8px solid transparent;
+            border-top-color: rgba(0, 0, 0, 0.95);
+            margin-bottom: -16px;
+            z-index: 999;
+        }
+        
+        /* Combo Section Styles */
+        .combo-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .combo-title {
+            font-size: 1.3rem;
+            color: #ffd700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .combo-grid {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .combo-group {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px;
+            border-radius: 8px;
+        }
+        
+        .combo-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            margin-bottom: 8px;
+            transition: transform 0.2s;
+        }
+        
+        .combo-item:hover {
+            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .combo-card-img {
+            width: 40px;
+            height: 63px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        
+        .combo-placeholder {
+            width: 40px;
+            height: 63px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            font-size: 1.5rem;
+        }
+        
+        .combo-plus {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .combo-text {
+            flex: 1;
+            color: #fff;
+            font-size: 0.85rem;
+            padding-left: 10px;
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Combo tooltip on hover */
+        .combo-item[data-tooltip]:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.95);
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            max-width: 280px;
+            z-index: 1000;
+            margin-bottom: 8px;
+        }
+        
         @media (max-width: 768px) {
             .card-grid {
                 grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -275,6 +419,18 @@ def generate_card_item_html(
     image_path = card.get('image_path', '')
     mana_cost = card.get('mana_cost', '')
     rarity = card.get('rarity', 'common')
+    cmc = card.get('cmc', 0)
+    power = card.get('power', '-')
+    toughness = card.get('toughness', '-')
+    oracle_text = card.get('oracle_text', '')
+    
+    # Value evaluation fields
+    value_score = card.get('value_score', 0)
+    value_category = card.get('value_category', 'MARGINAL')
+    power_level = card.get('power_level', 0)
+    is_bomb = card.get('is_bomb', False)
+    bomb_reason = card.get('bomb_reason', '')
+    combos = card.get('combos', [])  # List of combo dicts
     
     # Generate rarity badge
     rarity_letter = get_rarity_letter(rarity)
@@ -286,6 +442,23 @@ def generate_card_item_html(
             {rarity_letter}
         </div>'''
     
+    # Generate value category badge
+    value_badges = {
+        'BOMB': ('#ff4444', '💣'),
+        'HIDDEN_GEM': ('#ffd700', '🔍'),
+        'STAPLE': ('#4caf50', '📚'),
+        'SOLID': ('#8bc34a', ''),
+        'FAIR': ('#cddc39', ''),
+        'FLOP': ('#e91e63', '⚠️'),
+        'JUNK': ('#757575', '')
+    }
+    value_badge_html = ''
+    if value_category in ['BOMB', 'HIDDEN_GEM', 'STAPLE']:
+        badge_color, badge_icon = value_badges.get(value_category, ('#999', ''))
+        value_badge_html = f'''<div class="value-badge" style="background: {badge_color};">
+            {badge_icon}
+        </div>'''
+    
     # Generate price HTML
     price_html = ''
     if show_price:
@@ -293,11 +466,52 @@ def generate_card_item_html(
         if avg_price:
             price_html = f'<div class="card-price">${avg_price:.2f}</div>'
     
-    # Build card HTML
+    # Generate tooltip content with value formula
+    expected_max_by_rarity = {
+        'common': 0.5,
+        'uncommon': 1.2,
+        'rare': 2.0,
+        'mythic': 3.0
+    }
+    expected_max = expected_max_by_rarity.get(rarity.lower(), 0.5)
+    
+    # Build value formula tooltip
+    pt_info = f"{power}/{toughness}" if power != '-' else ''
+    keyword_bonus = card.get('keyword_bonus', 0)
+    
+    tooltip_content = f"Value Formula:<br>"
+    tooltip_content += f"Power Level = ({pt_info}) - (2 × {cmc}) + Keywords({keyword_bonus:.2f})<br>"
+    tooltip_content += f"         = {power_level:.2f}<br><br>"
+    tooltip_content += f"Value Score = Power Level - Expected Max<br>"
+    tooltip_content += f"           = {power_level:.2f} - ({rarity}: {expected_max})<br>"
+    tooltip_content += f"           = <strong>{value_score:.2f}</strong><br><br>"
+    
+    if is_bomb:
+        tooltip_content += f"<span style='color:#ff4444'>💣 BOMB: {bomb_reason.replace('_', ' ').title()}</span>"
+    elif value_category == 'HIDDEN_GEM':
+        tooltip_content += f"<span style='color:#ffd700'>🔍 HIDDEN GEM: Exceeds rarity expectations!</span>"
+    
+    # Add combo info to tooltip
+    if combos:
+        tooltip_content += "<br><br><strong>🔗 Combos:</strong><br>"
+        for combo in combos[:3]:  # Show top 3 combos
+            combo_text = combo.get('text', '')
+            combo_cards = combo.get('with', [])
+            if isinstance(combo_cards, list):
+                combo_cards_str = ', '.join(str(c) for c in combo_cards[:2])
+            else:
+                combo_cards_str = str(combo_cards)
+            tooltip_content += f"• <em>{combo_text}</em> with {combo_cards_str}<br>"
+    
+    # Build card HTML with data-tooltip attribute
+    # Escape quotes in tooltip content for HTML attribute
+    safe_tooltip = tooltip_content.replace('"', '&quot;').replace('<', '&lt;').replace('>', '&gt;')
+    
     html = f'''
-        <div class="card-item">
+        <div class="card-item" data-value-score="{value_score}" data-value-category="{value_category}" data-tooltip="{safe_tooltip}">
             <div class="card-image-container">
                 {rarity_badge_html}
+                {value_badge_html}
                 {'<img src="' + image_path + '" class="card-image" alt="' + name + '">' if image_path else '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>'}
             </div>
             <div class="card-info">
@@ -360,13 +574,16 @@ def generate_rarity_group_html(
     color = get_rarity_color(rarity)
     display_name = rarity.capitalize()
     
+    # Sort by value_score (descending) - highest value cards first!
+    sorted_cards = sorted(cards, key=lambda c: c.get('value_score', 0), reverse=True)
+    
     return f'''
     <div class="rarity-group">
         <div class="rarity-title">
             <span class="rarity-dot" style="background: {color};"></span>
-            <span>{display_name} ({len(cards)})</span>
+            <span>{display_name} ({len(cards)}) - Sorted by Value</span>
         </div>
-        {generate_card_grid_html(cards, show_price=show_price)}
+        {generate_card_grid_html(sorted_cards, show_price=show_price)}
     </div>
 '''
 
@@ -492,3 +709,114 @@ def save_gallery_html(html: str, output_path: Path) -> None:
     
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(html)
+
+
+def generate_combo_section_html(
+    archetype_name: str,
+    combos: list[dict],
+    cards_data: dict[str, dict] = None
+) -> str:
+    """
+    Generate HTML for a combo section at the bottom of an archetype.
+    
+    Args:
+        archetype_name: Name of the archetype (e.g., 'Azorius Control')
+        combos: List of combo dictionaries with keys:
+            - 'card1': First card name
+            - 'card2': Second card name  
+            - 'text': Combo description
+            - 'synergy_type': Type of synergy
+        cards_data: Optional dict mapping card names to full card data (for images)
+        
+    Returns:
+        HTML string for combo section div
+    """
+    if not combos:
+        return ''
+    
+    # Group combos by synergy type
+    from collections import defaultdict
+    combos_by_type = defaultdict(list)
+    for combo in combos:
+        synergy_type = combo.get('synergy_type', 'general').replace('_', ' ').title()
+        combos_by_type[synergy_type].append(combo)
+    
+    html_parts = [
+        '<div class="combo-section">',
+        f'    <h3 class="combo-title">🔗 {archetype_name} Combos</h3>',
+        '    <div class="combo-grid">'
+    ]
+    
+    for synergy_type, type_combos in combos_by_type.items():
+        html_parts.append(f'        <div class="combo-group"><strong>{synergy_type}</strong>:')
+        
+        for combo in type_combos[:3]:  # Limit to top 3 per type
+            card1 = combo.get('card1', '')
+            card2 = combo.get('card2', '')
+            text = combo.get('text', '')
+            
+            # Get images if available
+            img1 = ''
+            img2 = ''
+            if cards_data:
+                if card1 in cards_data and cards_data[card1].get('image_path'):
+                    img1 = f'<img src="{cards_data[card1]["image_path"]}" class="combo-card-img">'
+                if card2 in cards_data and cards_data[card2].get('image_path'):
+                    img2 = f'<img src="{cards_data[card2]["image_path"]}" class="combo-card-img">'
+            
+            html_parts.append(f'''
+            <div class="combo-item" data-tooltip="{text}">
+                {img1 if img1 else '<span class="combo-placeholder">🃏</span>'}
+                <span class="combo-plus">+</span>
+                {img2 if img2 else '<span class="combo-placeholder">🃏</span>'}
+                <span class="combo-text">{text}</span>
+            </div>''')
+        
+        html_parts.append('        </div>')
+    
+    html_parts.extend([
+        '    </div>',
+        '</div>'
+    ])
+    
+    return '\n'.join(html_parts)
+
+
+def generate_archetype_section_html(
+    archetype_name: str,
+    cards: list[dict],
+    combos: list[dict] = None,
+    background_color: str = '#1a1a2e'
+) -> str:
+    """
+    Generate complete HTML for an archetype section with cards and combo area.
+    
+    Args:
+        archetype_name: Name of the archetype
+        cards: List of card dictionaries in this archetype
+        combos: Optional list of combos for this archetype
+        background_color: Background color for the section
+        
+    Returns:
+        Complete HTML string for archetype section
+    """
+    html_parts = [
+        f'<div class="archetype-section" style="background: {background_color};">',
+        f'    <h2 class="archetype-title">{archetype_name}</h2>',
+        '    <div class="archetype-card-grid">'
+    ]
+    
+    # Add cards sorted by value
+    sorted_cards = sorted(cards, key=lambda c: c.get('value_score', 0), reverse=True)
+    for card in sorted_cards:
+        html_parts.append(generate_card_item_html(card))
+    
+    html_parts.append('    </div>')
+    
+    # Add combo section if combos exist
+    if combos:
+        html_parts.append(generate_combo_section_html(archetype_name, combos))
+    
+    html_parts.append('</div>')
+    
+    return '\n'.join(html_parts)

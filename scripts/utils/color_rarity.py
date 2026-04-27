@@ -3,12 +3,7 @@ Color group determination and rarity ordering utilities.
 Centralized logic for categorizing MTG cards by color and rarity.
 """
 
-from typing import List, Dict, Any, Tuple
-
-
-# ============================================================================
-# COLOR CONSTANTS AND MAPPINGS
-# ============================================================================
+from typing import Any
 
 # Color letter to name mapping
 COLOR_NAMES = {
@@ -115,7 +110,7 @@ RARITY_INFO = {
 # COLOR GROUP DETERMINATION FUNCTIONS
 # ============================================================================
 
-def get_color_group(colors: List[str]) -> str:
+def get_color_group(colors: list[str]) -> str:
     """
     Determine color group from actual card colors.
     
@@ -150,7 +145,7 @@ def get_color_group(colors: List[str]) -> str:
 
 
 def get_color_group_for_card(
-    card_data: Dict[str, Any]
+    card_data: dict[str, Any]
 ) -> str:
     """
     Determine color group from full card data dict.
@@ -266,8 +261,8 @@ def get_rarity_sort_key(rarity: str) -> int:
 # ============================================================================
 
 def sort_cards_by_color_then_rarity(
-    cards: List[Dict[str, Any]]
-) -> List[Dict[str, Any]]:
+    cards: list[dict[str, Any]]
+) -> list[dict[str, Any]]:
     """
     Sort cards by color group order, then rarity, then name.
     
@@ -292,8 +287,8 @@ def sort_cards_by_color_then_rarity(
 
 
 def group_cards_by_color(
-    cards: List[Dict[str, Any]]
-) -> Dict[str, List[Dict[str, Any]]]:
+    cards: list[dict[str, Any]]
+) -> dict[str, list[dict[str, Any]]]:
     """
     Group cards into color categories.
     
@@ -315,8 +310,8 @@ def group_cards_by_color(
 
 
 def group_cards_by_rarity(
-    cards: List[Dict[str, Any]]
-) -> Dict[str, List[Dict[str, Any]]]:
+    cards: list[dict[str, Any]]
+) -> dict[str, list[dict[str, Any]]]:
     """
     Group cards into rarity categories.
     
@@ -344,28 +339,26 @@ def group_cards_by_rarity(
 
 
 # ============================================================================
-# PRICE FUNCTIONS (for gallery display)
+# PRICE FUNCTIONS (Unified - uses api.get_avg_price_from_cache)
 # ============================================================================
 
-def get_avg_price_7d(prices: Dict[str, Any]) -> float | None:
+from .api import get_avg_price_from_cache as _get_avg_price_internal
+
+def get_avg_price_7d(prices: dict[str, Any]) -> float | None:
     """
     Get average price over 7 days from prices dict.
     
+    DEPRECATED: Use api.get_avg_price_from_cache(card_data) instead for full functionality.
+    This wrapper kept for backward compatibility with existing code passing just 'prices' dict.
+    
     Args:
-        prices: Dictionary with 'usd' key containing price
+        prices: Dictionary with price data (either nested JustTCG or flat USD format)
         
     Returns:
         Average USD price or None if not available
     """
-    if not prices:
-        return None
-    usd_price = prices.get('usd')
-    if usd_price is not None:
-        try:
-            return float(usd_price)
-        except (ValueError, TypeError):
-            pass
-    return None
+    # Wrap prices in card_data structure for unified handler
+    return _get_avg_price_internal({'prices': prices})
 
 
 def format_price(price: float | None) -> str:

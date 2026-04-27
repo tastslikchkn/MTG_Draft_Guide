@@ -1,0 +1,2090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTG Value Gallery</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #1a1a2e; min-height: 100vh; padding: 20px; color: white; }
+        .header { text-align: center; padding: 40px 20px; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .color-section { margin-bottom: 40px; padding: 20px; border-radius: 12px; background: rgba(255,255,255,0.05); }
+        .color-title { font-size: 1.5rem; margin-bottom: 20px; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+        .card-item { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.3); transition: transform 0.2s; position: relative; }
+        .card-item:hover { transform: translateY(-4px); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
+        .card-image-container { position: relative; padding-top: 157%; background: #f0f0f0; }
+        .card-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+        .card-info { padding: 8px; text-align: center; }
+        .card-name { font-size: 0.75rem; color: #333; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .rarity-badge { position: absolute; top: 5px; right: 5px; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: bold; color: white; }
+        .value-badge { position: absolute; top: 5px; left: 5px; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; }
+        .card-item[data-tooltip] { position: relative; }
+        .card-item[data-tooltip]:hover::after { content: attr(data-tooltip); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.95); color: #fff; padding: 12px 16px; border-radius: 8px; font-size: 0.7rem; line-height: 1.4; max-width: 320px; z-index: 1000; margin-bottom: 8px; font-family: monospace; white-space: pre-wrap; }
+        .card-item[data-tooltip]:hover::before { content: ''; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); border: 8px solid transparent; border-top-color: rgba(0,0,0,0.95); margin-bottom: -16px; z-index: 999; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎴 MTG Value Gallery</h1>
+        <p>Cards sorted by value score - hover for details!</p>
+    </div>
+    <div class="color-section">
+        <h2 class="color-title">Mono White</h2>
+        <div class="card-grid">
+<div class="card-item" data-value-score="1.3" data-value-category="BOMB" data-tooltip="Value Formula:&lt;br&gt;Power Level = (4/3) - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 2.50&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 2.50 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;1.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;span style='color:#ff4444'&gt;💣 BOMB: Raw Power&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide flying synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;• &lt;em&gt;Both provide flying synergy&lt;/em&gt; with Eager Glyphmage&lt;br&gt;• &lt;em&gt;Both provide flying synergy&lt;/em&gt; with Harsh Annotation&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                <div class="value-badge" style="background: #ff4444;">
+            💣
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Soaring Stoneglider</div>
+                <div class="card-mana-cost">{2}{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.9" data-value-category="BOMB" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 1.40&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.40 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.90&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;span style='color:#ff4444'&gt;💣 BOMB: Raw Power&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #ff4444;">
+            💣
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Dig Site Inventory</div>
+                <div class="card-mana-cost">{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.3" data-value-category="STAPLE" data-tooltip="Value Formula:&lt;br&gt;Power Level = (1/2) - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 0.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.80 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #4caf50;">
+            📚
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Elite Interceptor // Rejoinder</div>
+                <div class="card-mana-cost">{W} // {1}{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.3" data-value-category="STAPLE" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 0.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.80 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #4caf50;">
+            📚
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Interjection</div>
+                <div class="card-mana-cost">{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.1" data-value-category="SOLID" data-tooltip="Value Formula:&lt;br&gt;Power Level = (3/3) - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.60&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.60 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.10&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Rehearsed Debater</div>
+                <div class="card-mana-cost">{2}{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.1" data-value-category="SOLID" data-tooltip="Value Formula:&lt;br&gt;Power Level = (2/2) - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.60&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.60 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.10&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Together as One&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Shattered Acolyte</div>
+                <div class="card-mana-cost">{1}{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.05" data-value-category="SOLID" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 1.25&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.25 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;0.05&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide token synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide flying synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;• &lt;em&gt;Both provide token synergy&lt;/em&gt; with Eager Glyphmage&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Harsh Annotation</div>
+                <div class="card-mana-cost">{1}{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.1" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.40&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.40 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.10&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Erode&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Rapier Wit</div>
+                <div class="card-mana-cost">{1}{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.2" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 1.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.00 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.20&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Daydream</div>
+                <div class="card-mana-cost">{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.2" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 1.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.00 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.20&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Graduation Day</div>
+                <div class="card-mana-cost">{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.2" data-value-category="BOMB" data-tooltip="Value Formula:&lt;br&gt;Power Level = (2/2) - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 1.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.80 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;-0.20&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;span style='color:#ff4444'&gt;💣 BOMB: Efficient Threat&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide token synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide flying synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;• &lt;em&gt;Both provide token synergy&lt;/em&gt; with Eager Glyphmage&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                <div class="value-badge" style="background: #ff4444;">
+            💣
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Informed Inkwright</div>
+                <div class="card-mana-cost">{1}{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.34" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 5.0) + Keywords(0.00)&lt;br&gt;         = 0.16&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.16 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.34&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Ajani's Response</div>
+                <div class="card-mana-cost">{4}{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.5" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (3/1) - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.00 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.50&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Together as One&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Stone Docent</div>
+                <div class="card-mana-cost">{1}{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.7" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.50&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.50 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.70&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide token synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide token synergy&lt;/em&gt; with Eager Glyphmage&lt;br&gt;• &lt;em&gt;Both provide token synergy&lt;/em&gt; with Harsh Annotation&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Group Project</div>
+                <div class="card-mana-cost">{1}{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.7" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (2/3) - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = -0.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = -0.20 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.70&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Owlin Historian</div>
+                <div class="card-mana-cost">{2}{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.7" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 1.30&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.30 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;-0.70&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Practiced Offense</div>
+                <div class="card-mana-cost">{2}{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.8" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 1.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.20 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;-0.80&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Together as One&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Erode</div>
+                <div class="card-mana-cost">{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.87" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.33&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.33 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.87&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Stand Up for Yourself</div>
+                <div class="card-mana-cost">{2}{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-1.0" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 5.0) + Keywords(0.00)&lt;br&gt;         = 0.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.20 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-1.00&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Primary Research</div>
+                <div class="card-mana-cost">{4}{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-1.2" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (3/3) - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.00 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-1.20&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Spiritcall Enthusiast // Scrollboost</div>
+                <div class="card-mana-cost">{2}{W} // {1}{W}</div>
+                
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="color-section">
+        <h2 class="color-title">Mono Blue</h2>
+        <div class="card-grid">
+<div class="card-item" data-value-score="0.9" data-value-category="BOMB" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 1.40&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.40 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.90&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;span style='color:#ff4444'&gt;💣 BOMB: Raw Power&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #ff4444;">
+            💣
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Chase Inspiration</div>
+                <div class="card-mana-cost">{U}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.3" data-value-category="STAPLE" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 0.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.80 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #4caf50;">
+            📚
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Procrastinate</div>
+                <div class="card-mana-cost">{X}{U}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.26" data-value-category="STAPLE" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 5.0) + Keywords(0.00)&lt;br&gt;         = 0.76&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.76 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.26&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #4caf50;">
+            📚
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Muse's Encouragement</div>
+                <div class="card-mana-cost">{4}{U}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.1" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.40&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.40 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.10&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Banishing Betrayal</div>
+                <div class="card-mana-cost">{1}{U}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.1" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.40&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.40 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.10&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Essence Scatter</div>
+                <div class="card-mana-cost">{1}{U}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.2" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 1.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.00 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.20&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Divergent Equation</div>
+                <div class="card-mana-cost">{X}{X}{U}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.2" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 1.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.00 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.20&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide token synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Fractal Anomaly</div>
+                <div class="card-mana-cost">{U}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.2" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 1.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.00 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.20&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Fractalize</div>
+                <div class="card-mana-cost">{X}{U}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.23" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.27&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.27 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.23&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Erode&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Quick Study</div>
+                <div class="card-mana-cost">{2}{U}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.3" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 4.0) + Keywords(0.00)&lt;br&gt;         = 0.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.20 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide mill synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide mill synergy&lt;/em&gt; with Exhibition Tidecaller&lt;br&gt;• &lt;em&gt;Both provide mill synergy&lt;/em&gt; with Flow State&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Run Behind</div>
+                <div class="card-mana-cost">{3}{U}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.5" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (1/3) - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.00 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.50&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Hydro-Channeler</div>
+                <div class="card-mana-cost">{1}{U}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.7" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.50&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.50 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.70&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Flow State</div>
+                <div class="card-mana-cost">{1}{U}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.95" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 4.0) + Keywords(0.00)&lt;br&gt;         = 0.25&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.25 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.95&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Brush Off</div>
+                <div class="card-mana-cost">{2}{U}{U}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-1.03" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 6.0) + Keywords(0.00)&lt;br&gt;         = 0.17&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.17 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-1.03&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Erode&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Homesickness</div>
+                <div class="card-mana-cost">{4}{U}{U}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-1.3" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (2/1) - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = -0.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = -0.80 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-1.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Landscape Painter // Vibrant Idea</div>
+                <div class="card-mana-cost">{1}{U} // {4}{U}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-1.6" data-value-category="FLOP" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.40&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.40 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;-1.60&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Mana Sculpt</div>
+                <div class="card-mana-cost">{1}{U}{U}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-1.83" data-value-category="FLOP" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 7.0) + Keywords(0.00)&lt;br&gt;         = 0.17&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.17 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;-1.83&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Wisdom of Ages</div>
+                <div class="card-mana-cost">{4}{U}{U}{U}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-2.0" data-value-category="FLOP" data-tooltip="Value Formula:&lt;br&gt;Power Level = (0/2) - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 0.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.00 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;-2.00&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide mill synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide mill synergy&lt;/em&gt; with Flow State&lt;br&gt;• &lt;em&gt;Both provide mill synergy&lt;/em&gt; with Muse's Encouragement&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Exhibition Tidecaller</div>
+                <div class="card-mana-cost">{U}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-2.0" data-value-category="FLOP" data-tooltip="Value Formula:&lt;br&gt;Power Level = (1/1) - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 0.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.00 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;-2.00&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Harmonized Trio // Brainstorm</div>
+                <div class="card-mana-cost">{U} // {U}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-2.0" data-value-category="FLOP" data-tooltip="Value Formula:&lt;br&gt;Power Level = (2/4) - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.00 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;-2.00&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Jadzi, Steward of Fate // Oracle's Gift</div>
+                <div class="card-mana-cost">{2}{U} // {X}{X}{U}</div>
+                
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="color-section">
+        <h2 class="color-title">Mono Black</h2>
+        <div class="card-grid">
+<div class="card-item" data-value-score="4.9" data-value-category="BOMB" data-tooltip="Value Formula:&lt;br&gt;Power Level = (7/6) - (2 × 4.0) + Keywords(0.00)&lt;br&gt;         = 6.90&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 6.90 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;4.90&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;span style='color:#ff4444'&gt;💣 BOMB: Raw Power&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide trample synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                <div class="value-badge" style="background: #ff4444;">
+            💣
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Tragedy Feaster</div>
+                <div class="card-mana-cost">{2}{B}{B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="2.3" data-value-category="BOMB" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 2.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 2.80 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;2.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;span style='color:#ff4444'&gt;💣 BOMB: Efficient Threat&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #ff4444;">
+            💣
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Masterful Flourish</div>
+                <div class="card-mana-cost">{B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.1" data-value-category="SOLID" data-tooltip="Value Formula:&lt;br&gt;Power Level = (1/1) - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 0.60&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.60 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.10&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Burrog Banemaker</div>
+                <div class="card-mana-cost">{B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.1" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.40&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.40 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.10&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Last Gasp</div>
+                <div class="card-mana-cost">{1}{B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.1" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.40&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.40 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.10&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Together as One&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Send in the Pest</div>
+                <div class="card-mana-cost">{1}{B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.2" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 1.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.00 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.20&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Dissection Practice</div>
+                <div class="card-mana-cost">{B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.23" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.27&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.27 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.23&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Cost of Brilliance</div>
+                <div class="card-mana-cost">{2}{B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.23" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.27&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.27 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.23&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Together as One&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Pull from the Grave</div>
+                <div class="card-mana-cost">{2}{B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.3" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 4.0) + Keywords(0.00)&lt;br&gt;         = 0.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.20 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Wander Off</div>
+                <div class="card-mana-cost">{3}{B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.5" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (2/2) - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.00 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.50&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Inkshape Demonstrator&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Practiced Offense&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Melancholic Poet</div>
+                <div class="card-mana-cost">{1}{B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.5" data-value-category="BOMB" data-tooltip="Value Formula:&lt;br&gt;Power Level = (2/3) - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.00 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.50&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;span style='color:#ff4444'&gt;💣 BOMB: Game Ending Keyword Menace&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #ff4444;">
+            💣
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Ulna Alley Shopkeep</div>
+                <div class="card-mana-cost">{2}{B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.7" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.50&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.50 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.70&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">End of the Hunt</div>
+                <div class="card-mana-cost">{1}{B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.7" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.50&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.50 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.70&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Rabid Attack</div>
+                <div class="card-mana-cost">{1}{B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.87" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.33&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.33 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.87&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Inkshape Demonstrator&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Practiced Offense&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Foolish Fate</div>
+                <div class="card-mana-cost">{2}{B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-1.0" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 5.0) + Keywords(0.00)&lt;br&gt;         = 0.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.20 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-1.00&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Arcane Omens</div>
+                <div class="card-mana-cost">{4}{B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-1.2" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (1/1) - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 0.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.00 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-1.20&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Lecturing Scornmage</div>
+                <div class="card-mana-cost">{B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-1.2" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (2/2) - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.00 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-1.20&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Leech Collector // Bloodletting</div>
+                <div class="card-mana-cost">{1}{B} // {B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-1.2" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (4/6) - (2 × 5.0) + Keywords(0.00)&lt;br&gt;         = 0.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.00 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-1.20&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Scathing Shadelock // Venomous Words</div>
+                <div class="card-mana-cost">{4}{B} // {B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-1.3" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (3/2) - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = -0.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = -0.80 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-1.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Adventurous Eater // Have a Bite</div>
+                <div class="card-mana-cost">{2}{B} // {B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-1.5" data-value-category="FLOP" data-tooltip="Value Formula:&lt;br&gt;Power Level = (5/4) - (2 × 4.0) + Keywords(0.00)&lt;br&gt;         = 1.50&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.50 - (mythic: 3.0)&lt;br&gt;           = &lt;strong&gt;-1.50&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #FFD700;">
+            M
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Emeritus of Woe // Demonic Tutor</div>
+                <div class="card-mana-cost">{3}{B} // {1}{B}</div>
+                
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="color-section">
+        <h2 class="color-title">Mono Red</h2>
+        <div class="card-grid">
+<div class="card-item" data-value-score="0.9" data-value-category="BOMB" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 1.40&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.40 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.90&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;span style='color:#ff4444'&gt;💣 BOMB: Raw Power&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide trample synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #ff4444;">
+            💣
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Ancestral Anger</div>
+                <div class="card-mana-cost">{R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.25" data-value-category="STAPLE" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 5.0) + Keywords(0.00)&lt;br&gt;         = 1.45&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.45 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;0.25&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide token synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide flying synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;• &lt;em&gt;Both provide token synergy&lt;/em&gt; with Eager Glyphmage&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                <div class="value-badge" style="background: #4caf50;">
+            📚
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Artistic Process</div>
+                <div class="card-mana-cost">{3}{R}{R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.1" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.40&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.40 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.10&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Tome Blast</div>
+                <div class="card-mana-cost">{1}{R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.2" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 1.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.00 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.20&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Duel Tactics</div>
+                <div class="card-mana-cost">{R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.2" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 1.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.00 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.20&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Impractical Joke</div>
+                <div class="card-mana-cost">{R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.23" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.27&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.27 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.23&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Seize the Spoils</div>
+                <div class="card-mana-cost">{2}{R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.23" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.27&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.27 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.23&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Unsubtle Mockery</div>
+                <div class="card-mana-cost">{2}{R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.34" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 5.0) + Keywords(0.00)&lt;br&gt;         = 0.16&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.16 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.34&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Heated Argument</div>
+                <div class="card-mana-cost">{4}{R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.5" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (2/2) - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.00 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.50&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Expressive Firedancer</div>
+                <div class="card-mana-cost">{1}{R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.5" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (2/2) - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.00 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.50&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Goblin Glasswright // Craft with Pride</div>
+                <div class="card-mana-cost">{1}{R} // {R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.58" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (4/5) - (2 × 5.0) + Keywords(0.00)&lt;br&gt;         = -0.08&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = -0.08 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.58&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide haste synergy&lt;/em&gt; with Artistic Process&lt;br&gt;• &lt;em&gt;Both provide haste synergy&lt;/em&gt; with Charging Strifeknight&lt;br&gt;• &lt;em&gt;Both provide haste synergy&lt;/em&gt; with Choreographed Sparks&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Rearing Embermare</div>
+                <div class="card-mana-cost">{4}{R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.7" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (3/3) - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.50&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.50 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.70&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Together as One&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Charging Strifeknight</div>
+                <div class="card-mana-cost">{2}{R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.7" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.50&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.50 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.70&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide token synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Living History</div>
+                <div class="card-mana-cost">{1}{R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.7" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (4/3) - (2 × 4.0) + Keywords(0.00)&lt;br&gt;         = -0.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = -0.20 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.70&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide trample synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Tackle Artist</div>
+                <div class="card-mana-cost">{3}{R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.8" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 1.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.20 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;-0.80&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Choreographed Sparks</div>
+                <div class="card-mana-cost">{R}{R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.8" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 1.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.20 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;-0.80&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Flashback</div>
+                <div class="card-mana-cost">{R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.8" data-value-category="BOMB" data-tooltip="Value Formula:&lt;br&gt;Power Level = (2/2) - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 1.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.20 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;-0.80&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;span style='color:#ff4444'&gt;💣 BOMB: Game Ending Keyword Menace&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                <div class="value-badge" style="background: #ff4444;">
+            💣
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Molten-Core Maestro</div>
+                <div class="card-mana-cost">{1}{R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.8" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (1/3) - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.40&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.40 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.80&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Thunderdrum Soloist</div>
+                <div class="card-mana-cost">{1}{R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.87" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.33&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.33 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.87&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Tablet of Discovery</div>
+                <div class="card-mana-cost">{2}{R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-1.0" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 5.0) + Keywords(0.00)&lt;br&gt;         = 0.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.20 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-1.00&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Archaic's Agony</div>
+                <div class="card-mana-cost">{4}{R}</div>
+                
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="color-section">
+        <h2 class="color-title">Mono Green</h2>
+        <div class="card-grid">
+<div class="card-item" data-value-score="10.0" data-value-category="BOMB" data-tooltip="Value Formula:&lt;br&gt;Power Level = (6/6) - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 12.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 12.00 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;10.00&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;span style='color:#ff4444'&gt;💣 BOMB: Efficient Threat&lt;/span&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                <div class="value-badge" style="background: #ff4444;">
+            💣
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Slumbering Trudge</div>
+                <div class="card-mana-cost">{X}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="2.37" data-value-category="BOMB" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 2.87&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 2.87 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;2.37&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;span style='color:#ff4444'&gt;💣 BOMB: Game Ending Keyword Indestructible&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide trample synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #ff4444;">
+            💣
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Efflorescence</div>
+                <div class="card-mana-cost">{2}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.5" data-value-category="HIDDEN_GEM" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 1.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.00 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.50&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;span style='color:#ffd700'&gt;🔍 HIDDEN GEM: Exceeds rarity expectations!&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;• &lt;em&gt;Both provide flying synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #ffd700;">
+            🔍
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Glorious Decay</div>
+                <div class="card-mana-cost">{1}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.4" data-value-category="STAPLE" data-tooltip="Value Formula:&lt;br&gt;Power Level = (4/4) - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 2.40&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 2.40 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;0.40&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                <div class="value-badge" style="background: #4caf50;">
+            📚
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Vastlands Scavenger // Bind to Life</div>
+                <div class="card-mana-cost">{1}{G}{G} // {4}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.3" data-value-category="STAPLE" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 0.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.80 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #4caf50;">
+            📚
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Oracle's Restoration</div>
+                <div class="card-mana-cost">{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.3" data-value-category="STAPLE" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 0.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.80 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #4caf50;">
+            📚
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Wild Hypothesis</div>
+                <div class="card-mana-cost">{X}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.1" data-value-category="SOLID" data-tooltip="Value Formula:&lt;br&gt;Power Level = (4/2) - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.60&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.60 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.10&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide trample synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Inkshape Demonstrator&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Shopkeeper's Bane</div>
+                <div class="card-mana-cost">{2}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.1" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.40&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.40 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.10&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Burrog Barrage</div>
+                <div class="card-mana-cost">{1}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.1" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.40&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.40 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.10&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide mill synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Together as One&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Follow the Lumarets</div>
+                <div class="card-mana-cost">{1}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.2" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = (2/3) - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 1.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.00 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.20&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Infirmary Healer // Stream of Life</div>
+                <div class="card-mana-cost">{1}{G} // {X}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.25" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 5.0) + Keywords(0.00)&lt;br&gt;         = 0.95&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.95 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.25&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide token synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Additive Evolution</div>
+                <div class="card-mana-cost">{3}{G}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.45" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (3/3) - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.75&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.75 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.45&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide trample synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide token synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Emil, Vastlands Roamer</div>
+                <div class="card-mana-cost">{2}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.45" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (3/3) - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.75&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.75 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.45&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide trample synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Thornfist Striker</div>
+                <div class="card-mana-cost">{2}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.5" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (2/2) - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.00 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.50&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Mindful Biomancer</div>
+                <div class="card-mana-cost">{1}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.5" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (1/1) - (2 × 1.0) + Keywords(0.00)&lt;br&gt;         = 0.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.00 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.50&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Studious First-Year // Rampant Growth</div>
+                <div class="card-mana-cost">{G} // {1}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.7" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.50&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.50 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.70&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Lumaret's Favor</div>
+                <div class="card-mana-cost">{1}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.7" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (1/2) - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = -0.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = -0.20 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.70&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Noxious Newt</div>
+                <div class="card-mana-cost">{1}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.7" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (4/5) - (2 × 5.0) + Keywords(0.00)&lt;br&gt;         = -0.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = -0.20 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.70&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Tenured Concocter</div>
+                <div class="card-mana-cost">{4}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.8" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (4/4) - (2 × 4.0) + Keywords(0.00)&lt;br&gt;         = 0.40&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.40 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.80&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide token synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide token synergy&lt;/em&gt; with Eager Glyphmage&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Pestbrood Sloth</div>
+                <div class="card-mana-cost">{3}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.87" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.33&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.33 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.87&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Chelonian Tackle</div>
+                <div class="card-mana-cost">{2}{G}</div>
+                
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="color-section">
+        <h2 class="color-title">Multicolor</h2>
+        <div class="card-grid">
+<div class="card-item" data-value-score="0.3" data-value-category="STAPLE" data-tooltip="Value Formula:&lt;br&gt;Power Level = (4/4) - (2 × 4.0) + Keywords(0.00)&lt;br&gt;         = 1.50&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.50 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;0.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide trample synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Inkshape Demonstrator&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                <div class="value-badge" style="background: #4caf50;">
+            📚
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Startled Relic Sloth</div>
+                <div class="card-mana-cost">{2}{R}{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.21" data-value-category="STAPLE" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 7.0) + Keywords(0.00)&lt;br&gt;         = 0.71&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.71 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.21&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #4caf50;">
+            📚
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Visionary's Dance</div>
+                <div class="card-mana-cost">{5}{U}{R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.1" data-value-category="SOLID" data-tooltip="Value Formula:&lt;br&gt;Power Level = (6/6) - (2 × 6.0) + Keywords(0.00)&lt;br&gt;         = 0.60&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.60 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.10&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide trample synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide trample synergy&lt;/em&gt; with Tragedy Feaster&lt;br&gt;• &lt;em&gt;Both provide trample synergy&lt;/em&gt; with Ancestral Anger&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Fractal Mascot</div>
+                <div class="card-mana-cost">{4}{G}{U}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.1" data-value-category="SOLID" data-tooltip="Value Formula:&lt;br&gt;Power Level = (3/3) - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.60&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.60 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.10&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Imperious Inkmage</div>
+                <div class="card-mana-cost">{1}{W}{B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.1" data-value-category="SOLID" data-tooltip="Value Formula:&lt;br&gt;Power Level = (2/2) - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.60&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.60 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.10&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Inkling Mascot</div>
+                <div class="card-mana-cost">{W}{B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.05" data-value-category="SOLID" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 1.25&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.25 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;0.05&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide trample synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Lorehold Charm</div>
+                <div class="card-mana-cost">{R}{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.0" data-value-category="BOMB" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 5.0) + Keywords(0.00)&lt;br&gt;         = 1.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.20 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;0.00&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;span style='color:#ff4444'&gt;💣 BOMB: Game Ending Keyword Menace&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                <div class="value-badge" style="background: #ff4444;">
+            💣
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Root Manipulation</div>
+                <div class="card-mana-cost">{3}{B}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.05" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = (4/4) - (2 × 4.0) + Keywords(0.00)&lt;br&gt;         = 1.15&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.15 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.05&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Old-Growth Educator</div>
+                <div class="card-mana-cost">{2}{B}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.1" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = (1/4) - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.40&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.40 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.10&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide flying synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Elemental Mascot</div>
+                <div class="card-mana-cost">{1}{U}{R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.1" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.40&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.40 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.10&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Together as One&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Pursue the Past</div>
+                <div class="card-mana-cost">{R}{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.2" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = (2/3) - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 1.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.00 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.20&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Kirol, History Buff // Pack a Punch</div>
+                <div class="card-mana-cost">{R}{W} // {1}{R}{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.2" data-value-category="BOMB" data-tooltip="Value Formula:&lt;br&gt;Power Level = (2/2) - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 1.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.00 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.20&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;span style='color:#ff4444'&gt;💣 BOMB: Game Ending Keyword Menace&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                <div class="value-badge" style="background: #ff4444;">
+            💣
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Scolding Administrator</div>
+                <div class="card-mana-cost">{W}{B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.23" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.27&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.27 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.23&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Inkshape Demonstrator&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Practiced Offense&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Grapple with Death</div>
+                <div class="card-mana-cost">{1}{B}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.3" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 4.0) + Keywords(0.00)&lt;br&gt;         = 0.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.20 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Render Speechless</div>
+                <div class="card-mana-cost">{2}{W}{B}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.3" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 4.0) + Keywords(0.00)&lt;br&gt;         = 0.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.20 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Wilt in the Heat</div>
+                <div class="card-mana-cost">{2}{R}{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.34" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 5.0) + Keywords(0.00)&lt;br&gt;         = 0.16&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.16 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.34&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Together as One&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Embrace the Paradox</div>
+                <div class="card-mana-cost">{3}{G}{U}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.5" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (2/2) - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.00 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.50&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Inkshape Demonstrator&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Practiced Offense&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Bogwater Lumaret</div>
+                <div class="card-mana-cost">{B}{G}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.5" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (2/2) - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.00 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.50&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Spirit Mascot</div>
+                <div class="card-mana-cost">{R}{W}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.5" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (4/4) - (2 × 4.0) + Keywords(0.00)&lt;br&gt;         = 0.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.00 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.50&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Together as One&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Stadium Tidalmage</div>
+                <div class="card-mana-cost">{2}{U}{R}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.7" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.50&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.50 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.70&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Growth Curve</div>
+                <div class="card-mana-cost">{G}{U}</div>
+                
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="color-section">
+        <h2 class="color-title">Colorless</h2>
+        <div class="card-grid">
+<div class="card-item" data-value-score="-0.23" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = 0.27&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.27 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-0.23&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Together as One&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Potioner's Trove</div>
+                <div class="card-mana-cost">{3}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.7" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = 0.50&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.50 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.70&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Together as One&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Erode&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Diary of Dreams</div>
+                <div class="card-mana-cost">{2}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-1.3" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (3/4) - (2 × 4.0) + Keywords(0.00)&lt;br&gt;         = -0.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = -0.80 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-1.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Biblioplex Tomekeeper</div>
+                <div class="card-mana-cost">{4}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-1.3" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (2/1) - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = -0.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = -0.80 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-1.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Ascendant Dustspeaker&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Mage Tower Referee</div>
+                <div class="card-mana-cost">{2}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-1.45" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (3/2) - (2 × 3.0) + Keywords(0.00)&lt;br&gt;         = -0.25&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = -0.25 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-1.45&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Together as One&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Strixhaven Skycoach</div>
+                <div class="card-mana-cost">{3}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-1.8" data-value-category="FLOP" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 6.0) + Keywords(0.00)&lt;br&gt;         = 0.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.20 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;-1.80&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Erode&lt;br&gt;• &lt;em&gt;Both provide life_gain synergy&lt;/em&gt; with Inkshape Demonstrator&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Together as One</div>
+                <div class="card-mana-cost">{6}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-2.1" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (0/2) - (2 × 2.0) + Keywords(0.00)&lt;br&gt;         = -1.60&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = -1.60 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-2.10&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide draw synergy&lt;/em&gt; with Together as One&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Page, Loose Leaf</div>
+                <div class="card-mana-cost">{2}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-2.45" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = (6/6) - (2 × 7.0) + Keywords(0.00)&lt;br&gt;         = -1.25&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = -1.25 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-2.45&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Transcendent Archaic</div>
+                <div class="card-mana-cost">{7}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-4.38" data-value-category="JUNK" data-tooltip="Value Formula:&lt;br&gt;Power Level = (2/2) - (2 × 5.0) + Keywords(0.00)&lt;br&gt;         = -3.88&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = -3.88 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;-4.38&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;• &lt;em&gt;Both provide buff synergy&lt;/em&gt; with Antiquities on the Loose&lt;br&gt;">
+            <div class="card-image-container">
+                
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Rancorous Archaic</div>
+                <div class="card-mana-cost">{5}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-7.2" data-value-category="JUNK" data-tooltip="Value Formula:&lt;br&gt;Power Level = (3/3) - (2 × 6.0) + Keywords(0.00)&lt;br&gt;         = -6.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = -6.00 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-7.20&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Sundering Archaic</div>
+                <div class="card-mana-cost">{6}</div>
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-11.4" data-value-category="FLOP" data-tooltip="Value Formula:&lt;br&gt;Power Level = (7/7) - (2 × 10.0) + Keywords(0.00)&lt;br&gt;         = -8.40&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = -8.40 - (mythic: 3.0)&lt;br&gt;           = &lt;strong&gt;-11.40&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Owlin Historian&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #FFD700;">
+            M
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">The Dawning Archaic</div>
+                <div class="card-mana-cost">{10}</div>
+                
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="color-section">
+        <h2 class="color-title">Lands</h2>
+        <div class="card-grid">
+<div class="card-item" data-value-score="0.3" data-value-category="STAPLE" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 0.0) + Keywords(0.00)&lt;br&gt;         = 0.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.80 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #4caf50;">
+            📚
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Fields of Strife</div>
+                
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.3" data-value-category="STAPLE" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 0.0) + Keywords(0.00)&lt;br&gt;         = 0.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.80 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #4caf50;">
+            📚
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Forum of Amity</div>
+                
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.3" data-value-category="STAPLE" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 0.0) + Keywords(0.00)&lt;br&gt;         = 0.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.80 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #4caf50;">
+            📚
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Paradox Gardens</div>
+                
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.3" data-value-category="STAPLE" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 0.0) + Keywords(0.00)&lt;br&gt;         = 0.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.80 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #4caf50;">
+            📚
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Spectacle Summit</div>
+                
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.3" data-value-category="STAPLE" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 0.0) + Keywords(0.00)&lt;br&gt;         = 0.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.80 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #4caf50;">
+            📚
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Terramorphic Expanse</div>
+                
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.3" data-value-category="STAPLE" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 0.0) + Keywords(0.00)&lt;br&gt;         = 0.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.80 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with The Dawning Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide graveyard synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #4caf50;">
+            📚
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Titan's Grave</div>
+                
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.3" data-value-category="STAPLE" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 0.0) + Keywords(0.00)&lt;br&gt;         = 0.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.80 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #4caf50;">
+            📚
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Plains</div>
+                
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.3" data-value-category="STAPLE" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 0.0) + Keywords(0.00)&lt;br&gt;         = 0.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.80 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #4caf50;">
+            📚
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Island</div>
+                
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.3" data-value-category="STAPLE" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 0.0) + Keywords(0.00)&lt;br&gt;         = 0.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.80 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #4caf50;">
+            📚
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Swamp</div>
+                
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.3" data-value-category="STAPLE" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 0.0) + Keywords(0.00)&lt;br&gt;         = 0.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.80 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #4caf50;">
+            📚
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Mountain</div>
+                
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="0.3" data-value-category="STAPLE" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 0.0) + Keywords(0.00)&lt;br&gt;         = 0.80&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 0.80 - (common: 0.5)&lt;br&gt;           = &lt;strong&gt;0.30&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                
+                <div class="value-badge" style="background: #4caf50;">
+            📚
+        </div>
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Forest</div>
+                
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.2" data-value-category="FAIR" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 0.0) + Keywords(0.00)&lt;br&gt;         = 1.00&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.00 - (uncommon: 1.2)&lt;br&gt;           = &lt;strong&gt;-0.20&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #228B22;">
+            U
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Skycoach Waypoint</div>
+                
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.8" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 0.0) + Keywords(0.00)&lt;br&gt;         = 1.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.20 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;-0.80&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Deathcap Glade</div>
+                
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.8" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 0.0) + Keywords(0.00)&lt;br&gt;         = 1.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.20 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;-0.80&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Dreamroot Cascade</div>
+                
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.8" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 0.0) + Keywords(0.00)&lt;br&gt;         = 1.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.20 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;-0.80&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Great Hall of the Biblioplex</div>
+                
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.8" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 0.0) + Keywords(0.00)&lt;br&gt;         = 1.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.20 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;-0.80&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;strong&gt;🔗 Combos:&lt;/strong&gt;&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Rancorous Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Sundering Archaic&lt;br&gt;• &lt;em&gt;Both provide ramp synergy&lt;/em&gt; with Transcendent Archaic&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Petrified Hamlet</div>
+                
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.8" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 0.0) + Keywords(0.00)&lt;br&gt;         = 1.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.20 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;-0.80&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Shattered Sanctum</div>
+                
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.8" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 0.0) + Keywords(0.00)&lt;br&gt;         = 1.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.20 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;-0.80&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Stormcarved Coast</div>
+                
+                
+            </div>
+        </div>
+<div class="card-item" data-value-score="-0.8" data-value-category="MARGINAL" data-tooltip="Value Formula:&lt;br&gt;Power Level = () - (2 × 0.0) + Keywords(0.00)&lt;br&gt;         = 1.20&lt;br&gt;&lt;br&gt;Value Score = Power Level - Expected Max&lt;br&gt;           = 1.20 - (rare: 2.0)&lt;br&gt;           = &lt;strong&gt;-0.80&lt;/strong&gt;&lt;br&gt;&lt;br&gt;">
+            <div class="card-image-container">
+                <div class="rarity-badge" style="background: #C41E3A;">
+            R
+        </div>
+                
+                <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>
+            </div>
+            <div class="card-info">
+                <div class="card-name">Sundown Pass</div>
+                
+                
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

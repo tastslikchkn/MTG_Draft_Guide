@@ -5,7 +5,7 @@ Provides consistent card name handling, slugification, and data extraction.
 
 import re
 from html.parser import HTMLParser
-from typing import List, Set, Dict, Any, Optional
+from typing import Any
 from pathlib import Path
 
 
@@ -108,11 +108,11 @@ class CardNameExtractor(HTMLParser):
     
     def __init__(self):
         super().__init__()
-        self.card_names: Set[str] = set()
-        self.current_name: List[str] = []
+        self.card_names: set[str] = set()
+        self.current_name: list[str] = []
         self.in_card_name: bool = False
         
-    def handle_starttag(self, tag: str, attrs: List[tuple]):
+    def handle_starttag(self, tag: str, attrs: list[tuple]):
         if tag == 'div' and any('card-name' in str(attr) for attr in attrs):
             self.in_card_name = True
             self.current_name = []
@@ -132,7 +132,7 @@ class CardNameExtractor(HTMLParser):
             self.current_name.append(data)
 
 
-def extract_card_names_from_html(html_file: Path) -> List[str]:
+def extract_card_names_from_html(html_file: Path) -> list[str]:
     """
     Extract unique card names from an HTML draft guide file.
     
@@ -150,7 +150,7 @@ def extract_card_names_from_html(html_file: Path) -> List[str]:
     return sorted(parser.card_names)
 
 
-def extract_card_names_from_alt_attributes(html_file: Path) -> List[str]:
+def extract_card_names_from_alt_attributes(html_file: Path) -> list[str]:
     """
     Extract card names from img alt attributes in HTML.
     
@@ -182,14 +182,14 @@ class CardData:
     def __init__(
         self,
         name: str,
-        image_path: Optional[str] = None,
+        image_path: str | None = None,
         mana_cost: str = '',
         type_line: str = '',
         oracle_text: str = '',
-        colors: List[str] = None,
-        color_identity: List[str] = None,
+        colors: list[str] | None = None,
+        color_identity: list[str] | None = None,
         rarity: str = 'common',
-        prices: Dict[str, Any] = None
+        prices: dict[str, Any] | None = None
     ):
         self.name = name
         self.image_path = image_path
@@ -201,7 +201,7 @@ class CardData:
         self.rarity = rarity
         self.prices = prices or {}
     
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary for JSON serialization."""
         return {
             'name': self.name,
@@ -216,7 +216,7 @@ class CardData:
         }
     
     @classmethod
-    def from_scryfall_response(cls, response: Dict[str, Any]) -> 'CardData':
+    def from_scryfall_response(cls, response: dict[str, Any]) -> 'CardData':
         """
         Create CardData instance from Scryfall API response.
         
@@ -244,7 +244,7 @@ class CardData:
 # FILE OPERATIONS FOR CARD DATA
 # ============================================================================
 
-def load_card_cache(cache_file: Path) -> Dict[str, Any]:
+def load_card_cache(cache_file: Path) -> dict[str, Any]:
     """
     Load card cache from JSON file.
     
@@ -268,7 +268,7 @@ def load_card_cache(cache_file: Path) -> Dict[str, Any]:
 
 
 def save_card_cache(
-    card_cache: Dict[str, Any],
+    card_cache: dict[str, Any],
     cache_file: Path,
     indent: int = 2
 ) -> None:
@@ -288,12 +288,13 @@ def save_card_cache(
         json.dump(card_cache, f, indent=indent, ensure_ascii=False)
 
 
-def get_cached_image_paths(cards_dir: Path) -> Dict[str, str]:
+def get_cached_image_paths(cards_dir: Path, base_path: str = 'images/cards/') -> dict[str, str]:
     """
     Get mapping of card names to local image paths.
     
     Args:
         cards_dir: Directory containing card images
+        base_path: The prefix for the relative path (e.g., 'images/cards/')
         
     Returns:
         Dict mapping slugified names to relative image paths
@@ -304,8 +305,86 @@ def get_cached_image_paths(cards_dir: Path) -> Dict[str, str]:
     png_files = sorted(cards_dir.glob('*.png'))
     
     return {
-        f.stem: f'images/cards/{f.name}'
+        f.stem: f'{base_path}/{f.name}'
         for f in png_files
     }
 
 
+def find_image_file(
+    card_name: str,
+    available_files: set | None = None,
+    cards_dir: Path | None = None,
+    base_path: str = 'images/cards/'
+) -> str:
+    """
+    Find the correct image file path for a card name.
+    
+    Handles:
+    - Exact matches
+    - Split cards (short name -> full split card name)
+    - Known typos/mismatches in filenames
+    
+    Args:
+        card_name: The display name of the card
+        available_files: Optional set of available filenames (without extension) for smart lookup.
+                        If None and cards_dir provided, will scan directory.
+        cards_dir: Optional path to images/cards directory for scanning available files.
+        base_path: Prefix for the relative image path.
+        
+    Returns:
+        Relative image path like 'images/cards/card-name.png'
+    """
+    slug = slugify(card_name)
+    
+    # Scan directory if needed
+    if available_files is None and cards_dir is not None:
+        if cards_dir.exists():
+            available_files = {f.stem for f in cards_dir.glob('*.png')}
+        else:
+            available_files = set()
+    
+    # Try exact match first
+    if available_files and slug in available_files:
+        return f'{base_path}/{slug}.png'
+    
+    # For split cards, look for longer filename starting with short name + hyphen
+    if available_files:
+        matching_files = [f for f in available_files if f.startswith(slug + '-')]
+        if matching_files:
+            return f'{base_path}/{matching_files[0]}.png'
+    
+    # Known typos/mismatches - map to correct filenames
+    TYPO_MAP = {
+        'rabid-attach': 'rabid-attack',
+        'tenured-concoctor': 'tenured-concocter',
+    }
+    if slug in TYPO_MAP:
+        return f'{base_path}/{TYPO_MAP[slug]}.png'
+    
+    # Return the expected path even if file doesn't exist (for debugging)
+    return f'{base_path}/{slug}.png'
+
+
+def extract_card_name(display_text: str) -> str:
+    """
+    Extract clean card name from display text, removing parenthetical tags.
+    
+    Removes tags like (CT), (MF), etc. that may appear at the end of card names.
+    
+    Args:
+        display_text: The raw display text, possibly with tags
+        
+    Returns:
+        Cleaned card name without trailing parenthetical tags
+        
+    Example:
+        >>> extract_card_name("Lightning Bolt (CT)")
+        'Lightning Bolt'
+        >>> extract_card_name("Mountain (MF)")
+        'Mountain'
+    """
+    # Remove parenthetical tags at end like (CT), (MF)
+    match = re.match(r'^(.+?)\s*\([A-Z]+\)\s*$', display_text.strip())
+    if match:
+        return match.group(1).strip()
+    return display_text.strip()

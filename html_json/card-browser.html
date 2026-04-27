@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Browser - Strixhaven Draft Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #1a1a2e;
+            --bg-secondary: #16213e;
+            --bg-card: rgba(255, 255, 255, 0.05);
+            --text-primary: #ffffff;
+            --text-secondary: #aaaaaa;
+            --accent: #4a9eff;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: var(--text-primary);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        header h1 {
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        header a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        header a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Search Bar */
+        .search-container {
+            margin-bottom: 20px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            transition: all 0.3s;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(74, 158, 255, 0.2);
+        }
+        
+        .search-input::placeholder {
+            color: var(--text-secondary);
+        }
+        
+        /* Filters */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .filter-group label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        
+        /* Color Filter Buttons */
+        .color-filters {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .color-btn {
+            position: relative;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 2px solid var(--border-color);
+            background: var(--bg-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+        
+        .color-btn:hover {
+            border-color: var(--text-secondary);
+            transform: translateY(-2px);
+        }
+        
+        .color-btn.active {
+            border-color: var(--text-primary);
+            box-shadow: 0 0 15px currentColor;
+        }
+        
+        .color-btn img {
+            width: 26px;
+            height: 26px;
+        }
+        
+        .color-btn.all-colors {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            font-weight: bold;
+        }
+        
+        /* Select Dropdowns */
+        select.filter-select {
+            padding: 8px 15px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        select.filter-select:hover {
+            border-color: var(--accent);
+        }
+        
+        /* CMC Slider */
+        .cmc-slider-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .cmc-slider {
+            width: 120px;
+            height: 6px;
+            -webkit-appearance: none;
+            background: var(--border-color);
+            border-radius: 3px;
+            outline: none;
+        }
+        
+        .cmc-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: var(--accent);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .cmc-value {
+            min-width: 35px;
+            text-align: center;
+            font-weight: bold;
+            color: var(--accent);
+        }
+        
+        /* Results Header */
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 0 5px;
+        }
+        
+        .results-count {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .results-count span {
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .card-item {
+            background: var(--bg-card);
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+        
+        .card-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent);
+        }
+        
+        .card-image-container {
+            position: relative;
+            padding-top: 158%; /* Aspect ratio for MTG cards */
+            background: linear-gradient(145deg, #2a2a4e, #1a1a2e);
+        }
+        
+        .card-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .card-info {
+            padding: 12px;
+        }
+        
+        .card-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        
+        .card-type {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .card-rarity {
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+        
+        .rarity-common { background: #8b7355; color: #fff; }
+        .rarity-uncommon { background: #c1a66e; color: #000; }
+        .rarity-rare { background: #9f7aea; color: #fff; }
+        .rarity-mythic { background: #e58e26; color: #fff; }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .page-btn {
+            padding: 8px 14px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .page-btn:hover:not(.disabled) {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        .page-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        .page-btn.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .page-info {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: linear-gradient(145deg, #2a2a4e, #1a1a2e);
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 36px;
+            height: 36px;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        .modal-image-container {
+            width: 100%;
+            padding-top: 75%;
+            position: relative;
+            background: #0a0a1a;
+        }
+        
+        .modal-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .modal-body {
+            padding: 25px;
+        }
+        
+        .modal-name {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .modal-type-line {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .modal-mana-cost {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 15px;
+        }
+        
+        .modal-mana-cost img {
+            width: 28px;
+            height: 28px;
+        }
+        
+        .modal-text {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .modal-stats {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .modal-stats strong {
+            color: var(--text-primary);
+        }
+        
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+        
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border-color);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* No Results */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+        
+        .no-results-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 10px;
+            }
+            
+            header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-group {
+                justify-content: space-between;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>
+                <span>🎴 Card Browser</span>
+                <span style="font-size: 0.6em; color: var(--text-secondary);">— Strixhaven (SOS)</span>
+            </h1>
+            <a href="strixhaven-draft-guide.html" title="Back to Draft Guide">← Back to Draft Guide</a>
+        </header>
+        
+        <!-- Search -->
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="🔍 Search cards by name or text... (try "removal", "haste", "draw")">
+        </div>
+        
+        <!-- Filters -->
+        <div class="filters">
+            <div class="filter-group">
+                <label>Colors:</label>
+                <div class="color-filters" id="colorFilters">
+                    <button class="color-btn all-colors active" data-filter="all" title="All colors">All</button>
+                    <button class="color-btn" data-filter="white" title="White">
+                        <img src="https://cards.scryfall.io/symbols/w.png" alt="W">
+                    </button>
+                    <button class="color-btn" data-filter="blue" title="Blue">
+                        <img src="https://cards.scryfall.io/symbols/u.png" alt="U">
+                    </button>
+                    <button class="color-btn" data-filter="black" title="Black">
+                        <img src="https://cards.scryfall.io/symbols/b.png" alt="B">
+                    </button>
+                    <button class="color-btn" data-filter="red" title="Red">
+                        <img src="https://cards.scryfall.io/symbols/r.png" alt="R">
+                    </button>
+                    <button class="color-btn" data-filter="green" title="Green">
+                        <img src="https://cards.scryfall.io/symbols/g.png" alt="G">
+                    </button>
+                </div>
+            </div>
+            
+            <div class="filter-group">
+                <label>Rarity:</label>
+                <select class="filter-select" id="rarityFilter">
+                    <option value="all">All Rarities</option>
+                    <option value="common">Common</option>
+                    <option value="uncommon">Uncommon</option>
+                    <option value="rare">Rare</option>
+                    <option value="mythic">Mythic Rare</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label>Type:</label>
+                <select class="filter-select" id="typeFilter">
+                    <option value="all">All Types</option>
+                    <option value="Creature">Creatures</option>
+                    <option value="Instant">Instants</option>
+                    <option value="Sorcery">Sorceries</option>
+                    <option value="Enchantment">Enchantments</option>
+                    <option value="Land">Lands</option>
+                    <option value="Artifact">Artifacts</option>
+                    <option value="Planeswalker">Planeswalkers</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label>Max CMC:</label>
+                <div class="cmc-slider-container">
+                    <input type="range" class="cmc-slider" id="cmcSlider" min="0" max="20" value="20" step="1">
+                    <span class="cmc-value" id="cmcValue">20+</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Results Header -->
+        <div class="results-header">
+            <span class="results-count">Showing <span id="resultCount">0</span> cards</span>
+            <select class="filter-select" id="sortSelect">
+                <option value="score-desc">Score (High → Low)</option>
+                <option value="cmc-asc">CMC (Low → High)</option>
+                <option value="name-asc">Name (A → Z)</option>
+                <option value="rarity-desc">Rarity (Mythic → Common)</option>
+            </select>
+        </div>
+        
+        <!-- Card Grid -->
+        <div id="cardGrid" class="card-grid">
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <p>Loading cards...</p>
+            </div>
+        </div>
+        
+        <!-- Pagination -->
+        <div class="pagination" id="pagination"></div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal-overlay" id="cardModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="modal-image-container">
+                <img class="modal-image" id="modalImage" src="" alt="Card Image">
+            </div>
+            <div class="modal-body">
+                <h2 class="modal-name" id="modalName"></h2>
+                <p class="modal-type-line" id="modalType"></p>
+                <div class="modal-mana-cost" id="modalManaCost"></div>
+                <div class="modal-text" id="modalText"></div>
+                <div class="modal-stats" id="modalStats"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // State
+        let allCards = [];
+        let filteredCards = [];
+        let currentPage = 1;
+        const cardsPerPage = 48;
+        
+        // Filter state
+        let filters = {
+            search: '',
+            color: 'all',
+            rarity: 'all',
+            type: 'all',
+            maxCmc: 20,
+            sort: 'score-desc'
+        };
+        
+        // Rarity order for sorting
+        const rarityOrder = { mythic: 4, rare: 3, uncommon: 2, common: 1 };
+        
+        // Load card data
+        async function loadCards() {
+            try {
+                const response = await fetch('evaluated_sos.json');
+                allCards = await response.json();
+                console.log(`Loaded ${allCards.length} cards`);
+                applyFilters();
+            } catch (error) {
+                document.getElementById('cardGrid').innerHTML = `
+                    <div class="no-results">
+                        <div class="no-results-icon">⚠️</div>
+                        <p>Error loading card data. Make sure evaluated_sos.json exists.</p>
+                        <p style="font-size: 0.8em; margin-top: 10px;">${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Parse mana cost into symbols
+        function parseManaCost(manaCost) {
+            if (!manaCost) return [];
+            
+            const symbols = [];
+            let i = 0;
+            
+            while (i < manaCost.length) {
+                const char = manaCost[i];
+                
+                if (char === '{') {
+                    // Find closing brace
+                    const closeIdx = manaCost.indexOf('}', i);
+                    if (closeIdx === -1) break;
+                    
+                    const content = manaCost.substring(i + 1, closeIdx);
+                    
+                    // Handle different symbol types
+                    if (/^[0-9]+$/.test(content)) {
+                        // Generic mana
+                        symbols.push({ type: 'generic', value: content });
+                    } else if (content === 'W' || content === 'U' || content === 'B' || 
+                               content === 'R' || content === 'G') {
+                        // Colored mana
+                        const symbolMap = { W: 'w', U: 'u', B: 'b', R: 'r', G: 'g' };
+                        symbols.push({ type: 'color', value: symbolMap[content] });
+                    } else if (content === 'C') {
+                        // Colorless
+                        symbols.push({ type: 'colorless', value: 'c' });
+                    } else if (/^[WUBRG]\/[WUBRG]$/.test(content)) {
+                        // Hybrid mana
+                        symbols.push({ type: 'hybrid', value: content.toLowerCase() });
+                    }
+                    
+                    i = closeIdx + 1;
+                } else {
+                    i++;
+                }
+            }
+            
+            return symbols;
+        }
+        
+        // Render mana cost as images
+        function renderManaCost(manaSymbols) {
+            return manaSymbols.map(symbol => {
+                const src = `https://cards.scryfall.io/symbols/${symbol.value}.png`;
+                return `<img src="${src}" alt="${symbol.value}">`;
+            }).join('');
+        }
+        
+        // Get color from card
+        function getCardColor(card) {
+            if (!card.colors || card.colors.length === 0) {
+                return 'colorless';
+            }
+            if (card.colors.length > 1) {
+                return 'multicolor';
+            }
+            const colorMap = { W: 'white', U: 'blue', B: 'black', R: 'red', G: 'green' };
+            return colorMap[card.colors[0]] || 'colorless';
+        }
+        
+        // Get main type
+        function getMainType(card) {
+            if (!card.type_line) return '';
+            const parts = card.type_line.split(' — ')[0];
+            return parts.replace(/\s+\([^)]*\)/g, '').trim(); // Remove subtype info
+        }
+        
+        // Apply filters and sort
+        function applyFilters() {
+            filteredCards = allCards.filter(card => {
+                // Search filter
+                if (filters.search) {
+                    const searchLower = filters.search.toLowerCase();
+                    const nameMatch = card.name?.toLowerCase().includes(searchLower);
+                    const textMatch = card.oracle_text?.toLowerCase().includes(searchLower);
+                    if (!nameMatch && !textMatch) return false;
+                }
+                
+                // Color filter
+                if (filters.color !== 'all') {
+                    const cardColor = getCardColor(card);
+                    if (filters.color === 'multicolor' && cardColor !== 'multicolor') return false;
+                    if (filters.color === 'colorless' && cardColor !== 'colorless') return false;
+                    if (filters.color !== 'multicolor' && filters.color !== 'colorless' && cardColor !== filters.color) {
+                        // For single colors, also exclude multicolor cards
+                        if (card.colors?.length <= 1 && cardColor !== filters.color) return false;
+                    }
+                }
+                
+                // Rarity filter
+                if (filters.rarity !== 'all') {
+                    if (filters.rarity === 'mythic' && card.rarity !== 'mythic_rare') return false;
+                    if (filters.rarity !== 'mythic' && card.rarity !== filters.rarity) return false;
+                }
+                
+                // Type filter
+                if (filters.type !== 'all') {
+                    const mainType = getMainType(card);
+                    if (mainType !== filters.type) return false;
+                }
+                
+                // CMC filter
+                if ((card.cmc || 0) > filters.maxCmc) return false;
+                
+                return true;
+            });
+            
+            // Sort
+            filteredCards.sort((a, b) => {
+                switch (filters.sort) {
+                    case 'score-desc':
+                        return (b.eval_score || 0) - (a.eval_score || 0);
+                    case 'cmc-asc':
+                        return (a.cmc || 0) - (b.cmc || 0);
+                    case 'name-asc':
+                        return (a.name || '').localeCompare(b.name || '');
+                    case 'rarity-desc':
+                        return (rarityOrder[b.rarity?.replace('_rare', '')] || 0) - 
+                               (rarityOrder[a.rarity?.replace('_rare', '')] || 0);
+                    default:
+                        return 0;
+                }
+            });
+            
+            currentPage = 1;
+            renderCards();
+        }
+        
+        // Render cards
+        function renderCards() {
+            const grid = document.getElementById('cardGrid');
+            const start = (currentPage - 1) * cardsPerPage;
+            const end = start + cardsPerPage;
+            const pageCards = filteredCards.slice(start, end);
+            
+            if (pageCards.length === 0) {
+                grid.innerHTML = `
+                    <div class="no-results">
+                        <div class="no-results-icon">🔍</div>
+                        <p>No cards found matching your criteria.</p>
+                        <p style="font-size: 0.8em; margin-top: 10px;">Try adjusting filters or search terms.</p>
+                    </div>
+                `;
+                document.getElementById('pagination').innerHTML = '';
+                return;
+            }
+            
+            grid.innerHTML = pageCards.map(card => {
+                const manaSymbols = parseManaCost(card.mana_cost);
+                const mainType = getMainType(card);
+                const rarityClass = card.rarity === 'mythic_rare' ? 'rarity-mythic' : 
+                                   card.rarity === 'rare' ? 'rarity-rare' :
+                                   card.rarity === 'uncommon' ? 'rarity-uncommon' : 'rarity-common';
+                const rarityDisplay = card.rarity?.replace('_rare', '') || 'unknown';
+                
+                return `
+                    <div class="card-item" onclick="openModal('${card.id}')">
+                        <div class="card-image-container">
+                            <img class="card-image" src="${card.image_uris?.normal || ''}" alt="${card.name}" loading="lazy">
+                        </div>
+                        <div class="card-info">
+                            <div class="card-name">${card.name || 'Unknown'}</div>
+                            <div class="card-meta">
+                                <span class="card-type">${mainType}</span>
+                                <span class="card-rarity ${rarityClass}">${rarityDisplay}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            // Update result count
+            document.getElementById('resultCount').textContent = filteredCards.length.toLocaleString();
+            
+            // Render pagination
+            renderPagination();
+        }
+        
+        // Render pagination
+        function renderPagination() {
+            const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
+            if (totalPages <= 1) {
+                document.getElementById('pagination').innerHTML = '';
+                return;
+            }
+            
+            let html = `
+                <button class="page-btn ${currentPage === 1 ? 'disabled' : ''}" onclick="goToPage(${currentPage - 1})">← Prev</button>
+            `;
+            
+            // Simple pagination: show first, last, and around current
+            const maxVisible = 5;
+            let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+            let endPage = Math.min(totalPages, startPage + maxVisible - 1);
+            
+            if (endPage - startPage < maxVisible - 1) {
+                startPage = Math.max(1, endPage - maxVisible + 1);
+            }
+            
+            for (let i = startPage; i <= endPage; i++) {
+                if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+                    html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+                } else if (i === startPage + 1 && startPage > 2) {
+                    html += `<span style="color: var(--text-secondary);">...</span>`;
+                } else if (i === endPage - 1 && endPage < totalPages - 1) {
+                    html += `<span style="color: var(--text-secondary);">...</span>`;
+                }
+            }
+            
+            html += `
+                <button class="page-btn ${currentPage === totalPages ? 'disabled' : ''}" onclick="goToPage(${currentPage + 1})">Next →</button>
+            `;
+            
+            document.getElementById('pagination').innerHTML = html;
+        }
+        
+        // Go to page
+        function goToPage(page) {
+            const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
+            if (page < 1 || page > totalPages) return;
+            currentPage = page;
+            renderCards();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Open modal
+        function openModal(cardId) {
+            const card = allCards.find(c => c.id === cardId);
+            if (!card) return;
+            
+            document.getElementById('modalImage').src = card.image_uris?.png || card.image_uris?.normal || '';
+            document.getElementById('modalName').textContent = card.name || 'Unknown';
+            document.getElementById('modalType').textContent = card.type_line || '';
+            document.getElementById('modalText').textContent = card.oracle_text || 'No text available.';
+            
+            const manaSymbols = parseManaCost(card.mana_cost);
+            document.getElementById('modalManaCost').innerHTML = renderManaCost(manaSymbols) || '';
+            
+            let statsHtml = '';
+            if (card.power && card.toughness) {
+                statsHtml += `<span><strong>P/T:</strong> ${card.power}/${card.toughness}</span>`;
+            }
+            if (card.cmc !== undefined) {
+                statsHtml += `<span><strong>CMC:</strong> ${card.cmc}</span>`;
+            }
+            if (card.rarity) {
+                statsHtml += `<span><strong>Rarity:</strong> ${card.rarity.replace('_rare', '')}</span>`;
+            }
+            document.getElementById('modalStats').innerHTML = statsHtml;
+            
+            document.getElementById('cardModal').classList.add('active');
+        }
+        
+        // Close modal
+        function closeModal() {
+            document.getElementById('cardModal').classList.remove('active');
+        }
+        
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            loadCards();
+            
+            // Search
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                filters.search = e.target.value.trim();
+                applyFilters();
+            });
+            
+            // Color filter
+            document.querySelectorAll('.color-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    filters.color = btn.dataset.filter;
+                    applyFilters();
+                });
+            });
+            
+            // Rarity filter
+            document.getElementById('rarityFilter').addEventListener('change', (e) => {
+                filters.rarity = e.target.value;
+                applyFilters();
+            });
+            
+            // Type filter
+            document.getElementById('typeFilter').addEventListener('change', (e) => {
+                filters.type = e.target.value;
+                applyFilters();
+            });
+            
+            // CMC slider
+            document.getElementById('cmcSlider').addEventListener('input', (e) => {
+                const value = parseInt(e.target.value);
+                filters.maxCmc = value;
+                document.getElementById('cmcValue').textContent = value === 20 ? '20+' : value.toString();
+                applyFilters();
+            });
+            
+            // Sort
+            document.getElementById('sortSelect').addEventListener('change', (e) => {
+                filters.sort = e.target.value;
+                applyFilters();
+            });
+            
+            // Close modal on overlay click
+            document.getElementById('cardModal').addEventListener('click', (e) => {
+                if (e.target.id === 'cardModal') closeModal();
+            });
+            
+            // Close modal on Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeModal();
+            });
+        });
+    </script>
+</body>
+</html>

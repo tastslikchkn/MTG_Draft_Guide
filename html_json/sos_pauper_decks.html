@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SOS Pauper Decks - Competitive Standard Pauper decklists using Secrets of Strixhaven commons and uncommons only">
+    <title>SOS Pauper Decks - MTG Draft Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #eee;
+            min-height: 100vh;
+            padding: 12px;
+            padding-top: 80px; /* Space for sticky nav */
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 20px 15px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 2em;
+            background: linear-gradient(90deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #9ca3af;
+            font-size: 0.95em;
+        }
+
+        /* Sticky Navigation Bar */
+        .sticky-nav {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(26, 26, 46, 0.95);
+            border-radius: 10px;
+            padding: 8px 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            z-index: 1000;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+            max-width: 95%;
+        }
+
+        .nav-pill {
+            padding: 8px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #eee;
+            font-size: 0.85em;
+            font-weight: 500;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .nav-pill:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        /* Nav pill colors per archetype */
+        .nav-pill.bw { background: rgba(251, 191, 36, 0.2); border-color: #fbbf24; color: #fbbf24; }   /* Azorius B/W */
+        .nav-pill.br { background: rgba(168, 85, 247, 0.2); border-color: #a855f7; color: #c084fc; }    /* Bogardan R/G */
+        .nav-pill.rw { background: rgba(251, 146, 60, 0.2); border-color: #fb923c; color: #fb923c; }     /* Lorehold R/W */
+        .nav-pill.bur { background: rgba(236, 72, 153, 0.2); border-color: #ec4899; color: #ec4899; }    /* Prismari B/R */
+        .nav-pill.bg { background: rgba(16, 185, 129, 0.2); border-color: #10b981; color: #34d399; }    /* Witherbloom B/G */
+        .nav-pill.forum { background: rgba(99, 102, 241, 0.2); border-color: #6366f1; color: #818cf8; }   /* Forum alt B/W */
+
+        /* Color Coding for Cards */
+        .color-w { border-left: 4px solid #fbbf24; }  /* White/Gold */
+        .color-u { border-left: 4px solid #3b82f6; }  /* Blue */
+        .color-b { border-left: 4px solid #525252; }  /* Black */
+        .color-r { border-left: 4px solid #ef4444; }  /* Red */
+        .color-g { border-left: 4px solid #22c55e; }  /* Green */
+        .color-n { border-left: 4px solid #a8a8a8; }  /* Colorless */
+
+        /* Deck Section Styles */
+        .deck-section {
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Archetype color borders */
+        .archetype-bw { border-top: 4px solid #fbbf24; }   /* Azorius B/W */
+        .archetype-br { border-top: 4px solid #a855f7; }    /* Bogardan R/G */
+        .archetype-rw { border-top: 4px solid #fb923c; }     /* Lorehold R/W */
+        .archetype-bur { border-top: 4px solid #ec4899; }    /* Prismari B/R */
+        .archetype-bg { border-top: 4px solid #10b981; }     /* Witherbloom B/G */
+        .archetype-forum { border-top: 4px solid #6366f1; }   /* Forum alt B/W */
+
+        .deck-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(251, 191, 36, 0.3);
+        }
+
+        .deck-title {
+            font-size: 1.4em;
+            color: #fbbf24;
+            margin: 0;
+        }
+
+        .deck-strategy {
+            color: #9ca3af;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        h3 {
+            font-size: 1.1em;
+            color: #e5e7eb;
+            margin: 15px 0 10px 0;
+            padding-left: 8px;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.1);
+            color: #fbbf24;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .card-item {
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .card-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+
+        .card-image-container {
+            position: relative;
+            width: 100%;
+            padding-top: 141%; /* MTG card aspect ratio */
+            background: linear-gradient(135deg, #1e1e2e, #0f0f1a);
+        }
+
+        .card-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .card-count {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            background: rgba(0,0,0,0.8);
+            color: #fbbf24;
+            font-size: 0.75em;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* Color badges */
+        .color-badge {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 4px;
+        }
+        .badge-w { background: #fbbf24; }  /* White */
+        .badge-u { background: #3b82f6; }  /* Blue */
+        .badge-b { background: #525252; }   /* Black */
+        .badge-r { background: #ef4444; }   /* Red */
+        .badge-g { background: #22c55e; }   /* Green */
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 8px;
+                padding-top: 140px;
+            }
+
+            .sticky-nav {
+                flex-direction: column;
+                border-radius: 8px;
+                padding: 8px;
+            }
+
+            .nav-pill {
+                width: 100%;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .deck-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            .card-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+                padding: 0;
+            }
+
+            .sticky-nav {
+                display: none;
+            }
+
+            .deck-section {
+                break-inside: avoid;
+                border: 1px solid #ccc;
+                margin-bottom: 20px;
+            }
+
+            .card-image-container {
+                background: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sticky Navigation -->
+        <nav class="sticky-nav">
+            <a href="#azorius" class="nav-pill bw">Azorius Control</a>
+            <a href="#bogardan" class="nav-pill br">Bogardan Aggro</a>
+            <a href="#lorehold" class="nav-pill rw">Lorehold Midrange</a>
+            <a href="#prismari" class="nav-pill bur">Prismari Tempo</a>
+            <a href="#forum" class="nav-pill forum">Forum Control</a>
+            <a href="#witherbloom" class="nav-pill bg">Witherbloom Value</a>
+        </nav>
+
+        <!-- Header -->
+        <header>
+            <h1>🎴 SOS Pauper Decks</h1>
+            <p class="subtitle">Competitive Standard Pauper decklists using Secrets of Strixhaven commons and uncommons only</p>
+        </header>
+
+        <!-- DECK 1: Azorius Control -->
+        <section id="azorius" class="deck-section archetype-bw">
+            <div class="deck-header">
+                <h2 class="deck-title"><span class="color-badge badge-u"></span><span class="color-badge badge-w"></span>Azorius Control</h2>
+                <p class="deck-strategy">Counterspells, bounce, and value with Silverquill Charm</p>
+            </div>
+
+            <!-- Creatures -->
+            <h3>🦁 Creatures (12)</h3>
+            <div class="card-grid">
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">4x</span>
+                        <img src="../../images/cards/SOS/soaring-stoneglider.jpg" alt="Soaring Stoneglider" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/ennis-debate-moderator.jpg" alt="Ennis, Debate Moderator" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/scolding-administrator.jpg" alt="Scolding Administrator" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/transcendent-archaic.jpg" alt="Transcendent Archaic" class="card-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spells -->
+            <h3>✨ Spells (26)</h3>
+            <div class="card-grid">
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">4x</span>
+                        <img src="../../images/cards/SOS/banishing-betrayal.jpg" alt="Banishing Betrayal" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">4x</span>
+                        <img src="../../images/cards/SOS/divergent-equation.jpg" alt="Divergent Equation" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">4x</span>
+                        <img src="../../images/cards/SOS/silverquill-charm.jpg" alt="Silverquill Charm" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/harsh-annotation.jpg" alt="Harsh Annotation" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/stand-up-for-yourself.jpg" alt="Stand Up for Yourself" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/daydream.jpg" alt="Daydream" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/homesickness.jpg" alt="Homesickness" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/killians-confidence.jpg" alt="Killian's Confidence" class="card-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lands -->
+            <h3>🏔️ Lands (22)</h3>
+            <div class="card-grid">
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">8x</span>
+                        <img src="../../images/cards/island.jpg" alt="Island" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-w">
+                    <div class="card-image-container">
+                        <span class="card-count">6x</span>
+                        <img src="../../images/cards/plains.jpg" alt="Plains" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">4x</span>
+                        <img src="../../images/cards/terramorphic-expanse.jpg" alt="Terramorphic Expanse" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/skycoach-waypoint.jpg" alt="Skycoach Waypoint" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/forum-of-amity.jpg" alt="Forum of Amity" class="card-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DECK 2: Bogardan Aggro -->
+        <section id="bogardan" class="deck-section archetype-br">
+            <div class="deck-header">
+                <h2 class="deck-title"><span class="color-badge badge-r"></span><span class="color-badge badge-g"></span>Bogardan Aggro</h2>
+                <p class="deck-strategy">Fast creatures with Ancestral Anger and Quandrix Charm</p>
+            </div>
+
+            <!-- Creatures -->
+            <h3>🦁 Creatures (18)</h3>
+            <div class="card-grid">
+                <div class="card-item color-g">
+                    <div class="card-image-container">
+                        <span class="card-count">4x</span>
+                        <img src="../../images/cards/SOS/thornfist-striker.jpg" alt="Thornfist Striker" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-g">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/topiary-lecturer.jpg" alt="Topiary Lecturer" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-g">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/emil-vastlands-roamer.jpg" alt="Emil, Vastlands Roamer" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-g">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/aberrant-manawurm.jpg" alt="Aberrant Manawurm" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-g">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/garrison-excavator.jpg" alt="Garrison Excavator" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/sundering-archaic.jpg" alt="Sundering Archaic" class="card-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spells -->
+            <h3>✨ Spells (18)</h3>
+            <div class="card-grid">
+                <div class="card-item color-r">
+                    <div class="card-image-container">
+                        <span class="card-count">4x</span>
+                        <img src="../../images/cards/SOS/ancestral-anger.jpg" alt="Ancestral Anger" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-r">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/duel-tactics.jpg" alt="Duel Tactics" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-g">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/quandrix-charm.jpg" alt="Quandrix Charm" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-g">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/chelonian-tackle.jpg" alt="Chelonian Tackle" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-r">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/lumarets-favor.jpg" alt="Lumaret's Favor" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-r">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/impractical-joke.jpg" alt="Impractical Joke" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-r">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/artistic-process.jpg" alt="Artistic Process" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-g">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/additive-evolution.jpg" alt="Additive Evolution" class="card-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lands -->
+            <h3>🏔️ Lands (24)</h3>
+            <div class="card-grid">
+                <div class="card-item color-r">
+                    <div class="card-image-container">
+                        <span class="card-count">8x</span>
+                        <img src="../../images/cards/mountain.jpg" alt="Mountain" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-g">
+                    <div class="card-image-container">
+                        <span class="card-count">6x</span>
+                        <img src="../../images/cards/forest.jpg" alt="Forest" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">5x</span>
+                        <img src="../../images/cards/terramorphic-expanse.jpg" alt="Terramorphic Expanse" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/skycoach-waypoint.jpg" alt="Skycoach Waypoint" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/spectacle-summit.jpg" alt="Spectacle Summit" class="card-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DECK 3: Lorehold Midrange -->
+        <section id="lorehold" class="deck-section archetype-rw">
+            <div class="deck-header">
+                <h2 class="deck-title"><span class="color-badge badge-r"></span><span class="color-badge badge-w"></span>Lorehold Midrange</h2>
+                <p class="deck-strategy">Efficient removal, Kirol synergy, and Colossus finisher</p>
+            </div>
+
+            <!-- Creatures -->
+            <h3>🦁 Creatures (16)</h3>
+            <div class="card-grid">
+                <div class="card-item color-r">
+                    <div class="card-image-container">
+                        <span class="card-count">4x</span>
+                        <img src="../../images/cards/SOS/kirol-history-buff.jpg" alt="Kirol, History Buff" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-r">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/practiced-scrollsmith.jpg" alt="Practiced Scrollsmith" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-r">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/startled-relic-sloth.jpg" alt="Startled Relic Sloth" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/soaring-stoneglider.jpg" alt="Soaring Stoneglider" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-r">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/colossus-of-the-blood-age.jpg" alt="Colossus of the Blood Age" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/transcendent-archaic.jpg" alt="Transcendent Archaic" class="card-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spells -->
+            <h3>✨ Spells (20)</h3>
+            <div class="card-grid">
+                <div class="card-item color-w">
+                    <div class="card-image-container">
+                        <span class="card-count">4x</span>
+                        <img src="../../images/cards/SOS/ajanis-response.jpg" alt="Ajani's Response" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-r">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/lorehold-charm.jpg" alt="Lorehold Charm" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-r">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/wilt-in-the-heat.jpg" alt="Wilt in the Heat" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-r">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/molten-note.jpg" alt="Molten Note" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-r">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/borrowed-knowledge.jpg" alt="Borrowed Knowledge" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-r">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/archaics-agony.jpg" alt="Archaic's Agony" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/daydream.jpg" alt="Daydream" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-r">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/impractical-joke.jpg" alt="Impractical Joke" class="card-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lands -->
+            <h3>🏔️ Lands (24)</h3>
+            <div class="card-grid">
+                <div class="card-item color-r">
+                    <div class="card-image-container">
+                        <span class="card-count">8x</span>
+                        <img src="../../images/cards/mountain.jpg" alt="Mountain" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-w">
+                    <div class="card-image-container">
+                        <span class="card-count">6x</span>
+                        <img src="../../images/cards/plains.jpg" alt="Plains" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">5x</span>
+                        <img src="../../images/cards/terramorphic-expanse.jpg" alt="Terramorphic Expanse" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/skycoach-waypoint.jpg" alt="Skycoach Waypoint" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/fields-of-strife.jpg" alt="Fields of Strife" class="card-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DECK 4: Prismari Tempo -->
+        <section id="prismari" class="deck-section archetype-bur">
+            <div class="deck-header">
+                <h2 class="deck-title"><span class="color-badge badge-u"></span><span class="color-badge badge-r"></span>Prismari Tempo</h2>
+                <p class="deck-strategy">Fractalize, cheap creatures, and Visionary's Dance value</p>
+            </div>
+
+            <!-- Creatures -->
+            <h3>🦁 Creatures (16)</h3>
+            <div class="card-grid">
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">4x</span>
+                        <img src="../../images/cards/SOS/muse-seeker.jpg" alt="Muse Seeker" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/tester-of-the-tangential.jpg" alt="Tester of the Tangential" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/abstract-paintmage.jpg" alt="Abstract Paintmage" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/spectacular-skywhale.jpg" alt="Spectacular Skywhale" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/sanar-unfinished-genius.jpg" alt="Sanar, Unfinished Genius" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/transcendent-archaic.jpg" alt="Transcendent Archaic" class="card-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spells -->
+            <h3>✨ Spells (20)</h3>
+            <div class="card-grid">
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">4x</span>
+                        <img src="../../images/cards/SOS/fractalize.jpg" alt="Fractalize" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/prismari-charm.jpg" alt="Prismari Charm" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/divergent-equation.jpg" alt="Divergent Equation" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-r">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/vibrant-outburst.jpg" alt="Vibrant Outburst" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/visionarys-dance.jpg" alt="Visionary's Dance" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/stress-dream.jpg" alt="Stress Dream" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-r">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/rapturous-moment.jpg" alt="Rapturous Moment" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-r">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/impractical-joke.jpg" alt="Impractical Joke" class="card-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lands -->
+            <h3>🏔️ Lands (24)</h3>
+            <div class="card-grid">
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">8x</span>
+                        <img src="../../images/cards/island.jpg" alt="Island" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-r">
+                    <div class="card-image-container">
+                        <span class="card-count">6x</span>
+                        <img src="../../images/cards/mountain.jpg" alt="Mountain" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">5x</span>
+                        <img src="../../images/cards/terramorphic-expanse.jpg" alt="Terramorphic Expanse" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/skycoach-waypoint.jpg" alt="Skycoach Waypoint" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/spectacle-summit.jpg" alt="Spectacle Summit" class="card-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DECK 5: Forum Control -->
+        <section id="forum" class="deck-section archetype-forum">
+            <div class="deck-header">
+                <h2 class="deck-title"><span class="color-badge badge-w"></span><span class="color-badge badge-b"></span>Forum Control</h2>
+                <p class="deck-strategy">Removal, value engines with Arnyn and Scolding Administrator</p>
+            </div>
+
+            <!-- Creatures -->
+            <h3>🦁 Creatures (16)</h3>
+            <div class="card-grid">
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">4x</span>
+                        <img src="../../images/cards/SOS/ennis-debate-moderator.jpg" alt="Ennis, Debate Moderator" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/scolding-administrator.jpg" alt="Scolding Administrator" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/snooping-page.jpg" alt="Snooping Page" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/soaring-stoneglider.jpg" alt="Soaring Stoneglider" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-b">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/arnyn-deathbloom-botanist.jpg" alt="Arnyn, Deathbloom Botanist" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/transcendent-archaic.jpg" alt="Transcendent Archaic" class="card-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spells -->
+            <h3>✨ Spells (20)</h3>
+            <div class="card-grid">
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">4x</span>
+                        <img src="../../images/cards/SOS/banishing-betrayal.jpg" alt="Banishing Betrayal" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/silverquill-charm.jpg" alt="Silverquill Charm" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-b">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/end-of-the-hunt.jpg" alt="End of the Hunt" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-b">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/dissection-practice.jpg" alt="Dissection Practice" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-b">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/wander-off.jpg" alt="Wander Off" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/arcane-omens.jpg" alt="Arcane Omens" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-b">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/social-snub.jpg" alt="Social Snub" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-u">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/killians-confidence.jpg" alt="Killian's Confidence" class="card-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lands -->
+            <h3>🏔️ Lands (24)</h3>
+            <div class="card-grid">
+                <div class="card-item color-w">
+                    <div class="card-image-container">
+                        <span class="card-count">8x</span>
+                        <img src="../../images/cards/plains.jpg" alt="Plains" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-b">
+                    <div class="card-image-container">
+                        <span class="card-count">6x</span>
+                        <img src="../../images/cards/swamp.jpg" alt="Swamp" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">5x</span>
+                        <img src="../../images/cards/terramorphic-expanse.jpg" alt="Terramorphic Expanse" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/skycoach-waypoint.jpg" alt="Skycoach Waypoint" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/forum-of-amity.jpg" alt="Forum of Amity" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/titans-grave.jpg" alt="Titan's Grave" class="card-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DECK 6: Witherbloom Value -->
+        <section id="witherbloom" class="deck-section archetype-bg">
+            <div class="deck-header">
+                <h2 class="deck-title"><span class="color-badge badge-b"></span><span class="color-badge badge-g"></span>Witherbloom Value</h2>
+                <p class="deck-strategy">Lluwen token generation, removal, and value</p>
+            </div>
+
+            <!-- Creatures -->
+            <h3>🦁 Creatures (18)</h3>
+            <div class="card-grid">
+                <div class="card-item color-b">
+                    <div class="card-image-container">
+                        <span class="card-count">4x</span>
+                        <img src="../../images/cards/SOS/lluwen-exchange-student.jpg" alt="Lluwen, Exchange Student" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-b">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/teachers-pest.jpg" alt="Teacher's Pest" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-g">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/old-growth-educator.jpg" alt="Old-Growth Educator" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-g">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/environmental-scientist.jpg" alt="Environmental Scientist" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-g">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/aberrant-manawurm.jpg" alt="Aberrant Manawurm" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-b">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/arnyn-deathbloom-botanist.jpg" alt="Arnyn, Deathbloom Botanist" class="card-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spells -->
+            <h3>✨ Spells (18)</h3>
+            <div class="card-grid">
+                <div class="card-item color-b">
+                    <div class="card-image-container">
+                        <span class="card-count">4x</span>
+                        <img src="../../images/cards/SOS/wander-off.jpg" alt="Wander Off" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-b">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/witherbloom-charm.jpg" alt="Witherbloom Charm" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-b">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/end-of-the-hunt.jpg" alt="End of the Hunt" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-b">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/dissection-practice.jpg" alt="Dissection Practice" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-g">
+                    <div class="card-image-container">
+                        <span class="card-count">2x</span>
+                        <img src="../../images/cards/SOS/mind-roots.jpg" alt="Mind Roots" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-g">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/root-manipulation.jpg" alt="Root Manipulation" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-b">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/zimones-experiment.jpg" alt="Zimone's Experiment" class="card-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lands -->
+            <h3>🏔️ Lands (24)</h3>
+            <div class="card-grid">
+                <div class="card-item color-g">
+                    <div class="card-image-container">
+                        <span class="card-count">8x</span>
+                        <img src="../../images/cards/forest.jpg" alt="Forest" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-b">
+                    <div class="card-image-container">
+                        <span class="card-count">6x</span>
+                        <img src="../../images/cards/swamp.jpg" alt="Swamp" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">5x</span>
+                        <img src="../../images/cards/terramorphic-expanse.jpg" alt="Terramorphic Expanse" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">3x</span>
+                        <img src="../../images/cards/SOS/skycoach-waypoint.jpg" alt="Skycoach Waypoint" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/titans-grave.jpg" alt="Titan's Grave" class="card-image">
+                    </div>
+                </div>
+                <div class="card-item color-n">
+                    <div class="card-image-container">
+                        <span class="card-count">1x</span>
+                        <img src="../../images/cards/SOS/paradox-gardens.jpg" alt="Paradox Gardens" class="card-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>

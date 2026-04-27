@@ -1,0 +1,114 @@
+Category,Test ID,Test Case,Expected Result,Status,Priority
+US-1: Search for Cards by Name or Text,US-1.1,"Search input field prominently displayed at top of page","Input visible with placeholder text and search icon",Pending,P0
+US-1: Search for Cards by Name or Text,US-1.2,"Type 'removal' in search box","Results filter in real-time without button click",Pending,P0
+US-1: Search for Cards by Name or Text,US-1.3,"Search for 'haste'","Cards with 'haste' in name OR oracle_text shown",Pending,P0
+US-1: Search for Cards by Name or Text,US-1.4,"Search for 'LIGHTNING' (uppercase)","Case-insensitive: finds 'Lightning Bolt'",Pending,P1
+US-1: Search for Cards by Name or Text,US-1.5,"Results count updates as typing","Display shows filtered card count immediately",Pending,P0
+US-2: Filter by Multiple Criteria Simultaneously,US-2.1,"Color filter displays five mana symbol buttons (WUBRG) + 'All'","Six clickable buttons with Scryfall images",Pending,P0
+US-2: Filter by Multiple Criteria Simultaneously,US-2.2,"Rarity dropdown shows: All, Common, Uncommon, Rare, Mythic Rare","Five options available",Pending,P0
+US-2: Filter by Multiple Criteria Simultaneously,US-2.3,"Type dropdown shows main card types","Creature, Instant, Sorcery, Enchantment, Land, Artifact, Planeswalker",Pending,P0
+US-2: Filter by Multiple Criteria Simultaneously,US-2.4,"Apply Blue + Common + Creature filters together","Only blue common creatures shown (AND logic)",Pending,P0
+US-2: Filter by Multiple Criteria Simultaneously,US-2.5,"Active filter shows visual feedback","Selected button has border glow/transform effect",Pending,P1
+US-3: Sort Cards by Different Criteria,US-3.1,"Sort dropdown shows four options","Score (High→Low), CMC (Low→High), Name (A→Z), Rarity (Mythic→Common)",Pending,P0
+US-3: Sort Cards by Different Criteria,US-3.2,"Default sort is Score descending","Highest eval_score cards appear first on load",Pending,P1
+US-3: Sort Cards by Different Criteria,US-3.3,"Sort by CMC ascending","1-drops, then 2-drops, then 3-drops...",Pending,P0
+US-3: Sort Cards by Different Criteria,US-3.4,"Sorting applies after filtering","Filtered results re-sorted when sort changed",Pending,P0
+US-3: Sort Cards by Different Criteria,US-3.5,"Visual indicator shows current sort order","Dropdown displays selected option",Pending,P1
+US-4: View Card Details in Modal,US-4.1,"Click any card thumbnail","Modal overlay opens with backdrop dim/blur",Pending,P0
+US-4: View Card Details in Modal,US-4.2,"Modal displays large card image (PNG quality)","High-resolution image from Scryfall",Pending,P0
+US-4: View Card Details in Modal,US-4.3,"Modal shows card name, type line, oracle text","All text fields rendered correctly",Pending,P0
+US-4: View Card Details in Modal,US-4.4,"Mana cost shown as individual symbol images","Each {W}, {U}, etc. is separate image",Pending,P1
+US-4: View Card Details in Modal,US-4.5,"Power/Toughness displayed for creatures","'3/2' format in bottom-right of card info",Pending,P1
+US-4: View Card Details in Modal,US-4.6,"Click X button closes modal","Modal disappears, returns to grid",Pending,P0
+US-4: View Card Details in Modal,US-4.7,"Press Escape key closes modal","Keyboard shortcut works",Pending,P2
+US-5: Filter by Mana Cost Range,US-5.1,"CMC slider control visible (0 to 20+)","Range input with min=0, max≥20",Pending,P0
+US-5: Filter by Mana Cost Range,US-5.2,"Current max value displayed next to slider","Number updates as slider moves",Pending,P1
+US-5: Filter by Mana Cost Range,US-5.3,"Drag slider to CMC=3","Only cards with cmc≤3 shown in real-time",Pending,P0
+US-5: Filter by Mana Cost Range,US-5.4,"Default position at maximum (show all)","Slider starts at rightmost position",Pending,P1
+US-6: Clear All Filters,US-6.1,"'Clear All' button visible when any filter active","Button appears after applying first filter",Pending,P2
+US-6: Clear All Filters,US-6.2,"Click 'Clear All' resets all filters","Search, color, rarity, type, CMC, sort all reset",Pending,P2
+US-6: Clear All Filters,US-6.3,"After clearing, all cards shown immediately","Grid displays full ~850 card set",Pending,P2
+US-6: Clear All Filters,US-6.4,"Button disabled/hidden when no filters active","Not visible on initial page load",Pending,P2
+FR-1: Data Loading,FR-1.1,"Page loads and fetches evaluated_sos.json","JSON loaded successfully from same directory",Pending,P0
+FR-1: Data Loading,FR-1.2,"Loading spinner displayed while fetching","Visual feedback during network request",Pending,P1
+FR-1: Data Loading,FR-1.3.1,"JSON file not found → error banner displays","Message: 'Card data unavailable...' shown inline",Pending,P1
+FR-1: Data Loading,FR-1.3.2,"Error includes retry button","Clicking re-attempts fetch",Pending,P2
+FR-1: Data Loading,FR-1.3.3,"Detailed error logged to console","Developer can see fetch failure details",Pending,P2
+FR-1: Data Loading,FR-1.4,"~850 cards load without performance issues","Page remains responsive during render",Pending,P0
+FR-2: Search Functionality,FR-2.1,"Search input has placeholder text and icon","'Search cards...' or similar hint visible",Pending,P0
+FR-2: Search Functionality,FR-2.2,"Real-time filtering as user types","No Enter key required, instant results",Pending,P0
+FR-2: Search Functionality,FR-2.3,"Search matches card.name field","Typing card name finds it",Pending,P0
+FR-2: Search Functionality,FR-2.4,"Search matches card.oracle_text field","Typing 'draw a card' finds draw spells",Pending,P0
+FR-2: Search Functionality,FR-2.5,"Case-insensitive matching","'BOLT', 'Bolt', 'bolt' all work",Pending,P1
+FR-2: Search Functionality,FR-2.6,"Clear search restores all cards","Deleting text shows full set again",Pending,P2
+FR-2: Search Functionality,FR-2.7,"Partial match supported ('light' → 'Lightning Bolt')","Substring matching works",Pending,P2
+FR-2: Search Functionality,FR-2.8,"No fuzzy matching — exact substring only","'lghtng' does NOT find 'Lightning'",Pending,P2
+FR-3: Color Filtering,FR-3.1,"Five colored mana symbol buttons displayed (WUBRG)","Using Scryfall PNG images",Pending,P0
+FR-3: Color Filtering,FR-3.2,"'All' button shows cards of any color","Default state, all cards visible",Pending,P0
+FR-3: Color Filtering,FR-3.3,"Active state has visual feedback (glow/transform)","Selected button stands out",Pending,P1
+FR-3: Color Filtering,FR-3.4,"Single-select behavior only one color active at a time","Clicking Blue deselects Red automatically",Pending,P0
+FR-3: Color Filtering,FR-3.5,"Filter excludes non-matching colors AND multicolor when single selected","Clicking White shows ONLY white cards (no W/B, W/U, etc.)",Pending,P1
+FR-4: Rarity Filtering,FR-4.1,"Dropdown options: All, Common, Uncommon, Rare, Mythic Rare","Five choices available",Pending,P0
+FR-4: Rarity Filtering,FR-4.2,"'Mythic' option maps to mythic_rare in JSON","Selecting shows mythic rare cards only",Pending,P1
+FR-4: Rarity Filtering,FR-4.3,"Default selection is 'All Rarities'","Page loads with all rarities shown",Pending,P1
+FR-5: Type Filtering,FR-5.1,"Dropdown shows main card types as options","Creature, Instant, Sorcery, etc.",Pending,P0
+FR-5: Type Filtering,FR-5.2,"Extracts main type from type_line (before ' — ')","'Creature — Human Wizard' → 'Creature'",Pending,P1
+FR-5: Type Filtering,FR-5.3,"Handles subtype variations correctly","All creature subtypes grouped under 'Creature'",Pending,P1
+FR-5: Type Filtering,FR-5.4,"'Basic Land' extracted as 'Land' (grouped with all lands)","Forest, Island, Mountain, Plains, Swamp all show under Land filter",Pending,P2
+FR-5: Type Filtering,FR-5.5,"Double-faced cards use front face type for filtering","DFC filtered by front face main type",Pending,P2
+FR-6: CMC Filtering,FR-6.1,"Range slider from 0 to 20+","Min=0, max≥20 available",Pending,P0
+FR-6: CMC Filtering,FR-6.2,"Current max value displayed next to slider","Numeric display updates live",Pending,P1
+FR-6: CMC Filtering,FR-6.3,"Filters cards where cmc ≤ selected_value","Slider at 5 shows only CMC 0-5 cards",Pending,P0
+FR-7: Sorting,FR-7.1,"Four sort options in dropdown","Score, CMC, Name, Rarity available",Pending,P0
+FR-7: Sorting,FR-7.2,"Score descending uses eval_score field (default 0 if missing)","Cards with no score appear at bottom",Pending,P1
+FR-7: Sorting,FR-7.3,"CMC ascending sorts numerically","1 < 2 < 3, not lexicographically",Pending,P1
+FR-7: Sorting,FR-7.4,"Name ascending uses localeCompare for proper alphabetical order","'A' before 'B', handles special chars",Pending,P2
+FR-7: Sorting,FR-7.5,"Rarity descending: Mythic > Rare > Uncommon > Common","Correct hierarchy enforced",Pending,P1
+FR-8: Card Display,FR-8.1,"Grid layout with responsive columns (auto-fill, min 200px)","Cards wrap based on viewport width",Pending,P0
+FR-8: Card Display,FR-8.2,"Each card shows image, name, type, rarity badge","All four elements visible per card",Pending,P0
+FR-8: Card Display,FR-8.3,"Rarity badges color-coded correctly","Common=bronze, Uncommon=silver, Rare=purple, Mythic=orange",Pending,P1
+FR-8: Card Display,FR-8.4,"Hover effect with lift and shadow","Card elevates on mouseover",Pending,P2
+FR-8: Card Display,FR-8.5,"Lazy loading for card images","loading='lazy' attribute present",Pending,P2
+FR-9: Pagination,FR-9.1,"Display 48 cards per page (configurable)","First load shows exactly 48 cards",Pending,P0
+FR-9: Pagination,FR-9.2,"Previous/Next buttons with disabled state at boundaries","'Previous' disabled on page 1, 'Next' disabled on last page",Pending,P0
+FR-9: Pagination,FR-9.3,"Page number buttons for direct navigation","Click '5' jumps to page 5",Pending,P1
+FR-9: Pagination,FR-9.4,"Result count displayed: 'Showing X cards'","Accurate count of filtered results",Pending,P1
+FR-10: Modal Details View,FR-10.1,"Full-screen overlay with backdrop blur/dim","Background dimmed, focus on modal",Pending,P0
+FR-10: Modal Details View,FR-10.2,"Large card image (PNG quality from Scryfall)","High-res PNG displayed",Pending,P0
+FR-10: Modal Details View,FR-10.3,"Card name, type line, oracle text displayed","All fields rendered",Pending,P0
+FR-10: Modal Details View,FR-10.4,"Mana cost rendered as individual symbol images","Each mana symbol is separate image element",Pending,P1
+FR-10: Modal Details View,FR-10.5,"Power/Toughness shown for creatures","P/T values visible in modal",Pending,P1
+FR-10: Modal Details View,FR-10.6,"Close on Escape keypress","Keyboard shortcut functional",Pending,P2
+FR-10: Modal Details View,FR-10.7,"Close on overlay click (outside modal content)","Clicking backdrop closes modal",Pending,P2
+FR-11: Accessibility,FR-11.1,"All interactive elements reachable via Tab key","Focus moves through all buttons, inputs, cards",Pending,P1
+FR-11: Accessibility,FR-11.2,"Modal traps focus when open, returns on close","Tab cycling stays within modal; closes → focus returns to grid",Pending,P1
+FR-11: Accessibility,FR-11.3,"Card images have alt text with card name","alt='Card Name' present on all thumbnails",Pending,P1
+FR-11: Accessibility,FR-11.4,"Color filter buttons include text labels for screen readers","alt='White', alt='Blue', etc. or aria-label",Pending,P2
+FR-11: Accessibility,FR-11.5,"Error messages announced to screen readers","Uses role='alert' or aria-live for errors",Pending,P2
+FR-12: Data Validation,FR-12.1,"Validate JSON structure on load (required fields present)","Missing required fields detected",Pending,P1
+FR-12: Data Validation,FR-12.2,"Skip cards with missing name or image_uris.normal silently","Invalid cards not rendered, no crash",Pending,P2
+FR-12: Data Validation,FR-12.3,"Default eval_score to 0 if missing or invalid","Cards without score sort to bottom",Pending,P2
+FR-12: Data Validation,FR-12.4,"Log validation errors to console with card ID for debugging","Developer can identify problematic cards",Pending,P2
+FR-12: Data Validation,FR-12.5,"Display warning banner if >5% of cards skipped due to validation failures","User notified of significant data issues",Pending,P3
+TC-5: Edge Cases,TC-5.1,"Search for non-existent term 'xyz123'","Shows 0 results, displays 'No cards match your criteria' message",Pending,P2
+TC-5: Edge Cases,TC-5.2,"Search with special characters '!@#'","Treated literally as substring search, no regex interpretation",Pending,P2
+TC-5: Edge Cases,TC-5.3,"CMC slider at minimum (0)","Only shows cards with CMC = 0 (e.g., some artifacts like 'Sol Ring')",Pending,P2
+TC-5: Edge Cases,TC-5.4,"All filters combined yielding 0 results","Graceful 'No cards match' message with suggestion to clear filters",Pending,P2
+TC-5: Edge Cases,TC-5.5,"Card name with apostrophe 'It That Ain't Dead Yet'","Search handles correctly without escaping issues",Pending,P2
+TC-5: Edge Cases,TC-5.6,"Empty search after clearing","Restores all cards immediately",Pending,P2
+Browser Compatibility,BROWSER-Chrome,"Core functionality on Chrome 87+","All features work as expected",Pending,P0
+Browser Compatibility,BROWSER-Firefox,"Core functionality on Firefox 88+","All features work as expected",Pending,P1
+Browser Compatibility,BROWSER-Safari,"Core functionality on Safari 14+","CSS Grid support verified, all features work",Pending,P1
+Browser Compatibility,BROWSER-Edge,"Core functionality on Edge 87+","Should match Chrome behavior",Pending,P2
+NFR: Security,NFR-S1,"All external images loaded from HTTPS sources only","No HTTP image URLs in page source",Pending,P1
+NFR: Security,NFR-S2,"No user input stored or transmitted — entirely client-side","Network tab shows no POST requests with user data",Pending,P0
+NFR: Security,NFR-S3,"No third-party analytics or tracking scripts","No Google Analytics, no cookies set by third parties",Pending,P1
+NFR: Reliability,NFR-R1,"Page functions entirely offline after initial load (cacheable)","Reload with network disabled works (if cached)",Pending,P1
+NFR: Reliability,NFR-R2,"Graceful degradation if Scryfall image CDN unavailable","Placeholder shown, page doesn't break",Pending,P2
+NFR: Maintainability,NFR-M1,"Single HTML file, no build step required","Works by opening card-browser.html directly",Pending,P0
+NFR: Maintainability,NFR-M2,"Inline CSS/JS documented with comments for future editors","Code has explanatory comments",Pending,P2
+NFR: Maintainability,NFR-M3,"Variable/function names follow consistent naming conventions (camelCase)","No snake_case or PascalCase in JS",Pending,P2
+Performance,PERF-1,"Initial load time < 2s on local server","JSON (~1.6MB) loads and renders quickly",Pending,P0
+Performance,PERF-2,"Filter response time < 100ms","Changing filters feels instant",Pending,P0
+Performance,PERF-3,"Memory usage < 50MB in browser DevTools","No memory leaks during extended use",Pending,P1
+Performance,PERF-4,"Mobile viewport (375px) grid collapses to 2 columns","Responsive design works on phone-sized screen",Pending,P0

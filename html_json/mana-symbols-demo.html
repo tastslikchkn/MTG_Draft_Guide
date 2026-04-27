@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTG Mana Symbols Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #fff;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .section h2 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #aaa;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+        
+        .mana-symbols {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .symbol-wrapper {
+            text-align: center;
+        }
+        
+        .symbol-wrapper img {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+            transition: transform 0.2s;
+        }
+        
+        .symbol-wrapper:hover img {
+            transform: scale(1.2);
+        }
+        
+        .symbol-wrapper span {
+            display: block;
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        /* Filter button style demo */
+        .filter-demo {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .color-filter-btn {
+            position: relative;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 3px solid rgba(255,255,255,0.2);
+            background: #1a1a2e;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .color-filter-btn:hover {
+            border-color: rgba(255,255,255,0.6);
+            transform: translateY(-2px);
+        }
+        
+        .color-filter-btn.active {
+            border-color: #fff;
+            box-shadow: 0 0 20px currentColor;
+        }
+        
+        .color-filter-btn img {
+            width: 32px;
+            height: 32px;
+        }
+        
+        /* Card preview demo */
+        .card-preview {
+            background: linear-gradient(145deg, #2a2a4e, #1a1a2e);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .card-mana-cost {
+            display: flex;
+            gap: 4px;
+        }
+        
+        .card-mana-cost img {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎴 MTG Mana Symbols Demo</h1>
+        
+        <!-- Basic Colored Mana -->
+        <div class="section">
+            <h2>Basic Colored Mana Symbols</h2>
+            <div class="mana-symbols">
+                <div class="symbol-wrapper">
+                    <img src="https://cards.scryfall.io/symbols/w.png" alt="White mana">
+                    <span>White (W)</span>
+                </div>
+                <div class="symbol-wrapper">
+                    <img src="https://cards.scryfall.io/symbols/u.png" alt="Blue mana">
+                    <span>Blue (U)</span>
+                </div>
+                <div class="symbol-wrapper">
+                    <img src="https://cards.scryfall.io/symbols/b.png" alt="Black mana">
+                    <span>Black (B)</span>
+                </div>
+                <div class="symbol-wrapper">
+                    <img src="https://cards.scryfall.io/symbols/r.png" alt="Red mana">
+                    <span>Red (R)</span>
+                </div>
+                <div class="symbol-wrapper">
+                    <img src="https://cards.scryfall.io/symbols/g.png" alt="Green mana">
+                    <span>Green (G)</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Colorless & Special -->
+        <div class="section">
+            <h2>Colorless & Special Symbols</h2>
+            <div class="mana-symbols">
+                <div class="symbol-wrapper">
+                    <img src="https://cards.scryfall.io/symbols/c.png" alt="Colorless mana">
+                    <span>Colorless (C)</span>
+                </div>
+                <div class="symbol-wrapper">
+                    <img src="https://cards.scryfall.io/symbols/p.png" alt="Phyrexian white">
+                    <span>Phyrexian White</span>
+                </div>
+                <div class="symbol-wrapper">
+                    <img src="https://cards.scryfall.io/symbols/wu.png" alt="White-Blue hybrid">
+                    <span>W/U Hybrid</span>
+                </div>
+                <div class="symbol-wrapper">
+                    <img src="https://cards.scryfall.io/symbols/2.png" alt="Two generic mana">
+                    <span>Generic 2</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Filter Button Demo -->
+        <div class="section">
+            <h2>Color Filter Buttons (Interactive)</h2>
+            <p style="text-align: center; color: #888; margin-bottom: 15px;">Click to toggle colors</p>
+            <div class="filter-demo" id="colorFilters">
+                <button class="color-filter-btn" data-color="white" title="White">
+                    <img src="https://cards.scryfall.io/symbols/w.png" alt="W">
+                </button>
+                <button class="color-filter-btn" data-color="blue" title="Blue">
+                    <img src="https://cards.scryfall.io/symbols/u.png" alt="U">
+                </button>
+                <button class="color-filter-btn" data-color="black" title="Black">
+                    <img src="https://cards.scryfall.io/symbols/b.png" alt="B">
+                </button>
+                <button class="color-filter-btn" data-color="red" title="Red">
+                    <img src="https://cards.scryfall.io/symbols/r.png" alt="R">
+                </button>
+                <button class="color-filter-btn" data-color="green" title="Green">
+                    <img src="https://cards.scryfall.io/symbols/g.png" alt="G">
+                </button>
+            </div>
+        </div>
+        
+        <!-- Card Preview Demo -->
+        <div class="section">
+            <h2>Card Mana Cost Display Example</h2>
+            <div class="card-preview">
+                <div style="flex: 1;">
+                    <strong style="font-size: 1.1rem;">Example Card Name</strong>
+                    <p style="color: #888; font-size: 0.9rem; margin-top: 5px;">Creature — Human Wizard</p>
+                </div>
+                <div class="card-mana-cost">
+                    <img src="https://cards.scryfall.io/symbols/2.png" alt="2">
+                    <img src="https://cards.scryfall.io/symbols/w.png" alt="W">
+                    <img src="https://cards.scryfall.io/symbols/u.png" alt="U">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Simple toggle for filter buttons
+        document.querySelectorAll('.color-filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

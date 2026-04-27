@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Browser Test Checklist - Google Sheets Template</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .instructions {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .instructions h1 {
+            color: #1a73e8;
+            margin-top: 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th {
+            background: #1a73e8;
+            color: white;
+            padding: 12px 8px;
+            text-align: left;
+            font-weight: bold;
+        }
+        td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .status-pending { color: #666; }
+        .priority-p0 { color: #d93025; font-weight: bold; }
+        .priority-p1 { color: #f4b400; font-weight: bold; }
+        .priority-p2 { color: #1a73e8; }
+        .priority-p3 { color: #999; }
+        .category-header {
+            background: #e8f0fe;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        <h1>📋 Card Browser Test Checklist</h1>
+        <p><strong>To import into Google Sheets:</strong></p>
+        <ol>
+            <li>Select all content below (Ctrl+A or Cmd+A)</li>
+            <li>Copy (Ctrl+C or Cmd+C)</li>
+            <li>Open <a href="https://sheets.new" target="_blank">Google Sheets</a></li>
+            <li>Paste into cell A1 (Ctrl+V or Cmd+V)</li>
+            <li>Follow the setup guide for filters and formatting!</li>
+        </ol>
+        <p><strong>Total Tests:</strong> 115 | <strong>Categories:</strong> 18</p>
+    </div>
+    
+    <table id="testChecklist">
+        <thead>
+            <tr>
+                <th style="width: 20%">Category</th>
+                <th style="width: 10%">Test ID</th>
+                <th style="width: 25%">Test Case</th>
+                <th style="width: 30%">Expected Result</th>
+                <th style="width: 8%">Status</th>
+                <th style="width: 7%">Priority</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- US-1: Search for Cards by Name or Text -->
+            <tr class="category-header"><td colspan="6">US-1: Search for Cards by Name or Text</td></tr>
+            <tr><td>US-1: Search for Cards by Name or Text</td><td>US-1.1</td><td>Search input field prominently displayed at top of page</td><td>Input visible with placeholder text and search icon</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>US-1: Search for Cards by Name or Text</td><td>US-1.2</td><td>Type "removal" in search box</td><td>Results filter in real-time without button click</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>US-1: Search for Cards by Name or Text</td><td>US-1.3</td><td>Search for "haste"</td><td>Cards with "haste" in name OR oracle_text shown</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>US-1: Search for Cards by Name or Text</td><td>US-1.4</td><td>Search for "LIGHTNING" (uppercase)</td><td>Case-insensitive: finds "Lightning Bolt"</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>US-1: Search for Cards by Name or Text</td><td>US-1.5</td><td>Results count updates as typing</td><td>Display shows filtered card count immediately</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            
+            <!-- US-2: Filter by Multiple Criteria Simultaneously -->
+            <tr class="category-header"><td colspan="6">US-2: Filter by Multiple Criteria Simultaneously</td></tr>
+            <tr><td>US-2: Filter by Multiple Criteria Simultaneously</td><td>US-2.1</td><td>Color filter displays five mana symbol buttons (WUBRG) + "All"</td><td>Six clickable buttons with Scryfall images</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>US-2: Filter by Multiple Criteria Simultaneously</td><td>US-2.2</td><td>Rarity dropdown shows: All, Common, Uncommon, Rare, Mythic Rare</td><td>Five options available</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>US-2: Filter by Multiple Criteria Simultaneously</td><td>US-2.3</td><td>Type dropdown shows main card types</td><td>Creature, Instant, Sorcery, Enchantment, Land, Artifact, Planeswalker</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>US-2: Filter by Multiple Criteria Simultaneously</td><td>US-2.4</td><td>Apply Blue + Common + Creature filters together</td><td>Only blue common creatures shown (AND logic)</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>US-2: Filter by Multiple Criteria Simultaneously</td><td>US-2.5</td><td>Active filter shows visual feedback</td><td>Selected button has border glow/transform effect</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            
+            <!-- US-3: Sort Cards by Different Criteria -->
+            <tr class="category-header"><td colspan="6">US-3: Sort Cards by Different Criteria</td></tr>
+            <tr><td>US-3: Sort Cards by Different Criteria</td><td>US-3.1</td><td>Sort dropdown shows four options</td><td>Score (High→Low), CMC (Low→High), Name (A→Z), Rarity (Mythic→Common)</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>US-3: Sort Cards by Different Criteria</td><td>US-3.2</td><td>Default sort is Score descending</td><td>Highest eval_score cards appear first on load</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>US-3: Sort Cards by Different Criteria</td><td>US-3.3</td><td>Sort by CMC ascending</td><td>1-drops, then 2-drops, then 3-drops...</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>US-3: Sort Cards by Different Criteria</td><td>US-3.4</td><td>Sorting applies after filtering</td><td>Filtered results re-sorted when sort changed</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>US-3: Sort Cards by Different Criteria</td><td>US-3.5</td><td>Visual indicator shows current sort order</td><td>Dropdown displays selected option</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            
+            <!-- US-4: View Card Details in Modal -->
+            <tr class="category-header"><td colspan="6">US-4: View Card Details in Modal</td></tr>
+            <tr><td>US-4: View Card Details in Modal</td><td>US-4.1</td><td>Click any card thumbnail</td><td>Modal overlay opens with backdrop dim/blur</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>US-4: View Card Details in Modal</td><td>US-4.2</td><td>Modal displays large card image (PNG quality)</td><td>High-resolution image from Scryfall</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>US-4: View Card Details in Modal</td><td>US-4.3</td><td>Modal shows card name, type line, oracle text</td><td>All text fields rendered correctly</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>US-4: View Card Details in Modal</td><td>US-4.4</td><td>Mana cost shown as individual symbol images</td><td>Each {W}, {U}, etc. is separate image</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>US-4: View Card Details in Modal</td><td>US-4.5</td><td>Power/Toughness displayed for creatures</td><td>"3/2" format in bottom-right of card info</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>US-4: View Card Details in Modal</td><td>US-4.6</td><td>Click X button closes modal</td><td>Modal disappears, returns to grid</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>US-4: View Card Details in Modal</td><td>US-4.7</td><td>Press Escape key closes modal</td><td>Keyboard shortcut works</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            
+            <!-- US-5: Filter by Mana Cost Range -->
+            <tr class="category-header"><td colspan="6">US-5: Filter by Mana Cost Range</td></tr>
+            <tr><td>US-5: Filter by Mana Cost Range</td><td>US-5.1</td><td>CMC slider control visible (0 to 20+)</td><td>Range input with min=0, max≥20</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>US-5: Filter by Mana Cost Range</td><td>US-5.2</td><td>Current max value displayed next to slider</td><td>Number updates as slider moves</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>US-5: Filter by Mana Cost Range</td><td>US-5.3</td><td>Drag slider to CMC=3</td><td>Only cards with cmc≤3 shown in real-time</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>US-5: Filter by Mana Cost Range</td><td>US-5.4</td><td>Default position at maximum (show all)</td><td>Slider starts at rightmost position</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            
+            <!-- US-6: Clear All Filters -->
+            <tr class="category-header"><td colspan="6">US-6: Clear All Filters</td></tr>
+            <tr><td>US-6: Clear All Filters</td><td>US-6.1</td><td>"Clear All" button visible when any filter active</td><td>Button appears after applying first filter</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            <tr><td>US-6: Clear All Filters</td><td>US-6.2</td><td>Click "Clear All" resets all filters</td><td>Search, color, rarity, type, CMC, sort all reset</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            <tr><td>US-6: Clear All Filters</td><td>US-6.3</td><td>After clearing, all cards shown immediately</td><td>Grid displays full ~850 card set</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            <tr><td>US-6: Clear All Filters</td><td>US-6.4</td><td>Button disabled/hidden when no filters active</td><td>Not visible on initial page load</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            
+            <!-- FR-1: Data Loading -->
+            <tr class="category-header"><td colspan="6">FR-1: Data Loading</td></tr>
+            <tr><td>FR-1: Data Loading</td><td>FR-1.1</td><td>Page loads and fetches evaluated_sos.json</td><td>JSON loaded successfully from same directory</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>FR-1: Data Loading</td><td>FR-1.2</td><td>Loading spinner displayed while fetching</td><td>Visual feedback during network request</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>FR-1: Data Loading</td><td>FR-1.3.1</td><td>JSON file not found → error banner displays</td><td>Message: "Card data unavailable..." shown inline</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>FR-1: Data Loading</td><td>FR-1.3.2</td><td>Error includes retry button</td><td>Clicking re-attempts fetch</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            <tr><td>FR-1: Data Loading</td><td>FR-1.3.3</td><td>Detailed error logged to console</td><td>Developer can see fetch failure details</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            <tr><td>FR-1: Data Loading</td><td>FR-1.4</td><td>~850 cards load without performance issues</td><td>Page remains responsive during render</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            
+            <!-- FR-2: Search Functionality -->
+            <tr class="category-header"><td colspan="6">FR-2: Search Functionality</td></tr>
+            <tr><td>FR-2: Search Functionality</td><td>FR-2.1</td><td>Search input has placeholder text and icon</td><td>"Search cards..." or similar hint visible</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>FR-2: Search Functionality</td><td>FR-2.2</td><td>Real-time filtering as user types</td><td>No Enter key required, instant results</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>FR-2: Search Functionality</td><td>FR-2.3</td><td>Search matches card.name field</td><td>Typing card name finds it</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>FR-2: Search Functionality</td><td>FR-2.4</td><td>Search matches card.oracle_text field</td><td>Typing "draw a card" finds draw spells</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>FR-2: Search Functionality</td><td>FR-2.5</td><td>Case-insensitive matching</td><td>"BOLT", "Bolt", "bolt" all work</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>FR-2: Search Functionality</td><td>FR-2.6</td><td>Clear search restores all cards</td><td>Deleting text shows full set again</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            <tr><td>FR-2: Search Functionality</td><td>FR-2.7</td><td>Partial match supported ("light" → "Lightning Bolt")</td><td>Substring matching works</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            <tr><td>FR-2: Search Functionality</td><td>FR-2.8</td><td>No fuzzy matching — exact substring only</td><td>"lghtng" does NOT find "Lightning"</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            
+            <!-- FR-3: Color Filtering -->
+            <tr class="category-header"><td colspan="6">FR-3: Color Filtering</td></tr>
+            <tr><td>FR-3: Color Filtering</td><td>FR-3.1</td><td>Five colored mana symbol buttons displayed (WUBRG)</td><td>Using Scryfall PNG images</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>FR-3: Color Filtering</td><td>FR-3.2</td><td>"All" button shows cards of any color</td><td>Default state, all cards visible</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>FR-3: Color Filtering</td><td>FR-3.3</td><td>Active state has visual feedback (glow/transform)</td><td>Selected button stands out</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>FR-3: Color Filtering</td><td>FR-3.4</td><td>Single-select behavior only one color active at a time</td><td>Clicking Blue deselects Red automatically</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>FR-3: Color Filtering</td><td>FR-3.5</td><td>Filter excludes non-matching colors AND multicolor when single selected</td><td>Clicking White shows ONLY white cards (no W/B, W/U, etc.)</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            
+            <!-- FR-4: Rarity Filtering -->
+            <tr class="category-header"><td colspan="6">FR-4: Rarity Filtering</td></tr>
+            <tr><td>FR-4: Rarity Filtering</td><td>FR-4.1</td><td>Dropdown options: All, Common, Uncommon, Rare, Mythic Rare</td><td>Five choices available</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>FR-4: Rarity Filtering</td><td>FR-4.2</td><td>"Mythic" option maps to mythic_rare in JSON</td><td>Selecting shows mythic rare cards only</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>FR-4: Rarity Filtering</td><td>FR-4.3</td><td>Default selection is "All Rarities"</td><td>Page loads with all rarities shown</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            
+            <!-- FR-5: Type Filtering -->
+            <tr class="category-header"><td colspan="6">FR-5: Type Filtering</td></tr>
+            <tr><td>FR-5: Type Filtering</td><td>FR-5.1</td><td>Dropdown shows main card types as options</td><td>Creature, Instant, Sorcery, etc.</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>FR-5: Type Filtering</td><td>FR-5.2</td><td>Extracts main type from type_line (before " — ")</td><td>"Creature — Human Wizard" → "Creature"</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>FR-5: Type Filtering</td><td>FR-5.3</td><td>Handles subtype variations correctly</td><td>All creature subtypes grouped under "Creature"</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>FR-5: Type Filtering</td><td>FR-5.4</td><td>"Basic Land" extracted as "Land" (grouped with all lands)</td><td>Forest, Island, Mountain, Plains, Swamp all show under Land filter</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            <tr><td>FR-5: Type Filtering</td><td>FR-5.5</td><td>Double-faced cards use front face type for filtering</td><td>DFC filtered by front face main type</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            
+            <!-- FR-6: CMC Filtering -->
+            <tr class="category-header"><td colspan="6">FR-6: CMC Filtering</td></tr>
+            <tr><td>FR-6: CMC Filtering</td><td>FR-6.1</td><td>Range slider from 0 to 20+</td><td>Min=0, max≥20 available</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>FR-6: CMC Filtering</td><td>FR-6.2</td><td>Current max value displayed next to slider</td><td>Numeric display updates live</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>FR-6: CMC Filtering</td><td>FR-6.3</td><td>Filters cards where cmc ≤ selected_value</td><td>Slider at 5 shows only CMC 0-5 cards</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            
+            <!-- FR-7: Sorting -->
+            <tr class="category-header"><td colspan="6">FR-7: Sorting</td></tr>
+            <tr><td>FR-7: Sorting</td><td>FR-7.1</td><td>Four sort options in dropdown</td><td>Score, CMC, Name, Rarity available</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>FR-7: Sorting</td><td>FR-7.2</td><td>Score descending uses eval_score field (default 0 if missing)</td><td>Cards with no score appear at bottom</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>FR-7: Sorting</td><td>FR-7.3</td><td>CMC ascending sorts numerically</td><td>1 &lt; 2 &lt; 3, not lexicographically</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>FR-7: Sorting</td><td>FR-7.4</td><td>Name ascending uses localeCompare for proper alphabetical order</td><td>"A" before "B", handles special chars</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            <tr><td>FR-7: Sorting</td><td>FR-7.5</td><td>Rarity descending: Mythic &gt; Rare &gt; Uncommon &gt; Common</td><td>Correct hierarchy enforced</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            
+            <!-- FR-8: Card Display -->
+            <tr class="category-header"><td colspan="6">FR-8: Card Display</td></tr>
+            <tr><td>FR-8: Card Display</td><td>FR-8.1</td><td>Grid layout with responsive columns (auto-fill, min 200px)</td><td>Cards wrap based on viewport width</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>FR-8: Card Display</td><td>FR-8.2</td><td>Each card shows image, name, type, rarity badge</td><td>All four elements visible per card</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>FR-8: Card Display</td><td>FR-8.3</td><td>Rarity badges color-coded correctly</td><td>Common=bronze, Uncommon=silver, Rare=purple, Mythic=orange</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>FR-8: Card Display</td><td>FR-8.4</td><td>Hover effect with lift and shadow</td><td>Card elevates on mouseover</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            <tr><td>FR-8: Card Display</td><td>FR-8.5</td><td>Lazy loading for card images</td><td>loading="lazy" attribute present</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            
+            <!-- FR-9: Pagination -->
+            <tr class="category-header"><td colspan="6">FR-9: Pagination</td></tr>
+            <tr><td>FR-9: Pagination</td><td>FR-9.1</td><td>Display 48 cards per page (configurable)</td><td>First load shows exactly 48 cards</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>FR-9: Pagination</td><td>FR-9.2</td><td>Previous/Next buttons with disabled state at boundaries</td><td>"Previous" disabled on page 1, "Next" disabled on last page</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>FR-9: Pagination</td><td>FR-9.3</td><td>Page number buttons for direct navigation</td><td>Click "5" jumps to page 5</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>FR-9: Pagination</td><td>FR-9.4</td><td>Result count displayed: "Showing X cards"</td><td>Accurate count of filtered results</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            
+            <!-- FR-10: Modal Details View -->
+            <tr class="category-header"><td colspan="6">FR-10: Modal Details View</td></tr>
+            <tr><td>FR-10: Modal Details View</td><td>FR-10.1</td><td>Full-screen overlay with backdrop blur/dim</td><td>Background dimmed, focus on modal</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>FR-10: Modal Details View</td><td>FR-10.2</td><td>Large card image (PNG quality from Scryfall)</td><td>High-res PNG displayed</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>FR-10: Modal Details View</td><td>FR-10.3</td><td>Card name, type line, oracle text displayed</td><td>All fields rendered</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>FR-10: Modal Details View</td><td>FR-10.4</td><td>Mana cost rendered as individual symbol images</td><td>Each mana symbol is separate image element</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>FR-10: Modal Details View</td><td>FR-10.5</td><td>Power/Toughness shown for creatures</td><td>P/T values visible in modal</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>FR-10: Modal Details View</td><td>FR-10.6</td><td>Close on Escape keypress</td><td>Keyboard shortcut functional</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            <tr><td>FR-10: Modal Details View</td><td>FR-10.7</td><td>Close on overlay click (outside modal content)</td><td>Clicking backdrop closes modal</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            
+            <!-- FR-11: Accessibility -->
+            <tr class="category-header"><td colspan="6">FR-11: Accessibility</td></tr>
+            <tr><td>FR-11: Accessibility</td><td>FR-11.1</td><td>All interactive elements reachable via Tab key</td><td>Focus moves through all buttons, inputs, cards</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>FR-11: Accessibility</td><td>FR-11.2</td><td>Modal traps focus when open, returns on close</td><td>Tab cycling stays within modal; closes → focus returns to grid</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>FR-11: Accessibility</td><td>FR-11.3</td><td>Card images have alt text with card name</td><td>alt="Card Name" present on all thumbnails</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>FR-11: Accessibility</td><td>FR-11.4</td><td>Color filter buttons include text labels for screen readers</td><td>alt="White", alt="Blue", etc. or aria-label</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            <tr><td>FR-11: Accessibility</td><td>FR-11.5</td><td>Error messages announced to screen readers</td><td>Uses role="alert" or aria-live for errors</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            
+            <!-- FR-12: Data Validation -->
+            <tr class="category-header"><td colspan="6">FR-12: Data Validation</td></tr>
+            <tr><td>FR-12: Data Validation</td><td>FR-12.1</td><td>Validate JSON structure on load (required fields present)</td><td>Missing required fields detected</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>FR-12: Data Validation</td><td>FR-12.2</td><td>Skip cards with missing name or image_uris.normal silently</td><td>Invalid cards not rendered, no crash</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            <tr><td>FR-12: Data Validation</td><td>FR-12.3</td><td>Default eval_score to 0 if missing or invalid</td><td>Cards without score sort to bottom</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            <tr><td>FR-12: Data Validation</td><td>FR-12.4</td><td>Log validation errors to console with card ID for debugging</td><td>Developer can identify problematic cards</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            <tr><td>FR-12: Data Validation</td><td>FR-12.5</td><td>Display warning banner if &gt;5% of cards skipped due to validation failures</td><td>User notified of significant data issues</td><td class="status-pending">Pending</td><td class="priority-p3">P3</td></tr>
+            
+            <!-- TC-5: Edge Cases -->
+            <tr class="category-header"><td colspan="6">TC-5: Edge Cases</td></tr>
+            <tr><td>TC-5: Edge Cases</td><td>TC-5.1</td><td>Search for non-existent term "xyz123"</td><td>Shows 0 results, displays "No cards match your criteria" message</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            <tr><td>TC-5: Edge Cases</td><td>TC-5.2</td><td>Search with special characters "!@#"</td><td>Treated literally as substring search, no regex interpretation</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            <tr><td>TC-5: Edge Cases</td><td>TC-5.3</td><td>CMC slider at minimum (0)</td><td>Only shows cards with CMC = 0 (e.g., some artifacts like "Sol Ring")</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            <tr><td>TC-5: Edge Cases</td><td>TC-5.4</td><td>All filters combined yielding 0 results</td><td>Graceful "No cards match" message with suggestion to clear filters</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            <tr><td>TC-5: Edge Cases</td><td>TC-5.5</td><td>Card name with apostrophe "It That Ain't Dead Yet"</td><td>Search handles correctly without escaping issues</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            <tr><td>TC-5: Edge Cases</td><td>TC-5.6</td><td>Empty search after clearing</td><td>Restores all cards immediately</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            
+            <!-- Browser Compatibility -->
+            <tr class="category-header"><td colspan="6">Browser Compatibility</td></tr>
+            <tr><td>Browser Compatibility</td><td>BROWSER-Chrome</td><td>Core functionality on Chrome 87+</td><td>All features work as expected</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>Browser Compatibility</td><td>BROWSER-Firefox</td><td>Core functionality on Firefox 88+</td><td>All features work as expected</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>Browser Compatibility</td><td>BROWSER-Safari</td><td>Core functionality on Safari 14+</td><td>CSS Grid support verified, all features work</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>Browser Compatibility</td><td>BROWSER-Edge</td><td>Core functionality on Edge 87+</td><td>Should match Chrome behavior</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            
+            <!-- NFR: Security -->
+            <tr class="category-header"><td colspan="6">NFR: Security</td></tr>
+            <tr><td>NFR: Security</td><td>NFR-S1</td><td>All external images loaded from HTTPS sources only</td><td>No HTTP image URLs in page source</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>NFR: Security</td><td>NFR-S2</td><td>No user input stored or transmitted — entirely client-side</td><td>Network tab shows no POST requests with user data</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>NFR: Security</td><td>NFR-S3</td><td>No third-party analytics or tracking scripts</td><td>No Google Analytics, no cookies set by third parties</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            
+            <!-- NFR: Reliability -->
+            <tr class="category-header"><td colspan="6">NFR: Reliability</td></tr>
+            <tr><td>NFR: Reliability</td><td>NFR-R1</td><td>Page functions entirely offline after initial load (cacheable)</td><td>Reload with network disabled works (if cached)</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>NFR: Reliability</td><td>NFR-R2</td><td>Graceful degradation if Scryfall image CDN unavailable</td><td>Placeholder shown, page doesn't break</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            
+            <!-- NFR: Maintainability -->
+            <tr class="category-header"><td colspan="6">NFR: Maintainability</td></tr>
+            <tr><td>NFR: Maintainability</td><td>NFR-M1</td><td>Single HTML file, no build step required</td><td>Works by opening card-browser.html directly</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>NFR: Maintainability</td><td>NFR-M2</td><td>Inline CSS/JS documented with comments for future editors</td><td>Code has explanatory comments</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            <tr><td>NFR: Maintainability</td><td>NFR-M3</td><td>Variable/function names follow consistent naming conventions (camelCase)</td><td>No snake_case or PascalCase in JS</td><td class="status-pending">Pending</td><td class="priority-p2">P2</td></tr>
+            
+            <!-- Performance -->
+            <tr class="category-header"><td colspan="6">Performance</td></tr>
+            <tr><td>Performance</td><td>PERF-1</td><td>Initial load time &lt; 2s on local server</td><td>JSON (~1.6MB) loads and renders quickly</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>Performance</td><td>PERF-2</td><td>Filter response time &lt; 100ms</td><td>Changing filters feels instant</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+            <tr><td>Performance</td><td>PERF-3</td><td>Memory usage &lt; 50MB in browser DevTools</td><td>No memory leaks during extended use</td><td class="status-pending">Pending</td><td class="priority-p1">P1</td></tr>
+            <tr><td>Performance</td><td>PERF-4</td><td>Mobile viewport (375px) grid collapses to 2 columns</td><td>Responsive design works on phone-sized screen</td><td class="status-pending">Pending</td><td class="priority-p0">P0</td></tr>
+        </tbody>
+    </table>
+</body>
+</html>

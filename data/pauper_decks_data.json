@@ -1,0 +1,522 @@
+{
+  "Silverquill": {
+    "creatures": [
+      {
+        "name": "Imperious Inkmage",
+        "qty": 4,
+        "mana_cost": "{1}{W}{B}",
+        "type": "creature"
+      },
+      {
+        "name": "Inkling Mascot",
+        "qty": 3,
+        "mana_cost": "{W}{B}",
+        "type": "creature"
+      },
+      {
+        "name": "Owlin Historian",
+        "qty": 2,
+        "mana_cost": "{2}{W}",
+        "type": "creature"
+      },
+      {
+        "name": "Rehearsed Debater",
+        "qty": 3,
+        "mana_cost": "{2}{W}",
+        "type": "creature"
+      },
+      {
+        "name": "Shattered Acolyte",
+        "qty": 4,
+        "mana_cost": "{1}{W}",
+        "type": "creature"
+      },
+      {
+        "name": "Stone Docent",
+        "qty": 3,
+        "mana_cost": "{1}{W}",
+        "type": "creature"
+      },
+      {
+        "name": "Melancholic Poet",
+        "qty": 2,
+        "mana_cost": "{1}{B}",
+        "type": "creature"
+      },
+      {
+        "name": "Inkling of the Bottle",
+        "qty": 3,
+        "mana_cost": "{2}{B}",
+        "type": "creature"
+      }
+    ],
+    "spells": [
+      {
+        "name": "Rapier Wit",
+        "qty": 4,
+        "mana_cost": "{1}{W}",
+        "type": "instant"
+      },
+      {
+        "name": "Interjection",
+        "qty": 3,
+        "mana_cost": "{W}",
+        "type": "instant"
+      },
+      {
+        "name": "Ajani's Response",
+        "qty": 2,
+        "mana_cost": "{4}{W}",
+        "type": "sorcery"
+      },
+      {
+        "name": "Dig Site Inventory",
+        "qty": 1,
+        "mana_cost": "{W}",
+        "type": "instant"
+      },
+      {
+        "name": "Pull from the Grave",
+        "qty": 2,
+        "mana_cost": "{2}{B}",
+        "type": "instant"
+      }
+    ],
+    "lands": [
+      {
+        "name": "Isolated Chapel",
+        "qty": 8,
+        "mana_cost": "\u2014",
+        "type": "land"
+      },
+      {
+        "name": "Forgotten Cave",
+        "qty": 6,
+        "mana_cost": "\u2014",
+        "type": "land"
+      },
+      {
+        "name": "Swamp",
+        "qty": 5,
+        "mana_cost": "\u2014",
+        "type": "land"
+      },
+      {
+        "name": "Plains",
+        "qty": 5,
+        "mana_cost": "\u2014",
+        "type": "land"
+      }
+    ]
+  },
+  "Prismari": {
+    "creatures": [
+      {
+        "name": "Strife Scholar // Awaken the Ages",
+        "qty": 4,
+        "mana_cost": "{2}{R} // {5}{R}",
+        "type": "creature"
+      },
+      {
+        "name": "Expressive Firedancer",
+        "qty": 4,
+        "mana_cost": "{1}{R}",
+        "type": "creature"
+      },
+      {
+        "name": "Elemental Mascot",
+        "qty": 3,
+        "mana_cost": "{1}{U}{R}",
+        "type": "creature"
+      },
+      {
+        "name": "Stadium Tidalmage",
+        "qty": 2,
+        "mana_cost": "{2}{U}{R}",
+        "type": "creature"
+      },
+      {
+        "name": "Textbook Tabulator",
+        "qty": 4,
+        "mana_cost": "{2}{U}",
+        "type": "creature"
+      },
+      {
+        "name": "Hydro-Channeler",
+        "qty": 3,
+        "mana_cost": "{1}{U}",
+        "type": "creature"
+      },
+      {
+        "name": "Tackle Artist",
+        "qty": 2,
+        "mana_cost": "{3}{R}",
+        "type": "creature"
+      },
+      {
+        "name": "Elite Interceptor // Rejoinder",
+        "qty": 2,
+        "mana_cost": "{W} // {1}{W}",
+        "type": "creature"
+      }
+    ],
+    "spells": [
+      {
+        "name": "Ancestral Anger",
+        "qty": 4,
+        "mana_cost": "{R}",
+        "type": "instant"
+      },
+      {
+        "name": "Tome Blast",
+        "qty": 3,
+        "mana_cost": "{1}{R}",
+        "type": "sorcery"
+      },
+      {
+        "name": "Seize the Spoils",
+        "qty": 2,
+        "mana_cost": "{2}{R}",
+        "type": "instant"
+      },
+      {
+        "name": "Essence Scatter",
+        "qty": 3,
+        "mana_cost": "{1}{U}",
+        "type": "instant"
+      }
+    ],
+    "lands": [
+      {
+        "name": "Forgotten Cave",
+        "qty": 8,
+        "mana_cost": "\u2014",
+        "type": "land"
+      },
+      {
+        "name": "Isolated Chapel",
+        "qty": 6,
+        "mana_cost": "\u2014",
+        "type": "land"
+      },
+      {
+        "name": "Mountain",
+        "qty": 5,
+        "mana_cost": "\u2014",
+        "type": "land"
+      },
+      {
+        "name": "Islet",
+        "qty": 5,
+        "mana_cost": "\u2014",
+        "type": "land"
+      }
+    ]
+  },
+  "Witherbloom": {
+    "creatures": [
+      {
+        "name": "Pest Mascot",
+        "qty": 4,
+        "mana_cost": "{1}{B}{G}",
+        "type": "creature"
+      },
+      {
+        "name": "Bogwater Lumaret",
+        "qty": 3,
+        "mana_cost": "{B}{G}",
+        "type": "creature"
+      },
+      {
+        "name": "Mindful Biomancer",
+        "qty": 4,
+        "mana_cost": "{1}{G}",
+        "type": "creature"
+      },
+      {
+        "name": "Noxious Newt",
+        "qty": 3,
+        "mana_cost": "{1}{G}",
+        "type": "creature"
+      },
+      {
+        "name": "Shopkeeper's Bane",
+        "qty": 4,
+        "mana_cost": "{2}{G}",
+        "type": "creature"
+      },
+      {
+        "name": "Melancholic Poet",
+        "qty": 3,
+        "mana_cost": "{1}{B}",
+        "type": "creature"
+      },
+      {
+        "name": "Inkling of the Bottle",
+        "qty": 3,
+        "mana_cost": "{2}{B}",
+        "type": "creature"
+      }
+    ],
+    "spells": [
+      {
+        "name": "Pull from the Grave",
+        "qty": 4,
+        "mana_cost": "{2}{B}",
+        "type": "instant"
+      },
+      {
+        "name": "Glorious Decay",
+        "qty": 3,
+        "mana_cost": "{1}{G}",
+        "type": "sorcery"
+      },
+      {
+        "name": "Efflorescence",
+        "qty": 2,
+        "mana_cost": "{2}{G}",
+        "type": "instant"
+      },
+      {
+        "name": "Send in the Pest",
+        "qty": 3,
+        "mana_cost": "{1}{B}",
+        "type": "sorcery"
+      }
+    ],
+    "lands": [
+      {
+        "name": "Forgotten Cave",
+        "qty": 8,
+        "mana_cost": "\u2014",
+        "type": "land"
+      },
+      {
+        "name": "Isolated Chapel",
+        "qty": 6,
+        "mana_cost": "\u2014",
+        "type": "land"
+      },
+      {
+        "name": "Swamp",
+        "qty": 5,
+        "mana_cost": "\u2014",
+        "type": "land"
+      },
+      {
+        "name": "Forest",
+        "qty": 5,
+        "mana_cost": "\u2014",
+        "type": "land"
+      }
+    ]
+  },
+  "Lorehold": {
+    "creatures": [
+      {
+        "name": "Strife Scholar // Awaken the Ages",
+        "qty": 4,
+        "mana_cost": "{2}{R} // {5}{R}",
+        "type": "creature"
+      },
+      {
+        "name": "Zealous Lorecaster",
+        "qty": 3,
+        "mana_cost": "{5}{R}",
+        "type": "creature"
+      },
+      {
+        "name": "Owlin Historian",
+        "qty": 3,
+        "mana_cost": "{2}{W}",
+        "type": "creature"
+      },
+      {
+        "name": "Expressive Firedancer",
+        "qty": 4,
+        "mana_cost": "{1}{R}",
+        "type": "creature"
+      },
+      {
+        "name": "Rehearsed Debater",
+        "qty": 3,
+        "mana_cost": "{2}{W}",
+        "type": "creature"
+      },
+      {
+        "name": "Tackle Artist",
+        "qty": 2,
+        "mana_cost": "{3}{R}",
+        "type": "creature"
+      },
+      {
+        "name": "Elite Interceptor // Rejoinder",
+        "qty": 2,
+        "mana_cost": "{W} // {1}{W}",
+        "type": "creature"
+      },
+      {
+        "name": "Shattered Acolyte",
+        "qty": 3,
+        "mana_cost": "{1}{W}",
+        "type": "creature"
+      }
+    ],
+    "spells": [
+      {
+        "name": "Ancestral Anger",
+        "qty": 4,
+        "mana_cost": "{R}",
+        "type": "instant"
+      },
+      {
+        "name": "Tome Blast",
+        "qty": 3,
+        "mana_cost": "{1}{R}",
+        "type": "sorcery"
+      },
+      {
+        "name": "Rapier Wit",
+        "qty": 2,
+        "mana_cost": "{1}{W}",
+        "type": "instant"
+      },
+      {
+        "name": "Interjection",
+        "qty": 1,
+        "mana_cost": "{W}",
+        "type": "instant"
+      },
+      {
+        "name": "Unsubtle Mockery",
+        "qty": 2,
+        "mana_cost": "{2}{R}",
+        "type": "sorcery"
+      }
+    ],
+    "lands": [
+      {
+        "name": "Isolated Chapel",
+        "qty": 8,
+        "mana_cost": "\u2014",
+        "type": "land"
+      },
+      {
+        "name": "Forgotten Cave",
+        "qty": 6,
+        "mana_cost": "\u2014",
+        "type": "land"
+      },
+      {
+        "name": "Mountain",
+        "qty": 5,
+        "mana_cost": "\u2014",
+        "type": "land"
+      },
+      {
+        "name": "Plains",
+        "qty": 5,
+        "mana_cost": "\u2014",
+        "type": "land"
+      }
+    ]
+  },
+  "Quandrix": {
+    "creatures": [
+      {
+        "name": "Fractal Mascot",
+        "qty": 4,
+        "mana_cost": "{4}{G}{U}",
+        "type": "creature"
+      },
+      {
+        "name": "Pterafractyl",
+        "qty": 3,
+        "mana_cost": "{X}{G}{U}",
+        "type": "creature"
+      },
+      {
+        "name": "Textbook Tabulator",
+        "qty": 4,
+        "mana_cost": "{2}{U}",
+        "type": "creature"
+      },
+      {
+        "name": "Mindful Biomancer",
+        "qty": 3,
+        "mana_cost": "{1}{G}",
+        "type": "creature"
+      },
+      {
+        "name": "Noxious Newt",
+        "qty": 3,
+        "mana_cost": "{1}{G}",
+        "type": "creature"
+      },
+      {
+        "name": "Hydro-Channeler",
+        "qty": 4,
+        "mana_cost": "{1}{U}",
+        "type": "creature"
+      },
+      {
+        "name": "Stadium Tidalmage",
+        "qty": 3,
+        "mana_cost": "{2}{U}{R}",
+        "type": "creature"
+      }
+    ],
+    "spells": [
+      {
+        "name": "Essence Scatter",
+        "qty": 4,
+        "mana_cost": "{1}{U}",
+        "type": "instant"
+      },
+      {
+        "name": "Chase Inspiration",
+        "qty": 3,
+        "mana_cost": "{U}",
+        "type": "sorcery"
+      },
+      {
+        "name": "Glorious Decay",
+        "qty": 2,
+        "mana_cost": "{1}{G}",
+        "type": "sorcery"
+      },
+      {
+        "name": "Follow the Lumarets",
+        "qty": 3,
+        "mana_cost": "{1}{G}",
+        "type": "instant"
+      }
+    ],
+    "lands": [
+      {
+        "name": "Forgotten Cave",
+        "qty": 8,
+        "mana_cost": "\u2014",
+        "type": "land"
+      },
+      {
+        "name": "Isolated Chapel",
+        "qty": 6,
+        "mana_cost": "\u2014",
+        "type": "land"
+      },
+      {
+        "name": "Mountain",
+        "qty": 5,
+        "mana_cost": "\u2014",
+        "type": "land"
+      },
+      {
+        "name": "Islet",
+        "qty": 5,
+        "mana_cost": "\u2014",
+        "type": "land"
+      }
+    ]
+  }
+}

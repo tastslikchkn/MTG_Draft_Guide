@@ -189,46 +189,7 @@ def get_gallery_html_template() -> str:
             font-size: 0.7rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
-        
-        /* Tooltip Styles */
-        .card-item[data-tooltip] {
-            position: relative;
-        }
-        
-        .card-item[data-tooltip]:hover::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.95);
-            color: #fff;
-            padding: 12px 16px;
-            border-radius: 8px;
-            font-size: 0.7rem;
-            line-height: 1.4;
-            max-width: 320px;
-            width: max-content;
-            max-height: 400px;
-            overflow-y: auto;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-            margin-bottom: 8px;
-            font-family: 'Monaco', 'Menlo', monospace;
-        }
-        
-        .card-item[data-tooltip]:hover::before {
-            content: '';
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 8px solid transparent;
-            border-top-color: rgba(0, 0, 0, 0.95);
-            margin-bottom: -16px;
-            z-index: 999;
-        }
-        
+
         /* Combo Section Styles */
         .combo-section {
             background: rgba(255, 255, 255, 0.05);
@@ -302,23 +263,7 @@ def get_gallery_html_template() -> str:
             padding-left: 10px;
             border-left: 1px solid rgba(255, 255, 255, 0.3);
         }
-        
-        /* Combo tooltip on hover */
-        .combo-item[data-tooltip]:hover::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.95);
-            color: #fff;
-            padding: 10px 14px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            max-width: 280px;
-            z-index: 1000;
-            margin-bottom: 8px;
-        }
+
         
         @media (max-width: 768px) {
             .card-grid {
@@ -414,6 +359,7 @@ def generate_card_item_html(
         get_avg_price_7d,
         format_price
     )
+    from .card_data import slugify
     
     name = card.get('name', 'Unknown Card')
     image_path = card.get('image_path', '')
@@ -431,6 +377,19 @@ def generate_card_item_html(
     is_bomb = card.get('is_bomb', False)
     bomb_reason = card.get('bomb_reason', '')
     combos = card.get('combos', [])  # List of combo dicts
+    
+    # Generate local image path from card name if not provided
+    # Use image_path from card data (extracted from card-gallery.html)
+    # or generate a default path as fallback
+    if not image_path:
+        slugified_name = slugify(name)  # hyphenated, lowercase
+        image_path = f"../images/cards/SOS/{slugified_name}.jpg"
+    
+    # Generate Scryfall API fallback URL
+    scryfall_fallback = f"https://api.scryfall.com/cards/named?fuzzy={name.replace(' ', '%20')}&format=image"
+    
+    # Build image HTML with local path first, fallback to Scryfall
+    img_html = f'<img src="{image_path}" class="card-image" alt="{name}" onerror="this.src=\'{scryfall_fallback}\'; this.style.opacity=1;" style="opacity:0.9;">'
     
     # Generate rarity badge
     rarity_letter = get_rarity_letter(rarity)
@@ -466,57 +425,58 @@ def generate_card_item_html(
         if avg_price:
             price_html = f'<div class="card-price">${avg_price:.2f}</div>'
     
-    # Generate tooltip content with value formula
+    # Generate value formula HTML
     expected_max_by_rarity = {
         'common': 0.5,
         'uncommon': 1.2,
         'rare': 2.0,
         'mythic': 3.0
     }
-    expected_max = expected_max_by_rarity.get(rarity.lower(), 0.5)
+    expected_max = expected_max_by_rarity.get(rarity, 0.5)
     
-    # Build value formula tooltip
-    pt_info = f"{power}/{toughness}" if power != '-' else ''
-    keyword_bonus = card.get('keyword_bonus', 0)
+    # Format power level display
+    power_level_display = f"{power_level:.2f}" if power_level else "N/A"
+    value_score_formatted = f"{value_score:+.2f}"
     
-    tooltip_content = f"Value Formula:<br>"
-    tooltip_content += f"Power Level = ({pt_info}) - (2 × {cmc}) + Keywords({keyword_bonus:.2f})<br>"
-    tooltip_content += f"         = {power_level:.2f}<br><br>"
-    tooltip_content += f"Value Score = Power Level - Expected Max<br>"
-    tooltip_content += f"           = {power_level:.2f} - ({rarity}: {expected_max})<br>"
-    tooltip_content += f"           = <strong>{value_score:.2f}</strong><br><br>"
+    # Determine score color based on category
+    score_colors = {
+        'BOMB': '#ff4444',
+        'HIDDEN_GEM': '#ffd700',
+        'STAPLE': '#4caf50',
+        'SOLID': '#8bc34a',
+        'FAIR': '#cddc39',
+        'FLOP': '#e91e63',
+        'JUNK': '#757575'
+    }
+    score_color = score_colors.get(value_category, '#fff')
     
-    if is_bomb:
-        tooltip_content += f"<span style='color:#ff4444'>💣 BOMB: {bomb_reason.replace('_', ' ').title()}</span>"
-    elif value_category == 'HIDDEN_GEM':
-        tooltip_content += f"<span style='color:#ffd700'>🔍 HIDDEN GEM: Exceeds rarity expectations!</span>"
-    
-    # Add combo info to tooltip
-    if combos:
-        tooltip_content += "<br><br><strong>🔗 Combos:</strong><br>"
-        for combo in combos[:3]:  # Show top 3 combos
-            combo_text = combo.get('text', '')
-            combo_cards = combo.get('with', [])
-            if isinstance(combo_cards, list):
-                combo_cards_str = ', '.join(str(c) for c in combo_cards[:2])
-            else:
-                combo_cards_str = str(combo_cards)
-            tooltip_content += f"• <em>{combo_text}</em> with {combo_cards_str}<br>"
-    
-    # Build card HTML with data-tooltip attribute
-    # Escape quotes in tooltip content for HTML attribute
-    safe_tooltip = tooltip_content.replace('"', '&quot;').replace('<', '&lt;').replace('>', '&gt;')
+    value_formula_html = f'''
+                <div class="card-value-formula">
+                    <div class="value-row">
+                        <span class="value-label">Power Level:</span>
+                        <span class="value-number">{power_level_display}</span>
+                    </div>
+                    <div class="value-row">
+                        <span class="value-label">Expected Max ({rarity}):</span>
+                        <span class="value-number">{expected_max:.1f}</span>
+                    </div>
+                    <div class="value-row score-row" style="color: {score_color};">
+                        <span class="value-label">Value Score:</span>
+                        <span class="value-number">{value_score_formatted}</span>
+                    </div>
+                </div>'''
     
     html = f'''
-        <div class="card-item" data-value-score="{value_score}" data-value-category="{value_category}" data-tooltip="{safe_tooltip}">
+        <div class="card-item" data-value-score="{value_score}" data-value-category="{value_category}">
             <div class="card-image-container">
                 {rarity_badge_html}
                 {value_badge_html}
-                {'<img src="' + image_path + '" class="card-image" alt="' + name + '">' if image_path else '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:2rem;">?</div>'}
+                {img_html}
             </div>
             <div class="card-info">
                 <div class="card-name">{name}</div>
                 {f'<div class="card-mana-cost">{mana_cost}</div>' if mana_cost else ''}
+                {value_formula_html}
                 {price_html}
             </div>
         </div>
@@ -765,7 +725,7 @@ def generate_combo_section_html(
                     img2 = f'<img src="{cards_data[card2]["image_path"]}" class="combo-card-img">'
             
             html_parts.append(f'''
-            <div class="combo-item" data-tooltip="{text}">
+    
                 {img1 if img1 else '<span class="combo-placeholder">🃏</span>'}
                 <span class="combo-plus">+</span>
                 {img2 if img2 else '<span class="combo-placeholder">🃏</span>'}

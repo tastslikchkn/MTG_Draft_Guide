@@ -1,99 +1,120 @@
 #!/usr/bin/env python3
 """
-Card Image Downloader for Strixhaven Draft Guide
-Downloads all unique card images from Scryfall and caches them locally.
-Handles rate limiting (1 req/sec) and creates fallback-friendly structure.
-
-Refactored to use centralized utility modules.
+Download all card images for offline reliability.
+Simple approach: extract names from HTML, fetch via Scryfall API, cache locally.
 """
-
+import json
+import re
+import time
 from pathlib import Path
+from urllib.parse import quote
+import requests
 
-# Import utilities from centralized modules
-from scripts.utils import (
-    extract_card_names_from_html,
-)
-from scripts.utils.api import batch_download_images
+def extract_cards_from_html(html_path: Path) -> list[str]:
+    """Extract all unique card names from HTML file."""
+    with open(html_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # Match alt attributes in img tags
+    pattern = r'<img[^>]+alt="([^"]+)"'
+    matches = re.findall(pattern, content)
+    return sorted(set(matches))
 
+def download_card_image(card_name: str) -> bool:
+    """
+    Download a single card image from Scryfall.
+    Returns True on success.
+    """
+    # Query Scryfall API
+    url = f"https://api.scryfall.com/cards/named?fuzzy={quote(card_name)}"
+    try:
+        response = requests.get(url, timeout=10)
+        if response.status_code != 200:
+            print(f"  ⚠️  HTTP {response.status_code} for: {card_name}")
+            return False
+        
+        data = response.json()
+        if data.get('object') == 'error':
+            print(f"  ⚠️  Card not found: {card_name}")
+            return False
+        
+        # Get image URL (try border_crop first, then normal)
+        image_uris = data.get('image_uris', {})
+        image_url = image_uris.get('border_crop') or image_uris.get('normal')
+        
+        if not image_url:
+            print(f"  ⚠️  No image for: {card_name}")
+            return False
+        
+        # Download the image
+        img_response = requests.get(image_url, timeout=30)
+        if img_response.status_code != 200:
+            print(f"  ⚠️  Image fetch failed for: {card_name}")
+            return False
+        
+        # Save to local file
+        safe_name = card_name.replace(' ', '_').replace('/', '_').replace(':', '_')
+        dest_path = images_dir / f"{safe_name}.jpg"
+        
+        with open(dest_path, 'wb') as f:
+            f.write(img_response.content)
+        
+        return True
+        
+    except Exception as e:
+        print(f"  ❌ Error for {card_name}: {e}")
+        return False
 
 def main():
+    global images_dir
+    
     # Configuration
-    html_file = Path("./strixhaven-draft-guide.html")
-    output_dir = Path("./images/cards")
-    
-    print(f"📚 Strixhaven Draft Guide - Image Downloader")
-    print(f"=" * 50)
-    
-    # Check if HTML file exists
-    if not html_file.exists():
-        print(f"❌ Error: {html_file} not found!")
-        return
-    
-    # Extract unique card names from HTML using utility
-    print(f"\n📖 Parsing {html_file} for card names...")
-    card_names = extract_card_names_from_html(html_file)
-    
-    if not card_names:
-        print(f"❌ Error: No card names found in {html_file}")
-        return
-    
-    print(f"   Found {len(card_names)} unique cards")
+    base_dir = Path('/home/dgetty/repos/MTG_Draft_Guide')
+    html_file = base_dir / 'html_json' / 'strixhaven-draft-guide.html'
+    images_dir = base_dir / 'images' / 'cards'
     
     # Create output directory
-    output_dir.mkdir(parents=True, exist_ok=True)
-    print(f"   Output directory: {output_dir}")
+    images_dir.mkdir(parents=True, exist_ok=True)
     
-    # Download all images using centralized batch utility
-    result = batch_download_images(
-        card_names=card_names,
-        output_dir=output_dir,
-        rate_limit=1.0,  # Scryfall rate limit
-        show_progress=True
-    )
+    # Extract card names from HTML
+    print("📖 Reading HTML file...")
+    card_names = extract_cards_from_html(html_file)
+    print(f"   Found {len(card_names)} unique cards\n")
+    
+    # Download images with rate limiting (Scryfall: 1 req/sec recommended)
+    print("📥 Downloading images...\n")
+    success_count = 0
+    failed_cards = []
+    
+    for i, card_name in enumerate(card_names, 1):
+        status = f"[{i}/{len(card_names)}] {card_name}"
+        print(f"   {status}", end="\r")
+        
+        if download_card_image(card_name):
+            success_count += 1
+        else:
+            failed_cards.append(card_name)
+        
+        # Rate limiting - stay under Scryfall's limit
+        time.sleep(1.0)
+    
+    print(f"\r   ✓ Download complete!                    ")
+    print(f"\n✅ Results:")
+    print(f"   Success: {success_count}/{len(card_names)} cards")
+    if failed_cards:
+        print(f"   Failed:  {len(failed_cards)} cards")
+        for card in failed_cards[:10]:
+            print(f"      - {card}")
+        if len(failed_cards) > 10:
+            print(f"      ... and {len(failed_cards) - 10} more")
     
     # Summary
-    print(f"\n" + "=" * 50)
-    print(f"📊 DOWNLOAD COMPLETE")
-    print(f"   Total cards:     {len(card_names)}")
-    print(f"   Successfully:    {result['success_count']}")
-    print(f"   Failed:          {len(result['failed_cards'])}")
-    print(f"   Time elapsed:    {result['total_time']:.1f}s")
-    
-    if result['failed_cards']:
-        print(f"\n❌ Failed cards:")
-        for card in result['failed_cards'][:10]:  # Show first 10
-            print(f"   - {card}")
-        if len(result['failed_cards']) > 10:
-            print(f"   ... and {len(result['failed_cards']) - 10} more")
-    
-    # Calculate total size
-    total_size = sum(f.stat().st_size for f in output_dir.glob("*.png"))
-    print(f"\n💾 Total cache size: {total_size / 1024 / 1024:.2f} MB")
-    
-    # Update HTML to use local images
-    print(f"\n🔄 Updating HTML to reference local images...")
-    update_html_to_use_local(html_file)
-    print(f"   ✓ HTML updated!")
-
-
-def update_html_to_use_local(html_file: Path) -> None:
-    """
-    Update the HTML file to use local cached images as primary source.
-    Modifies the JavaScript fallback chain to check local files first.
-    """
-    with open(html_file, 'r', encoding='utf-8') as f:
-        html_content = f.read()
-    
-    # Simple approach: add local path as first fallback option
-    html_content = html_content.replace(
-        "const fallbacks = [",
-        "const fallbacks = [" +
-        "                    './images/cards/' + cardName.replace(/\\s+/g, '_') + '.png', // LOCAL CACHE FIRST!"
+    total_size = sum(
+        f.stat().st_size 
+        for f in images_dir.glob('*.jpg')
     )
-    
-    with open(html_file, 'w', encoding='utf-8') as f:
-        f.write(html_content)
+    print(f"\n📁 Images saved to: {images_dir}")
+    print(f"   Total size: {total_size / 1024:.1f} KB")
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

@@ -14,6 +14,9 @@ COLOR_NAMES = {
     'G': 'green'
 }
 
+# Standard MTG color wheel order for consistent sorting
+COLOR_WHEEL_ORDER = ['W', 'U', 'B', 'R', 'G']
+
 # Display names for color groups
 COLOR_GROUP_DISPLAY = {
     'mono_white': 'White',
@@ -21,19 +24,78 @@ COLOR_GROUP_DISPLAY = {
     'mono_black': 'Black',
     'mono_red': 'Red',
     'mono_green': 'Green',
-    'multicolor': 'Multicolor',
+    # Two-color pairs (in WUBRG wheel order)
+    'white_blue': 'White-Blue',
+    'blue_black': 'Blue-Black', 
+    'black_red': 'Black-Red',
+    'red_green': 'Red-Green',
+    'green_white': 'Green-White',
+    # Additional two-color combinations (reverse wheel order)
+    'white_black': 'White-Black',
+    'blue_red': 'Blue-Red',
+    'black_green': 'Black-Green',
+    'red_white': 'Red-White',
+    'green_blue': 'Green-Blue',
+    # More two-color combinations
+    'white_red': 'White-Red',
+    'blue_green': 'Blue-Green',
+    # Three-color shards/phoenixes
+    'white_blue_black': 'White-Blue-Black',
+    'blue_black_red': 'Blue-Black-Red',
+    'black_red_green': 'Black-Red-Green',
+    'red_green_white': 'Red-Green-White',
+    'green_white_blue': 'Green-White-Blue',
+    # Four-color
+    'white_blue_black_red': 'White-Blue-Black-Red',
+    'blue_black_red_green': 'Blue-Black-Red-Green',
+    'black_red_green_white': 'Black-Red-Green-White',
+    'red_green_white_blue': 'Red-Green-White-Blue',
+    'green_white_blue_black': 'Green-White-Blue-Black',
+    # Five-color
+    'all_colors': 'Five-Color',
+    # Special categories
+    'multicolor': 'Multicolor',  # Fallback (should rarely be used)
     'colorless': 'Colorless',
     'lands': 'Lands'
 }
 
-# Order for displaying color groups (mono first, then multi, then special)
+# Order for displaying color groups (mono first, then two-color, three-color, etc.)
 COLOR_GROUP_ORDER = [
+    # Mono-colored
     'mono_white',
     'mono_blue', 
     'mono_black',
     'mono_red',
     'mono_green',
-    'multicolor',
+    # Two-color pairs (wheel order first)
+    'white_blue',
+    'blue_black',
+    'black_red',
+    'red_green',
+    'green_white',
+    # Additional two-color combinations
+    'white_black',
+    'blue_red',
+    'black_green',
+    'red_white',
+    'green_blue',
+    'white_red',
+    'blue_green',
+    # Three-color
+    'white_blue_black',
+    'blue_black_red',
+    'black_red_green',
+    'red_green_white',
+    'green_white_blue',
+    # Four-color
+    'white_blue_black_red',
+    'blue_black_red_green',
+    'black_red_green_white',
+    'red_green_white_blue',
+    'green_white_blue_black',
+    # Five-color
+    'all_colors',
+    # Special categories
     'colorless',
     'lands'
 ]
@@ -114,33 +176,42 @@ def get_color_group(colors: list[str]) -> str:
     """
     Determine color group from actual card colors.
     
+    Uses standard MTG color wheel order (WUBRG) for consistent naming.
+    
     Args:
         colors: List of color letters (e.g., ['W'], ['W', 'U], [])
         
     Returns:
-        Color group string: mono_white, mono_blue, etc.
+        Color group string: mono_white, white_blue, etc.
         
     Examples:
         >>> get_color_group(['W'])
         'mono_white'
         >>> get_color_group(['W', 'U'])
-        'multicolor'
+        'white_blue'
         >>> get_color_group([])
         'colorless'
     """
     if not colors:
         return 'colorless'
     
-    unique_colors = set(colors)
+    # Sort colors by MTG color wheel order for consistent naming
+    unique_colors = sorted(set(colors), key=lambda c: COLOR_WHEEL_ORDER.index(c) if c in COLOR_WHEEL_ORDER else 99)
     
     if len(unique_colors) == 1:
         # Mono-colored
-        color = list(unique_colors)[0]
+        color = unique_colors[0]
         color_name = COLOR_NAMES.get(color, '')
         if color_name:
             return f"mono_{color_name}"
+    elif len(unique_colors) == 5:
+        return 'all_colors'
+    else:
+        # Multi-colored: create group name from wheel-ordered colors
+        color_names = [COLOR_NAMES.get(c, c.lower()) for c in unique_colors]
+        return '_'.join(color_names)
     
-    # Multiple colors or unknown
+    # Fallback (should rarely happen)
     return 'multicolor'
 
 
@@ -150,6 +221,8 @@ def get_color_group_for_card(
     """
     Determine color group from full card data dict.
     Handles lands and special cases.
+    
+    Uses standard MTG color wheel order (WUBRG) for consistent naming.
     
     Args:
         card_data: Card dictionary with 'colors' and optionally 'type_line'
@@ -166,13 +239,20 @@ def get_color_group_for_card(
             return 'lands'
         return 'colorless'
     
-    unique_colors = set(colors)
+    # Sort colors by MTG color wheel order for consistent naming
+    unique_colors = sorted(set(colors), key=lambda c: COLOR_WHEEL_ORDER.index(c) if c in COLOR_WHEEL_ORDER else 99)
     
     if len(unique_colors) == 1:
-        color = list(unique_colors)[0]
+        color = unique_colors[0]
         color_name = COLOR_NAMES.get(color, '')
         if color_name:
             return f"mono_{color_name}"
+    elif len(unique_colors) == 5:
+        return 'all_colors'
+    else:
+        # Multi-colored: create group name from wheel-ordered colors
+        color_names = [COLOR_NAMES.get(c, c.lower()) for c in unique_colors]
+        return '_'.join(color_names)
     
     return 'multicolor'
 

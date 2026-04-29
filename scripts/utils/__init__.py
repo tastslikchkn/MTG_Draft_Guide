@@ -61,6 +61,10 @@ from .api import (
     add_card_evaluations,
     get_card_keywords,
     
+    # Card advantage framework (Reid Duke, WotC 2014)
+    calculate_card_advantage,
+    calculate_final_power_level,
+    
     # Value-based evaluation (NEW)
     calculate_value_score,
     identify_bomb,

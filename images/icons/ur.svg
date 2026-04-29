@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="64" height="64">
+  <defs>
+    <clipPath id="circleClip">
+      <circle cx="36" cy="36" r="30"/>
+    </clipPath>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="36" cy="36" r="31" fill="#2a2a2a" stroke="#ffffff" stroke-width="2"/>
+  
+  <!-- Top-left half (color 1) -->
+  <path d="M 36 36 L 6 6 A 30 30 0 0 0 66 6 Z" fill="#699CF6" stroke="#5D73A0" stroke-width="2.5" clip-path="url(#circleClip)"/>
+  
+  <!-- Bottom-right half (color 2) -->
+  <path d="M 36 36 L 66 66 A 30 30 0 0 0 6 66 Z" fill="#FF5A38" stroke="#A61F0B" stroke-width="2.5" clip-path="url(#circleClip)"/>
+  
+  <!-- Center point -->
+  <circle cx="36" cy="36" r="1.5" fill="#ffffff"/>
+</svg>

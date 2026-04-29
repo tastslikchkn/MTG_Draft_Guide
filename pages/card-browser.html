@@ -298,6 +298,59 @@
         .rarity-rare { background: #9f7aea; color: #fff; }
         .rarity-mythic { background: #e58e26; color: #fff; }
         
+        /* Value Badge */
+        .value-badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            padding: 3px 7px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: bold;
+            color: #fff;
+            z-index: 2;
+        }
+        .value-bomb { background: linear-gradient(135deg, #ff4444, #cc0000); box-shadow: 0 2px 8px rgba(255,68,68,0.4); }
+        .value-strong { background: linear-gradient(135deg, #4ade80, #22c55e); }
+        .value-average { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #000; }
+        .value-junk { background: linear-gradient(135deg, #6b7280, #4b5563); }
+        .value-flop { background: linear-gradient(135deg, #ef4444, #dc2626); opacity: 0.7; }
+        
+        /* Value Formula in Card */
+        .card-value-formula {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            padding: 6px;
+            margin-top: 6px;
+        }
+        
+        .value-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.65rem;
+            align-items: center;
+        }
+        
+        .value-label {
+            color: var(--text-secondary);
+        }
+        
+        .value-number {
+            font-weight: bold;
+            color: var(--text-primary);
+        }
+        
+        .score-row {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 3px;
+            margin-top: 2px;
+        }
+        
+        .score-row .value-label {
+            color: var(--text-primary);
+            font-weight: bold;
+        }
+        
         /* Pagination */
         .pagination {
             display: flex;
@@ -443,6 +496,49 @@
             color: var(--text-primary);
         }
         
+        /* Value Breakdown Section */
+        .value-formula {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .value-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            align-items: center;
+        }
+        
+        .value-label {
+            color: var(--text-secondary);
+        }
+        
+        .value-number {
+            font-weight: bold;
+            color: var(--text-primary);
+        }
+        
+        .score-row {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 6px;
+            margin-top: 4px;
+        }
+        
+        .score-row .value-label {
+            color: var(--text-primary);
+            font-weight: bold;
+        }
+        
+        .value-description {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-top: 10px;
+            text-align: center;
+        }
+        
         /* Loading State */
         .loading {
             text-align: center;
@@ -522,19 +618,19 @@
                 <div class="color-filters" id="colorFilters">
                     <button class="color-btn all-colors active" data-filter="all" title="All colors">All</button>
                     <button class="color-btn" data-filter="white" title="White">
-                        <img src="https://cards.scryfall.io/symbols/w.png" alt="W">
+                        <img src="../images/icons/w.svg" alt="W" style="width:24px;height:24px;">
                     </button>
                     <button class="color-btn" data-filter="blue" title="Blue">
-                        <img src="https://cards.scryfall.io/symbols/u.png" alt="U">
+                        <img src="../images/icons/u.svg" alt="U" style="width:24px;height:24px;">
                     </button>
                     <button class="color-btn" data-filter="black" title="Black">
-                        <img src="https://cards.scryfall.io/symbols/b.png" alt="B">
+                        <img src="../images/icons/b.svg" alt="B" style="width:24px;height:24px;">
                     </button>
                     <button class="color-btn" data-filter="red" title="Red">
-                        <img src="https://cards.scryfall.io/symbols/r.png" alt="R">
+                        <img src="../images/icons/r.svg" alt="R" style="width:24px;height:24px;">
                     </button>
                     <button class="color-btn" data-filter="green" title="Green">
-                        <img src="https://cards.scryfall.io/symbols/g.png" alt="G">
+                        <img src="../images/icons/g.svg" alt="G" style="width:24px;height:24px;">
                     </button>
                 </div>
             </div>
@@ -571,17 +667,23 @@
                     <span class="cmc-value" id="cmcValue">20+</span>
                 </div>
             </div>
+            
+            <div class="filter-group">
+                <label>Sort:</label>
+                <select class="filter-select" id="sortSelect">
+                    <option value="value-score-desc">Value Score (High → Low)</option>
+                    <option value="value-score-asc">Value Score (Low → High)</option>
+                    <option value="cmc-asc">Mana Cost (Low → High)</option>
+                    <option value="cmc-desc">Mana Cost (High → Low)</option>
+                    <option value="name-asc">Name (A → Z)</option>
+                    <option value="name-desc">Name (Z → A)</option>
+                </select>
+            </div>
         </div>
         
         <!-- Results Header -->
         <div class="results-header">
             <span class="results-count">Showing <span id="resultCount">0</span> cards</span>
-            <select class="filter-select" id="sortSelect">
-                <option value="score-desc">Score (High → Low)</option>
-                <option value="cmc-asc">CMC (Low → High)</option>
-                <option value="name-asc">Name (A → Z)</option>
-                <option value="rarity-desc">Rarity (Mythic → Common)</option>
-            </select>
         </div>
         
         <!-- Card Grid -->
@@ -609,6 +711,7 @@
                 <div class="modal-mana-cost" id="modalManaCost"></div>
                 <div class="modal-text" id="modalText"></div>
                 <div class="modal-stats" id="modalStats"></div>
+                <div id="modalValueBreakdown" style="display:none;"></div>
             </div>
         </div>
     </div>
@@ -623,15 +726,12 @@
         // Filter state
         let filters = {
             search: '',
-            color: 'all',
+            colors: [],  // Changed from single 'color' to array of selected colors
             rarity: 'all',
             type: 'all',
             maxCmc: 20,
-            sort: 'score-desc'
+            sort: 'value-score-desc'
         };
-        
-        // Rarity order for sorting
-        const rarityOrder = { mythic: 4, rare: 3, uncommon: 2, common: 1 };
         
         // Load card data
         async function loadCards() {
@@ -694,11 +794,11 @@
             return symbols;
         }
         
-        // Render mana cost as images
+        // Render mana cost as images (using local icons)
         function renderManaCost(manaSymbols) {
             return manaSymbols.map(symbol => {
-                const src = `https://cards.scryfall.io/symbols/${symbol.value}.png`;
-                return `<img src="${src}" alt="${symbol.value}">`;
+                const src = `../images/icons/${symbol.value}.svg`;
+                return `<img src="${src}" alt="${symbol.value}" style="width:20px;height:20px;">`;
             }).join('');
         }
         
@@ -721,6 +821,26 @@
             return parts.replace(/\s+\([^)]*\)/g, '').trim(); // Remove subtype info
         }
         
+        // Get value category class name
+        function getValueCategoryClass(category) {
+            if (!category) return 'value-average';
+            const cat = category.toLowerCase();
+            if (cat.includes('bomb')) return 'value-bomb';
+            if (cat.includes('strong')) return 'value-strong';
+            if (cat.includes('average') || cat.includes('okay')) return 'value-average';
+            if (cat.includes('junk')) return 'value-junk';
+            if (cat.includes('flop')) return 'value-flop';
+            return 'value-average';
+        }
+        
+        // Get value display text
+        function getValueDisplay(card) {
+            const score = card.value_score;
+            if (score === undefined || score === null) return '';
+            const sign = score >= 0 ? '+' : '';
+            return `${sign}${score.toFixed(2)}`;
+        }
+        
         // Apply filters and sort
         function applyFilters() {
             filteredCards = allCards.filter(card => {
@@ -732,15 +852,16 @@
                     if (!nameMatch && !textMatch) return false;
                 }
                 
-                // Color filter
-                if (filters.color !== 'all') {
-                    const cardColor = getCardColor(card);
-                    if (filters.color === 'multicolor' && cardColor !== 'multicolor') return false;
-                    if (filters.color === 'colorless' && cardColor !== 'colorless') return false;
-                    if (filters.color !== 'multicolor' && filters.color !== 'colorless' && cardColor !== filters.color) {
-                        // For single colors, also exclude multicolor cards
-                        if (card.colors?.length <= 1 && cardColor !== filters.color) return false;
-                    }
+                // Color filter (multi-select - shows cards with ALL selected colors)
+                if (filters.colors.length > 0) {
+                    const cardColors = card.colors || [];
+                    // Map button values to Scryfall color codes
+                    const colorMap = { white: 'W', blue: 'U', black: 'B', red: 'R', green: 'G' };
+                    // Card must have ALL selected colors
+                    const hasAllSelectedColors = filters.colors.every(selectedColor => 
+                        cardColors.includes(colorMap[selectedColor])
+                    );
+                    if (!hasAllSelectedColors) return false;
                 }
                 
                 // Rarity filter
@@ -764,15 +885,18 @@
             // Sort
             filteredCards.sort((a, b) => {
                 switch (filters.sort) {
-                    case 'score-desc':
-                        return (b.eval_score || 0) - (a.eval_score || 0);
+                    case 'value-score-desc':
+                        return (b.value_score ?? 0) - (a.value_score ?? 0);
+                    case 'value-score-asc':
+                        return (a.value_score ?? 0) - (b.value_score ?? 0);
                     case 'cmc-asc':
                         return (a.cmc || 0) - (b.cmc || 0);
+                    case 'cmc-desc':
+                        return (b.cmc || 0) - (a.cmc || 0);
                     case 'name-asc':
                         return (a.name || '').localeCompare(b.name || '');
-                    case 'rarity-desc':
-                        return (rarityOrder[b.rarity?.replace('_rare', '')] || 0) - 
-                               (rarityOrder[a.rarity?.replace('_rare', '')] || 0);
+                    case 'name-desc':
+                        return (b.name || '').localeCompare(a.name || '');
                     default:
                         return 0;
                 }
@@ -808,6 +932,33 @@
                                    card.rarity === 'rare' ? 'rarity-rare' :
                                    card.rarity === 'uncommon' ? 'rarity-uncommon' : 'rarity-common';
                 const rarityDisplay = card.rarity?.replace('_rare', '') || 'unknown';
+                const valueClass = getValueCategoryClass(card.value_category);
+                const valueScore = getValueDisplay(card);
+                
+                // Value breakdown for card description
+                let valueBreakdownHtml = '';
+                if (card.power_level !== undefined && card.value_score !== undefined) {
+                    const rarityNames = { common: 'common', uncommon: 'uncommon', rare: 'rare', mythic_rare: 'mythic' };
+                    const rarityName = rarityNames[card.rarity] || 'unknown';
+                    const expectedMax = card.power_level - card.value_score;
+                    const scoreSign = card.value_score >= 0 ? '+' : '';
+                    valueBreakdownHtml = `
+                        <div class="card-value-formula">
+                            <div class="value-row">
+                                <span class="value-label">Power Level:</span>
+                                <span class="value-number">${card.power_level.toFixed(2)}</span>
+                            </div>
+                            <div class="value-row">
+                                <span class="value-label">Expected Max (${rarityName}):</span>
+                                <span class="value-number">${expectedMax.toFixed(2)}</span>
+                            </div>
+                            <div class="value-row score-row" style="color: ${card.value_score >= 1 ? '#ff4444' : card.value_score <= -3 ? '#ef4444' : '#6b7280'};">
+                                <span class="value-label">Value Score:</span>
+                                <span class="value-number">${scoreSign}${card.value_score.toFixed(2)}</span>
+                            </div>
+                        </div>
+                    `;
+                }
                 
                 return `
                     <div class="card-item" onclick="openModal('${card.id}')">
@@ -816,10 +967,14 @@
                         </div>
                         <div class="card-info">
                             <div class="card-name">${card.name || 'Unknown'}</div>
+                            <div class="card-mana" style="display:flex;gap:2px;margin-bottom:6px;">
+                                ${renderManaCost(manaSymbols) || ''}
+                            </div>
                             <div class="card-meta">
                                 <span class="card-type">${mainType}</span>
                                 <span class="card-rarity ${rarityClass}">${rarityDisplay}</span>
                             </div>
+                            ${valueBreakdownHtml}
                         </div>
                     </div>
                 `;
@@ -904,6 +1059,36 @@
             }
             document.getElementById('modalStats').innerHTML = statsHtml;
             
+            // Value breakdown section
+            const valueSection = document.getElementById('modalValueBreakdown');
+            if (valueSection) {
+                if (card.power_level !== undefined && card.value_score !== undefined) {
+                    const rarityNames = { common: 'common', uncommon: 'uncommon', rare: 'rare', mythic_rare: 'mythic' };
+                    const rarityName = rarityNames[card.rarity] || 'unknown';
+                    const scoreSign = card.value_score >= 0 ? '+' : '';
+                    valueSection.innerHTML = `
+                        <div class="value-formula">
+                            <div class="value-row">
+                                <span class="value-label">Power Level:</span>
+                                <span class="value-number">${card.power_level.toFixed(2)}</span>
+                            </div>
+                            <div class="value-row">
+                                <span class="value-label">Expected Max (${rarityName}):</span>
+                                <span class="value-number">${(card.power_level - card.value_score).toFixed(2)}</span>
+                            </div>
+                            <div class="value-row score-row" style="color: ${card.value_score >= 1 ? '#ff4444' : card.value_score <= -3 ? '#ef4444' : '#6b7280'};">
+                                <span class="value-label">Value Score:</span>
+                                <span class="value-number">${scoreSign}${card.value_score.toFixed(2)}</span>
+                            </div>
+                        </div>
+                        ${card.value_description ? `<p class="value-description">${card.value_description}</p>` : ''}
+                    `;
+                    valueSection.style.display = 'block';
+                } else {
+                    valueSection.style.display = 'none';
+                }
+            }
+            
             document.getElementById('cardModal').classList.add('active');
         }
         
@@ -922,12 +1107,26 @@
                 applyFilters();
             });
             
-            // Color filter
+            // Color filter (multi-select)
             document.querySelectorAll('.color-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
-                    document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    filters.color = btn.dataset.filter;
+                    const color = btn.dataset.filter;
+                    if (color === 'all') {
+                        // Clear all selections
+                        filters.colors = [];
+                        document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+                        applyFilters();
+                        return;
+                    }
+                    
+                    const idx = filters.colors.indexOf(color);
+                    if (idx > -1) {
+                        filters.colors.splice(idx, 1);  // Remove if selected
+                        btn.classList.remove('active');
+                    } else {
+                        filters.colors.push(color);  // Add if not selected
+                        btn.classList.add('active');
+                    }
                     applyFilters();
                 });
             });

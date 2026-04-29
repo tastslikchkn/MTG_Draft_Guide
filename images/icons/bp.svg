@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="64" height="64">
+  <!-- Background circle -->
+  <circle cx="36" cy="36" r="31" fill="#2a2a2a" stroke="#ffffff" stroke-width="2"/>
+  
+  <!-- Colored background -->
+  <circle cx="36" cy="36" r="28" fill="#5E3290" stroke="#3C234F" stroke-width="2.5"/>
+  
+  <!-- Diagonal slash (Phyrexian mark) -->
+  <line x1="10" y1="62" x2="62" y2="10" stroke="#8B4513" stroke-width="4" opacity="0.7"/>
+  
+  <!-- P letter in center -->
+  <text x="36" y="48" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#8B4513" text-anchor="middle">P</text>
+</svg>
